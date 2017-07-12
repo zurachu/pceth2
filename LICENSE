@@ -1,0 +1,130 @@
+MIT License
+
+Copyright (c) 2017 SUKISUKI-TAMA-ONECHAN production partnership
+(nsawa, madoka, mulsys, Yui.N, MKT, zurachu)
+Copyright (c) 2017 好き好きタマお姉ちゃん製作委員会
+(nsawa, まどか, まるしす, Yui.N, MKT, ヅラChu)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+私作成以外のコードについては、以下の通りです。
+
+libfpk（Yui N. 氏）を改変（確保済みバッファに展開できるよう変更）して使用しています。
+http://www.autch.net/
+> libfpk の，以下に記述のない部分についての著作権は Yui N. が保持します。
+> 
+> C68 版添付の mypmds.par に収録されたデモソングの著作権は、M+B Apos. さんが所有
+> しています。
+> 
+> libfpk の LZSS 展開ルーチンは，p/ware / Hitode Yamatsuki さんの plz のソースコ
+> ードおよび後述の URL の記事が元になっています。この LZSS 展開ルーチンの著作権表
+> 示は以下のとおりです。
+> 
+> 	plz のソースコードの著作権は p/ware / Hitode Yamatsuki が保持しています
+> 	が、転載・改変・再配布・利用は自由です。便利だと思われたら積極的にご利
+> 	用ください
+> 
+> p/ware さんによるオリジナルの LZSS デコードルーチンは，
+> 	http://www.aw.wakwak.com/~hitode/piece/index.html#plz
+> から得ることができます。
+> 
+> pceFileReadPos() は，「おでかけマルチ」のソースコード piece_ex.c から引用しまし
+> た。この部分のライセンスについては，AQUAPLUS の「付属ソースを元にしたプログラム
+> の再配布の扱いについて」に従います。
+> 
+> 原本の著作権表示は以下のとおりです。
+> 	Copyright:	AQUA (Leaf)  since 2001 - 
+> 	Programd by.	Miyakusa Masakazu
+> 
+> libfpk における zlib 圧縮エントリの展開には，ヅラChu さんの myunpack のソースを
+> 利用しており，まかべひろし さんによる zlib 展開ルーチンサンプル（P/ECE HAND
+> BOOK Vol.2「緋色の霧」より）のコードを含みます。
+> 
+> ヅラ Chu さんの myunpack は，
+> 	http://zurachu.net/piece/tips/ppack.html
+> から得ることができます。
+> 
+> 肝心の pceZlibExpand() は，P/ECE カーネル 1.20 のソースコードをそのまま利用して
+> います（inflate.c, inflate.h, piecezl.h）。この部分のライセンスについては，
+> AQUAPLUS の「付属ソースを元にしたプログラムの再配布の扱いについて」に従います。
+> （inflate.c はパブリックドメイン扱い）
+> 
+> 原本の著作権表示は以下のとおりです。
+> 	Copyright (C)2001 AQUAPLUS Co., Ltd. / OeRSTED, Inc. 
+> 	all rights reserved.
+> 	Coded by MIO.H (OeRSTED)
+> 
+> LZF 形式の展開には、liblzf 1.51 の lzf_d.c にパッチを当てて利用しています。
+> LZF アルゴリズムのライセンスは以下のとおりです。
+> 
+> > Copyright (c) 2000-2005 Marc Alexander Lehmann <schmorp@schmorp.de>
+> > 
+> > Redistribution and use in source and binary forms, with or without modifica-
+> > tion, are permitted provided that the following conditions are met:
+> > 
+> >   1.  Redistributions of source code must retain the above copyright notice,
+> >       this list of conditions and the following disclaimer.
+> > 
+> >   2.  Redistributions in binary form must reproduce the above copyright
+> >       notice, this list of conditions and the following disclaimer in the
+> >       documentation and/or other materials provided with the distribution.
+> > 
+> >   3.  The name of the author may not be used to endorse or promote products
+> >       derived from this software without specific prior written permission.
+> > 
+> > THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+> > WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MER-
+> > CHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+> > EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPE-
+> > CIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+> > PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+> > OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+> > WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTH-
+> > ERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+> > OF THE POSSIBILITY OF SUCH DAMAGE.
+> > 
+> > Alternatively, the following files carry an additional notice that
+> > explicitly allows relicensing under the GPLv2: lzf.c lzf.h lzfP.h lzf_c.c
+> > lzf_d.c
+> 
+> 
+> 私が書いた部分については転載・改変・再配布自由です。あなたが開発するアプリに合
+> わせてチューニングしたり，プライベートビルドを作成して配布するなどしてください。
+
+ufe, ufesvr
+USB 経由で PC からファイルを読み込む（nsawa 氏）
+http://www.piece-me.org/
+
+mmc_api.c, mmc_api.h, mmc_fram.c
+MMC 対応 API を本作品用にカスタマイズ（高速 RAM 配置）（まどか氏）
+http://www2.plala.or.jp/madoka/
+
+muslib2.h, instdef2.c, drum.arc
+ドラム音色分離キット（Randomist氏）
+再配布については、以下のように記載されています。
+> アーカイブ内の各ファイルの改変、再配布などは自由に行なってください。
+
+--------------------------------------------------------------------------------
+リソースについては、PS2版『ToHeart2』（AQUAPLUS）の二次創作であるため、
+AQUAPLUS の「当社製品を題材にした二次創作物の制作・頒布」に従います。
+http://aquaplus.jp/copyright/
+
+上記を守ったうえで、「P/ECE用ソフトウェアで使用される限り」は、
+自由に使っていただいてかまいません。
