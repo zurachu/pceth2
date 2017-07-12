@@ -291,3 +291,4 @@ __pycache__/
 *.map
 *.o
 *.exe
+*.depend
