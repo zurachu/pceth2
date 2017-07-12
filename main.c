@@ -35,6 +35,7 @@
 
 #include <string.h>
 #include <piece.h>
+#include "zurapce/zurapce.h"
 #include "usbcapt.h"
 #include "muslib2.h"
 #include "ld.h"
@@ -71,16 +72,9 @@ void pceth2_waitKey();
 #define DEBUG_FILE_NAME		"999999999.scp"	// デバッグメニュースクリプト
 #define PROC_PERIOD	10	// Proc/msec
 
-//2005/06/11 Added by Madoka
-extern unsigned long __START_00001000[];		//高速RAMの転送先アドレス
-extern unsigned long __SIZEOF_00001000[];		//高速RAM部のコードサイズ
-extern unsigned long __START_framtop_code[];	//高速RAM部の転送元先頭コードアドレス
-
 void pceAppInit(void)
 {	
-	//2005/06/11 Added by Madoka
-	//高速RAM部のコードを転送
-	memcpy(__START_00001000, __START_framtop_code, (int)__SIZEOF_00001000);
+	FramObject_Init();
 	
 	/*{{2005/06/09 Naoyuki Sawa*/
 	if(ufe_setup() != 0)	// UFE初期化
