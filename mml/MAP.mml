@@ -1,0 +1,46 @@
+;****************************************
+; Decode by pmd2mml v0.1  prog:Harayan
+; File:
+
+#Title  ‚¨–¼‘O‚È‚ñ‚Ä[‚ÌH
+#Title2 Leaf/AQUA PLUS(c) / Arranged by MKT
+
+!!bg @6   V120  ?o4c   ; bass drum
+!!sg @7   V127  ?o5f   ; snare drum 1
+!!Sg @9   V120  ?o4c   ; snare drum 2
+!!og @10  V120  ?o2c   ; open H.H.
+!!hg @10  V120  ?o2f   ; closeH.H.
+!!cg @10  V120  ?o2c+   ; crush cymbal
+!!tg @11  V127  ?o4c   ; synth tom (hi)
+!!ug @15  V110  ?o4c   ; synth tom (mid)
+!!vg @0   V0       ; synth tom (low)
+!!Cg @0   V0       ; clap
+
+A  L T110@2V110D10[l8o4arragrrb rbraarrr arragrrb rbarl2r 
+A ]8
+
+B  L @2V110D-10[l8o4f+rrf+errg rgrf+f+rrr f+rrf+errg rgf+rl2r 
+B ]8
+
+C  L @1V100[l8o2f+rrf+grrg rgraarrr f+rrf+grrg rgarr>dl16c<bar 
+C ]8
+
+D  L @0V70D10Y17,140,80,80[r8l16o6adad@2V90<ef+gre8l16grrr @0V70r2l16drdrc<bl8>d @2V90D10l1>d& d2l4<b>c 
+D ]2r8l16adad@2V90<ef+gre8l16grrr @0V70r2l16drdrc<b>d8 l1r @1V105l16br>cr<brarl8grl16arbr 
+D @0V70D10r8l16>adad@2V90<ef+gre8l16grrr @0V70r2l16drdrc<bl8>d @1V105l16br>cr<brargrl8ra&a16l32ba l16grrrr4r2 
+D r8l16adad@2V90ef+gre8l16grrr @0V70r2l16drdrc<bl8>d @2V90D10l1>d& d2l4<b>c 
+D r8l16adad@2V90<ef+gre8l16grrr @0V70r2l16drdr@0D10V87b4& l1b& l4brr2 
+D r8l16adad@2V90ef+gre8l16grrr @0V70r2l16drdrc<b>d8 l1r @1V105l16br>cr<brarl8grl16arbr 
+D @0V70D10r8l16>adad@2V90<ef+gre8l16grrr @0V70r2l16drdrc<bl8>d @1V105l16br>cr<brargrl8ra&a16l32ba l16grrrr4r2 
+
+E  L @0V70D10Y17,140,80,80[r8l16o6f+<a>f+<ar8l2r @2V90l4rdg>e D-10l1<b& b2l4ga 
+E ]2@1V105r8l16drerdrgr8l16rerdr grgrerdrgrgrarbr r8l16drerdrgr8l16rerdr grargrf+rl8erl16f+rgr 
+E r8l16drerdrgr8l16rerdr grgrerdrgrgrargr grargrf+rerl8rf+&f+16l32gf+ l16errrr4l2r 
+E @0D10V87r8r16l32rcl8dg&g4l8ag& g4l8bg&g4l8b>d& d2&l4d&l8d<b& l4b&b8l24gagl16arl8g&l4g 
+E rl8eg&g4l8ag& g4l8bg&l4gg& l1g& g4l24abal16grarg8l48gf+edc<bgf+el16r 
+E @1V105r8l16>drerdrgr8l16rerdr grgrerdrgrgrarbr r8l16drerdrgr8l16rerdr grargrf+rl8erl16f+rgr 
+E r8l16drerdrgr8l16rerdr grgrerdrgrgrargr grargrf+rerl8rf+&f+16l32gf+ l16errrr4r2 
+
+F =1
+F  L [l4o0!tg !sg l8r !bg !sg !bg4  !bg8 !sg4 l8r !bg l4!sg !bg  !sg l8r !bg !sg !bg4 !bg8  !sg4 l8r !bg l4!sg ]8
+
