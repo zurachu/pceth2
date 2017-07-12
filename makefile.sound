@@ -1,0 +1,16 @@
+.PHONY : all clean
+
+.SUFFIXES:
+.SUFFIXES: .WAV .ppd
+
+.WAV.ppd :
+	dppcmcnv -b -fv8000 $<
+
+OBJS = $(wildcard *.WAV)
+TARGET = $(patsubst %.WAV,%.ppd,$(OBJS))
+
+all : $(TARGET)
+
+clean :
+	del *.ppd
+

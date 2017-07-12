@@ -1,0 +1,149 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOG DISCARDABLE  0, 0, 152, 61
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_CENTER | WS_POPUP
+FONT 9, "ＭＳ ゴシック"
+BEGIN
+    CONTROL         102,IDC_STATE,"Static",SS_BITMAP | SS_SUNKEN,4,4,68,36
+    PUSHBUTTON      "一時停止",ID_PAUSE,96,4,52,16,NOT WS_TABSTOP
+    PUSHBUTTON      "終了",ID_EXIT,96,24,52,16,NOT WS_TABSTOP
+    CTEXT           "UfeSvrW v1.0",IDC_STATIC,96,48,52,12
+END
+
+IDD_HELP DIALOG DISCARDABLE  0, 0, 316, 115
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "★ P/ECE USBファイルサーバ 使用上の注意"
+FONT 9, "ＭＳ ゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,88,56,16
+    ICON            IDI_MAIN,IDC_STATIC,12,12,20,20
+    CONTROL         "P/ECEコミュニケータ等の、P/ECEとUSB通信を行うアプリケーションと、",
+                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,44,12,
+                    272,12
+    CONTROL         "このアプリケーションを、同時に起動して使うことはできません。",
+                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,44,24,
+                    272,12
+    CONTROL         "P/ECEコミュニケータ等を使う前にこのアプリケーションを終了するか、",
+                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,44,36,
+                    272,12
+    CONTROL         "または、[一時停止]ボタンを押して一時停止状態にしてください。",
+                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,44,48,
+                    272,12
+    CONTROL         "次回以降の起動時には、このメッセージを表示しない。",
+                    IDC_DISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,44,68,
+                    272,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ACTIVE              BITMAP  DISCARDABLE     "active.bmp"
+IDB_PAUSED              BITMAP  DISCARDABLE     "paused.bmp"
+IDB_APPERR              BITMAP  DISCARDABLE     "apperr.bmp"
+IDB_USBERR              BITMAP  DISCARDABLE     "usberr.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "main.ico"
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

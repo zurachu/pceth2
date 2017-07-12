@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pceth2", "pceth2.vcproj", "{10D30A02-094E-4DB8-90F1-9AC02489BF21}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pcekn", "pcekn.vcproj", "{3360FD1F-78A7-4D3C-8757-0A05FEF24677}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{10D30A02-094E-4DB8-90F1-9AC02489BF21}.Debug.ActiveCfg = Debug|Win32
+		{10D30A02-094E-4DB8-90F1-9AC02489BF21}.Debug.Build.0 = Debug|Win32
+		{10D30A02-094E-4DB8-90F1-9AC02489BF21}.Release.ActiveCfg = Release|Win32
+		{10D30A02-094E-4DB8-90F1-9AC02489BF21}.Release.Build.0 = Release|Win32
+		{3360FD1F-78A7-4D3C-8757-0A05FEF24677}.Debug.ActiveCfg = Debug|Win32
+		{3360FD1F-78A7-4D3C-8757-0A05FEF24677}.Debug.Build.0 = Debug|Win32
+		{3360FD1F-78A7-4D3C-8757-0A05FEF24677}.Release.ActiveCfg = Release|Win32
+		{3360FD1F-78A7-4D3C-8757-0A05FEF24677}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

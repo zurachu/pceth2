@@ -1,0 +1,308 @@
+
+libfpk -- using FPK / PAR archive on P/ECE C68 edition
+	By Yui N., 2003.
+==========================================
+
+拙作 fpkarc / par で生成した拡張圧縮 fpk 書庫（par）の展開を P/ECE 上で行うため
+のライブラリです。もちろん，通常の非圧縮 fpk も扱えます。
+
+現状 deflate の展開には P/ECE カーネルのソースをそのまま埋め込んでいます。
+
+ヅラ Chu さんの pva フォーマット書庫の展開に対応しました．pva のときのみ，展開
+されたデータの末尾に '\0' を付加します．
+
+
+展開アルゴリズム選択
+--------------------
+par 書庫で使うアルゴリズムを限定するならば、libfpk の使われない展開コードを
+はずす事によってコードサイズを縮小することができます。
+
+libfpk.h のはじめのほうに、
+	// yui: 2005.07.03
+	// zlib を使いたくないならコメントをはずす！
+	// ただし変えるとライブラリのリビルドが必要になる！
+	//#ifndef LIBFPK_NO_ZLIB
+	//#define LIBFPK_NO_ZLIB
+	//#endif
+
+	// yui: 2005.07.05
+	// LZSS を使いたくないならコメントをはずす！
+	// ただし変えるとライブラリのリビルドが必要になる！
+	//#ifndef LIBFPK_NO_LZSS
+	//#define LIBFPK_NO_LZSS
+	//#endif
+
+	// yui: 2005.07.19
+	// LZF を使いたくないならコメントをはずす！
+	// ただし変えるとライブラリのリビルドが必要になる！
+	//#ifndef LIBFPK_NO_LZF
+	//#define LIBFPK_NO_LZF
+	//#endif
+などと書いてありますので、それぞれ不要なもののコメントをはずし、*libfpk を再コ
+ンパイル* してください。LIBFPK_NO_ZLIB を #define すると、pva 展開コードも無効
+化されますのでご注意ください。
+
+ここで展開コードをはずしたにもかかわらずその形式で圧縮された par を与えると、
+fpkExtractToBuffer() は NULL を返します。
+
+
+型の説明
+--------
+libfpk では Windows に似た型名を使用しています。
+Win2Piece.h に，それらの対応が記載されていますし，/usr/piece/include/PIECE_Std.h
+にも同様のものが存在します。
+
+typedef struct
+{
+  FPKHEADER fpkHeader;
+  FILEACC pfa;
+  unsigned short* crc;      // CRC 表
+  int sct;                  // セクタ番号
+  unsigned char cache[4096];// セクタバッファ
+}FPK, *PFPK;
+typedef PFPK HFPK;
+
+	fpk ファイル一つ分の情報を保持します。fpkHeader は，fpk ファイルヘッダ
+	そのものです。fpk ファイルヘッダについては後述します。
+	pfa は，pceFileOpen() で得られる FILEACC 構造体です。libfpk では，この
+	pfa を使用してファイルを展開します。
+
+	crc は、ファイル名の CRC16 を並べた配列へのポインタです。これを利用して
+	ファイル検索を高速化します。
+	sct はその fpk ファイルのセクタ番号です。次の cache と組み合わせてセク
+	タキャッシュを実現します。
+	cache は、現在読んでいるセクタの内容のコピーです。
+
+	実際の libfpk 関数に使われるのは HFPK ですが、その実体は PFPK 同様ただ
+	のポインタです。
+
+typedef struct
+{
+  DWORD  dwHeader;
+  DWORD  dwFilesAmount;
+}FPKHEADER;
+
+	fpk ファイルヘッダです。dwFilesAmount には，格納されたファイルの総数が
+	1 ベースで入ります。libfpk を使用中にファイルの総数を知りたくなったら，
+		hFpk->fpkHeader.dwFilesAmount
+	このように HFPK 型を逆参照することで得ることができます。
+
+typedef struct
+{
+  CHAR   szFileName[16];
+  DWORD  dwOffset;
+  DWORD  dwSize;
+}FPKENTRY;
+
+	fpk 書庫内のファイルテーブルのエントリ一つ分です。libfpk では，この構造
+	体を使って書庫内のファイルを特定します。
+	これも必要な情報はそのまま逆参照で得ることができます。
+
+	szFileName には，書庫内のファイル名が入ります。もしそのファイルが拡張圧
+	縮エントリであったときは，(szFileName[15] & 0x80) が真となります。そう
+	でない時には，この式は偽となります（文字列の最後のバイトなので，ヌル文
+	字が入っているはずだから）。
+
+	圧縮方式を特定するには、次のコードのようにします。
+
+	switch((unsigned char)szFileName[15])
+	{
+	  case FPK_NO_COMPRESSION:
+	    // 非圧縮の処理
+	    break;
+	  case FPK_LZSS_COMPRESSION:
+	    // LZSS 圧縮の処理
+	    break;
+	  case FPK_ZLIB_COMPRESSION:
+	    // zlib (deflate) 圧縮の処理
+	    break;
+	  case FPK_LZF_COMPRESSION:
+	    // LZF 圧縮の処理
+	    break;
+	}
+
+	FPK_*_COMPRESSION は fpk.h で #define されています。
+
+	dwOffSet は，fpk / par 書庫の先頭から数えたバイト単位のオフセットです。
+	fpkarc / par や nsawa さんの dfpck, および本家の FilePack を使っていれ
+	ば，この値は DWORD アラインメントされています。
+
+	dwSize は，そのファイルのサイズです。par の場合，圧縮後のファイルサイズ
+	が格納されています。この値には，上記の DWORD アラインメントをするための
+	パディングバイトはカウントされていません。正確にファイルそのもののサイ
+	ズをさしています。
+
+
+関数の説明
+----------
+HFPK fpkOpenArchive(LPSTR lpszFileName)
+	fpk / par ファイルを開きます。
+	lpszFileName には，PFFS 上の書庫ファイル名を渡します。
+	関数が成功すると，FPK 型構造体へのポインタを返します。
+	失敗すると NULL を返します。
+	返ってくるポインタは pceHeapAlloc() されたものなので，ファイルを使い終
+	わったら必ず fpkCloseArchive() してください。
+
+VOID fpkCloseArchive(HFPK hFpk)
+	書庫ファイルを閉じます。
+	hFpk には，fpkOpenArchive() で得られたポインタを渡します。
+	この関数を実行すると，hFpk は無効なポインタとなります。
+
+BOOL fpkGetFileInfoS(HFPK hFpk, LPSTR lpszFileName, FPKENTRY *lpFileEntry)
+BOOL fpkGetFileInfoN(HFPK hFpk, DWORD dwFileIndex, FPKENTRY *lpFileEntry)
+	書庫ファイルの中の，指定されたファイルに関する情報を得ます。
+	fpkExtractToBuffer() するときにも，この関数で得られる lpFileEntry が必
+	要です。
+
+	指定する方法はふたつあり，書庫中のファイル名を使うものと，書庫中のファ
+	イルテーブルのインデックスを使うものがあります。
+
+	fpkGetFileInfoS()（以下 S()）はファイル名（lpszFileName）を使うものであ
+	り，fpkGetFileInfoN()（以下 N()）はインデックス（dwFileIndex）を使うも
+	のです。N() の方が一発でアドレッシングできるため高速です。
+
+	N() で用いるインデックスと実際のファイルとの対応は，par l を使うことで
+	調べることができます。par l の，
+		0: hogehoge.pmd    offset:0xdeadbeef    size: 12345
+	この表示行から，書庫中の hogehoge.pmd を指定するインデックスは 0 である
+	ことがわかります。
+
+	hFpk には，fpkOpenArchive() で得られたポインタを渡します。
+	lpFileEntry には，FPKENTRY 型の構造体の実体をあらかじめ定義しておき，そ
+	のポインタを渡します。たとえば，こんなふうに。
+	{
+		FPKENTRY fpkEntry;
+		if(fpkGetFileInfoN(hFpk, 0, &fpkEntry) == TRUE)
+			fpkEntry を使って何かをする;
+	}
+
+	関数が成功すると，lpFileEntry に適切な値を入れて TRUE を返します。
+	失敗したときには FALSE を返し，lpFileEntry には手をつけません。
+
+BYTE *fpkExtractToBuffer(HFPK hFpk, FPKENTRY *fpkEntry)
+	fpkEntry で特定される書庫内ファイルをメモリ上に展開し，そのポインタを返
+	します。fpkEntry で示されたエントリが拡張圧縮エントリであった場合は，自
+	動的に圧縮解除したデータへのポインタを返します。
+
+	fpkEntry には，fpkGetFileInfo[NS]() で得られたものを渡してください。
+	fpkExtractToBuffer() では，fpkEntry が正当なデータであるかどうかチェッ
+	クしていません（逆にこれを利用するという手も考えられます）。
+
+	この関数で返されたバッファは fpkExtractToBuffer() 内で pceHeapAlloc()
+	されたものです。不要になったら pceHeapFree() してください。
+
+
+ソースについて
+--------------
+全ソースコードを添付してあります。
+標準の P/ECE 開発環境で make が通るはずです。
+
+あなたの開発するアプリに合わせて適切にチューニングしてください。
+
+
+サンプルアプリ
+--------------
+P/ECE 実機で動作する libfpk のサンプルアプリを添付してあります。
+書庫 mypmds.par に格納された pmd ファイルを演奏するものです。
+あらかじめ mypmds.par を作成し，P/ECE に転送しておいてください。
+（pmd ファイル以外のものを格納して実行すると不幸なことになります（ぇ）
+
+パッドの左右で曲選択，A で演奏します。
+
+C68 版添付の mypmds.par には、以下のデモソングが収録されています。
+	rabtw3.pmd	Fight for Sorrow
+			Authored by M+B Apos.
+	rab71.pmd	Fight! One2ALOT ～ 孤独の英雄 ～
+			Composed by M+B Apos.
+曲を提供してくださった M+B Apos. さんに感謝いたします。
+
+
+著作権とか
+----------
+複雑で，しかも par とは微妙に内容が異なりますので最後まで読んでください。
+
+libfpk の，以下に記述のない部分についての著作権は Yui N. が保持します。
+
+C68 版添付の mypmds.par に収録されたデモソングの著作権は、M+B Apos. さんが所有
+しています。
+
+libfpk の LZSS 展開ルーチンは，p/ware / Hitode Yamatsuki さんの plz のソースコ
+ードおよび後述の URL の記事が元になっています。この LZSS 展開ルーチンの著作権表
+示は以下のとおりです。
+
+	plz のソースコードの著作権は p/ware / Hitode Yamatsuki が保持しています
+	が、転載・改変・再配布・利用は自由です。便利だと思われたら積極的にご利
+	用ください
+
+p/ware さんによるオリジナルの LZSS デコードルーチンは，
+	http://www.aw.wakwak.com/~hitode/piece/index.html#plz
+から得ることができます。
+
+pceFileReadPos() は，「おでかけマルチ」のソースコード piece_ex.c から引用しまし
+た。この部分のライセンスについては，AQUAPLUS の「付属ソースを元にしたプログラム
+の再配布の扱いについて」に従います。
+
+原本の著作権表示は以下のとおりです。
+	Copyright:	AQUA (Leaf)  since 2001 - 
+	Programd by.	Miyakusa Masakazu
+
+libfpk における zlib 圧縮エントリの展開には，ヅラChu さんの myunpack のソースを
+利用しており，まかべひろし さんによる zlib 展開ルーチンサンプル（P/ECE HAND
+BOOK Vol.2「緋色の霧」より）のコードを含みます。
+
+ヅラ Chu さんの myunpack は，
+	http://zurachu.net/piece/tips/ppack.html
+から得ることができます。
+
+肝心の pceZlibExpand() は，P/ECE カーネル 1.20 のソースコードをそのまま利用して
+います（inflate.c, inflate.h, piecezl.h）。この部分のライセンスについては，
+AQUAPLUS の「付属ソースを元にしたプログラムの再配布の扱いについて」に従います。
+（inflate.c はパブリックドメイン扱い）
+
+原本の著作権表示は以下のとおりです。
+	Copyright (C)2001 AQUAPLUS Co., Ltd. / OeRSTED, Inc. 
+	all rights reserved.
+	Coded by MIO.H (OeRSTED)
+
+LZF 形式の展開には、liblzf 1.51 の lzf_d.c にパッチを当てて利用しています。
+LZF アルゴリズムのライセンスは以下のとおりです。
+
+> Copyright (c) 2000-2005 Marc Alexander Lehmann <schmorp@schmorp.de>
+> 
+> Redistribution and use in source and binary forms, with or without modifica-
+> tion, are permitted provided that the following conditions are met:
+> 
+>   1.  Redistributions of source code must retain the above copyright notice,
+>       this list of conditions and the following disclaimer.
+> 
+>   2.  Redistributions in binary form must reproduce the above copyright
+>       notice, this list of conditions and the following disclaimer in the
+>       documentation and/or other materials provided with the distribution.
+> 
+>   3.  The name of the author may not be used to endorse or promote products
+>       derived from this software without specific prior written permission.
+> 
+> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+> WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MER-
+> CHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+> EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPE-
+> CIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+> PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+> OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+> WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTH-
+> ERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+> OF THE POSSIBILITY OF SUCH DAMAGE.
+> 
+> Alternatively, the following files carry an additional notice that
+> explicitly allows relicensing under the GPLv2: lzf.c lzf.h lzfP.h lzf_c.c
+> lzf_d.c
+
+
+私が書いた部分については転載・改変・再配布自由です。あなたが開発するアプリに合
+わせてチューニングしたり，プライベートビルドを作成して配布するなどしてください。
+
+
+-----------------------------
+Yui N. (a.k.a. Autch)
+mailto:yui@autch.net
+http://www.autch.net/
