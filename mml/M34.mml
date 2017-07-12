@@ -1,0 +1,174 @@
+#Title	#34 Nocturne Op.9-2
+#Title2	Fryderyk Franciszek ChopinÅ^Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A	T80
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_0V100
+
+!ApartA	g<b>cd-cfea-g>d-c<gb-4.a-4g8
+!ApartB	f4.g8g8d8e-4.c4.
+!ApartC	f4.g4f8f4.c4.
+!ApartD	e-8e-8e-8e-8de-f.e-32e-4.<b-4.>
+!ApartE	b-4.a4g8f4.d4.
+!ApartF	e-4.d8c8d8<b-8b8b8>c8c8d8
+!ApartG	g4<ab->c<b->c+dg.f32f4e-8.fe-de-f
+
+A	LV100l16o5D+16
+
+A	<b-8>
+
+A	g2f8g8f4.e-4<b-8>
+A	g4c8>c4<g8b-4.a-4g8
+A	f4.g4d8e-4.c4.
+A	<b-8>>d8c8<b-a-ga-cde-4.r4<b-8>
+A	g4.fgfefgf8e-4&e-fe-de-f
+A	!ApartA
+A	!ApartB
+A	<b-8>>d8c8<b-a-ga-cde-2d8e-8
+A	!ApartC
+A	!ApartD
+A	!ApartE
+A	!ApartF
+
+A	!ApartG
+A	!ApartA
+A	!ApartB
+A	<b-8>>d8c+8c32<b32b-32a32a-32f32d32c32<b-32>d32g32f32e-2d8e-8
+A	!ApartC
+A	!ApartD
+A	!ApartE
+A	!ApartF
+
+A	!ApartG
+A	!ApartA
+A	!ApartB
+A	<b>>d8c+c.c-32<b-a	a32<a32b-32>c32c+32d32g32f32e-2.
+
+A	e-4.f8e-8f8g2.
+A	e-4.&e-fe-fe-fg4e-8>e-8d8c8
+A	<b-4a8a-8c8d8e-8fe-de->g8fe-dc
+A	c-8<b-8a8b-a-a-gg.f32e-2.
+
+A	e-4.&e-fe-fe-fg4.r4.
+A	e-8<a-b-a-ga->c-e-a->e-r32f32g8e-8>e-4d8c8
+A	c-8<b-8a8a-8g8d8e-8>e-4.<f8>c8
+A	c-2.<b-2.
+
+A	>c-<b->c<a[>c-<b->c<a-]10
+A	>c-<b->c<a>c-<b->dc
+A	<b-a-a-gfde-cb-8a-8c8d8
+A	<[e-8<b-8>g8]4
+A	e-4.>e-4.<<e-2.
+A	[r8]11
+
+
+F	LV100l8o4D-16
+
+F	r8
+F	[[r8]12]10
+F	[r8]6	a4.b-4.g4.aaaff+ee-fa-
+F	[[r8]12]6
+F	[r8]6	a4.b-4.g4.aaaff+ee-fa-
+F	[[r8]12]9
+F	[r8]8	>>e-4dc
+F	c-<b-aa-gde->e-4.<f>cc-2.<b-2.
+
+F	[r4]15r2
+F	<grrgrrgrrgrrg4.>g4.<<g2.
+
+
+B	LV100l8o3
+
+B	r
+
+B	<e->gb-e-a->c-<<e->gb-<d>gb-
+B	<c>gb-cg>c<<f>fb-<f>fa-
+B	<b->fb-<b>g>d<cg>c<<a>g->c<
+B	<b->fb-<<b->>fb-<c>gb-e-gb-
+B	e-gb-e-a->c-<e-gb-dgb-
+B	cgb-cg>c<<f>fb-<f>fa-
+B	<b->fb-<b>g>d<cg>c<<a>g->c<
+B	<b->fb-<<b->>fb-<e->gb-e-gb-
+B	<b->fb-<b->fb-<a>f>c<<a->f>c<
+B	<a->e-a-<<a->>e-a-<e->gb-e-gb-
+B	<e>eb-<e->e-b-<f>f>c<<g>gb-
+B	<c>g>c<<f>f>c<b-ag+gfb-
+
+B	<e->gb-e-a-b-e-gb-dgb-
+B	cgb-cg>c<<f>fb-<f>fa-
+B	<b->fb-<b>g>d<cg>c<<a>g->c<
+B	<b->fb-<<b->>fb-<e->gb-e-gb-
+B	<b->fb-<b->fb-<a>f>c<<a->f>c<
+B	<a->e-a-<<a->>e-a-<e->gb-e-gb-
+B	<e>eb-<e->e-b-<f>f>c<<g>gb-
+B	<c>g>c<<f>f>c<b-ag+gfb-
+
+B	<e->gb-e-a-b-e-gb-dgb-
+B	cgb-cg>c<<f>fb-<f>fa-
+B	<b->fb-<b>g>d<cg>c<<a>g->c<
+B	<b->fb-<<b->>fb-<e->gb-e-gb-
+
+B	[<e->a->c<e-a->c<<e->gb-e-gb-]2
+B	e-fb-e-fb-e-gb-<a>f>c<
+B	<b->fb-<<b->>fb-<e->gb-e-gb-
+B	<<a->>e-a->c<a-e-<e->gb-e-gb-
+B	<<a->>e-a-e-a-e-<e->gb-<a>f>c<
+B	<b->fb-<b>g>d<cg>c<<a>f>c<
+B	<b-16.>b-16.>f16.a-16.>d16.<b-16.>f16.a-16.>d2.
+
+B	[r4]15r2
+B	o2[e->b-<b->e-b-<b-]2>e-4.>e-4.<<e-2.
+B	[r8]11
+
+
+
+C	LV100l8o4
+
+C	r
+
+C	[re-grda-re-gre-g
+C	regreb-rd-e-rcf
+C	rda-rfgre-gre-g-
+C	re-a-rda-re-gre-g]2
+C	rdfrdfrcfrcf
+C	rce-rc-e-re-gre-g
+C	rd-grcgre-ardb-
+C	re-gre-fdd+rre-f
+
+C	re-grda-re-gre-g
+C	regre-a-rd-e-rcf
+C	rda-rfgre-gre-g-
+C	re-a-rda-re-gre-g
+C	rdfrdfrcfrcf
+C	rce-rc-e-re-gre-g
+C	rd-grcgre-ardb-
+C	re-gre-fdd+rre-f
+
+C	re-grda-re-gre-g
+C	regre-a-rd-e-rcf
+C	rda-rfgre-gre-g-
+C	re-a-rda-re-gre-g
+C	re-a-re-a-re-gre-g
+C	re-a-re-a-re-gre-g
+C	rda-rda-re-gre-f
+C	re-a-rda-re-gre-g
+C	rc-e-a-e-cre-gre-g
+C	rc-e-ce-cre-gre-f
+C	re-a-rfgre-gre-f
+C	[r8]12
+
+C	[r4]15r2
+C	[r8]12<b-4.>b-4.<<b-2.
+C	[r8]11
+

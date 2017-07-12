@@ -1,0 +1,166 @@
+#Title	#07 十波 由真
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T160
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-3
+
+;===============================================================================
+; メイン
+!ApartA r2efgr g4ferd4r d4ee2&e& e4r<g>cdef
+!ApartB e4fr g4>crc4<b>c& c4<gr
+
+A	l8D+24
+
+A	V90o5@1L
+
+A	!ApartA
+A	e4fercr<g&		g4r>ggfef
+A	g4ccrc<a>d&		d2.r4
+A	!ApartA
+A	e4ccrarg&		gfee4ref
+
+A	g4ccrfre&		edc4.rga
+A	b-4.rb-4ab-		ra4.g4fr
+A	e4fg2&g&		g4r<g>cder
+A	e4.r<g>cdr		e4fercr<g&
+A	g2rgg>d&		d4.r
+
+A	[!ApartB]3		g4fr
+A	e4fg&g2&		g4r4a4gr
+A	g4ff&f2			r<b>da4>c<br
+A	a4.g2r			e4efrgrf&
+A	f4.rdefe&		e4dcrdrc&
+A	c1				r1
+
+;===============================================================================
+; サブ
+
+!BpartA c<bg>cr<bg>c r<bg>cr<bg4>
+!BpartB !BpartA r2cdef rercr<g4r
+
+B	l8D+8L
+
+B	V100o6@2
+B	!BpartB	[r1]2	>f2e2	c2e4g4
+B	!BpartB	[r1]4
+
+B	o6
+B	[r1]4
+B	!BpartA
+B	c<bg>cr<bg>
+B	V80o5@0
+B	c&	cc<brr2
+B	V100o6@2
+B	[!BpartA]2
+B	r2<g2&	g2b4>c4
+B	d2e2	f4e4f4g4
+B	a1		r4>c4<b4a4
+B	g1		r1
+B	V80o5@0
+B	r2.re&	eeerr2
+B	[r1]2
+
+;===============================================================================
+; サブ・伴奏
+
+!CpartA c4dr e4grg4gg& g4er
+!CpartB r4er4erd rdr4drdr r4erer4f rfrferdr r4frfr4d rdrddrdr r4drdr4f
+
+C	l8D-8L
+
+C	V70o4@0
+C	!CpartB	rfrferdr
+C	!CpartB	rfrferer
+
+C	V70o5@0
+C	fr4ffr4f	rfrffr4.
+C	er4eer4e	rereer4.
+C	fr4ffr4e	rereerer
+C	fr4frfre&	eedr
+
+C	V80@1
+C	[!CpartA]3	e4dr
+C	c4de4.r
+
+C	V70o5@0
+C	f			rfrferer
+C	r4fr4frf	rfrfdrdr
+C	r4er2e		rereerer
+C	r4fr4fr
+C	V80
+C	g&		gggrr2
+C	V70
+C	r4drdr4f	rfrferer
+
+
+;===============================================================================
+; ベース
+
+!DpartA crccccr<b rbrbbrbr araaaa>e<a raragrgr >fffc<a>fre
+
+D	V80o2@0l8D-24L
+
+D	!DpartA			reec<g>cec
+D	ddd<a>d<a>dg	rg>c<b>c<bgd
+D	!DpartA			rceaaeag
+D	dddgrgrc		rcrcc<g>c<b
+
+D	b-r4b-b-r4b-	rb-rb-b-4r4
+D	>cr4ccr4c		rcrcc4r4
+D	dr4drdre		reeeer4f
+D	r4.ffreg		rggrr2
+
+D	cr4cccrf		rfrffrfr
+D	cr4ccc>c<f		rfrffrfr
+D	crc<gg>cr<b		rbbgbgbg
+D	araaaeag		rg>c<ggrgr
+D	>fr4fffrg		rgrggde-e
+D	reree<b>ea		raraaec<a
+D	>dr4dddrg&		ggg4r2
+D	c4rcc<b-b>c		r<cr>cc4<c4>
+
+
+;===============================================================================
+; ドラム
+
+!FpartC !bg4!sg!bg g4!sg
+!FpartA !FpartC !bg4g!sg!bg g4!sg4
+!FpartB !FpartC !bg4g!sg!bg g!sg16g16g4
+
+F =1
+F	l8L
+
+F	!FpartA
+F	!FpartB
+F	!FpartA
+F	!FpartC !bg4!tg16g16gg!bg!sg16g16gg16g16
+F	!FpartA
+F	!FpartB
+F	!FpartA
+F	!FpartC !bg4!tg16g16g!bg!sg g16g16gg16g16
+
+F	[!FpartA]3
+F	!FpartC !sg4gg4g8.g16g4
+
+F	!FpartA
+F	!FpartB
+F	!FpartA
+F	!FpartC !bg4g[!sg4]3
+F	!FpartA
+F	!FpartB
+F	!FpartC !sg4gg4r4g4
+F	!FpartC !bg4g!sg!tg!ug4!sg4
+
+

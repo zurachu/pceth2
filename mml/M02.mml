@@ -1,0 +1,136 @@
+#Title	#02 小牧 愛佳
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T106
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-1
+
+;===============================================================================
+; メイン→サブ→伴奏
+
+!ApartA c4.c4deg f2.r4 <b4.b4>cdf e2d2 r4e4c4a4 g2.e
+!ApartB g2.>c4< g+2.>c4< a2.>c4< g+4g+4g4f4
+
+A	l8D+24L
+
+A	V100o6@2
+A	!ApartA g	f4.e4.f4	d2.r4
+A	!ApartA d	c2fede		c2.r4
+
+A	V90o5
+A	gb>df<r2	gb>ce<r2
+A	gb>ce<r2	g>cec<r2
+A	g>cdg<r2	gb>df+<r2
+A	g>cdg<r2	gb>dg<r2
+
+A	V70o4@1
+A	!ApartB
+A	g2.>c4<	a4>c4<a4f+4	[a4]4	[g4]4
+A	!ApartB
+A	r4g4f+2	r4a4g2	g4eg2r	gega2r
+
+;===============================================================================
+; サブ→メイン
+
+!BpartA g2redc g+2redc b4ab4>c4<g+& g+2.r4
+
+B	l8D+8
+
+B	L
+
+B	V60o5@0
+B	e2.g4		f2&fedc
+B	<b2.>f4		e4g4d4<b4>
+B	c2.d4		e2.g4
+B	a2&agfe		d2<b>cdf
+B	e2&efgb		a2&agfa
+B	g2&gabg		e2degb
+B	>c2<g4>c4<	b2.g4
+B	a2>c4<b4	g2
+
+B	V80o5@1
+B	rcde
+B	f2reef		g2r4a4
+B	g4fe4.gc&	c2reef+
+B	g2rgga		b4.a4.d4
+B	g1
+
+B	r2<g4>a4
+B	!BpartA
+B	g4>c<b4>c4<f+&	f+2.r4
+B	f4ge4ced&		d2r4ef
+B	!BpartA
+B	g4>c4<b4>c4<	f4e4d4e4
+B	c1				r1
+
+;===============================================================================
+; 伴奏
+
+!CpartA e2.a4 f2.a4 f2.a4 f4f4e4d4
+
+C	l8D-8L
+
+C	V80o6@2
+C	[r1]7		c2<bagf
+C	c2.d4		c1
+C	d2.f4		e2d4<b4>
+C	c2e2		g1
+C	a2>c4<b4	>c1
+
+C	[r1]8
+
+C	V70o4@1
+C	!CpartA
+C	g2.>c4<	a4>c4<a4f+4	[f4]4	@0 r4 <b>cdefa
+C	V70@1
+C	!CpartA
+C	r4g4f+2	r4a4g2	g4eg2r	gega2r
+
+;===============================================================================
+; ベース
+
+!DpartA c4.cc4eg f4.ff2 g4.gg4.d c4.c<b2 a4.aa4.a >e4.e4.<b>e
+!DpartB [c4.c]4 [f4.f]4
+
+
+D	V80o2@0l8D-24L
+
+D	!DpartA
+D	d4.dd4a+a	g4.gg4d4
+D	!DpartA
+D	d4.dg4.g	c4.cc4<ba
+
+D	g4.gg4>d4	c4.gg4>c4<
+D	f4.cc4g4	f4.cc4e4
+D	a4.ee4ee-	d2a2
+D	g4.dd4.a	g4.gg4.d
+
+D	!DpartB
+D	e4.ee4.e	e-4.e-e-4.e-
+D	d4.dd4a+a	g4.gd4gd
+D	!DpartB
+D	e4.ee-4.e-	d4.dg4.g
+D	c4.cc4.c	c4.g4.g4
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8L
+
+F	[!bg4!sg!bg !bg4!sg4]15	!bg4.!sg4 !bg!tg!ug
+F	[!bg4.gg4!sg4]7			[!bg!sg g!bg]2
+F	[!bg4!sg!bg !bg4!sg4]7	!bg4!sg!bg !bg!sg gg
+F	[!bg4!sg!bg !bg4!sg4]7	!tg!ug!vg!sg4!bg gg
+

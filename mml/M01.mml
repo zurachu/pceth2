@@ -1,0 +1,154 @@
+#Title	#01 óMå¥ Ç±ÇÃÇ›
+#Title2	(c)AQUAPLUSÅ^Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T136
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-3
+
+;===============================================================================
+; ÉÅÉCÉì
+
+!ApartA cd eegd4.gc& c2r4cd eegd4edc& c2r4eg >c4.c<b4ga& a
+!ApartB e4 g2&geag& g2
+!ApartC g16a16>c16r16 eredrdrd& d
+!ApartD !ApartC c<b>c4.<b4 a4>ed4.r<a g4>fe4<r
+
+A	l8D+24L
+
+A	V100o6@2
+A	!ApartA	gag4.re	ffge4ced&	d2r4
+A	!ApartA	gce4.ee f4ge4edc&	c2r4
+
+A	V90o5@1
+A	!ApartB	r4.f&	fffedcde&	e2r4
+A	!ApartB	rga>c&	c<ag>c4c4d&	d1<		r2.
+
+A	!ApartD
+A	!ApartC	gde4ed4		c4<ba4.>ed&	d2&d<r
+A	!ApartD
+A	!ApartC	gde4ed4		c4<b>c2<r	gab>cd<g>dc&	c1
+
+A	V80o6
+A	dd4e4.
+
+;===============================================================================
+; ÉTÉuÅEî∫ët
+
+!BpartA c2<g2 g+>c<b>c2r
+!BpartB !BpartA e2f2 g4f4e4d4 !BpartA
+
+B	l8D+8
+
+B	L
+B	V70o5@0
+B	[r1]7 rfrfrgg4
+
+B	V90o5@2
+B	ef	g4>c<g4.>c<g&	g2r4
+B	ef	g4>c<g4gfe&		e2r4
+B	g>c	e4.ed4<b>c&		c<beg4.
+B	gg	a4bg4gfe&		e2r4
+B	r4
+
+B	V80o5@0
+B	[r1]3	ecef4e4r
+
+B	o4@1
+B	r1
+B	r2ra>ce&	ecce4e4g&	g1	raabb<r4.
+
+B	V90o6@2
+B	!BpartB	e2.&ef	g1
+B	!BpartB	e1		g1
+
+B	V80o5@0
+B	c<g>cd4<b>c4<	bb4>c4.
+
+;===============================================================================
+; î∫ët
+
+!CpartA [>c4c4<g4ba& aa>c4<b4>d4<]2 a>ce4<gb>d4< fa>c4<eg>c4<
+!CpartB grgrgrgr grgrgrgr grgrgrgr grgrg+rg+r
+!CpartC grgrgrgr g+rg+rarar grgrgrgr grgrgrgr
+
+C	@0l8D-8
+C	r4 L
+
+C	V60o4
+C	!CpartA
+C	fg>c4<fg>cc	rcrdd4d4<
+C	!CpartA
+C	fg>c4<gb>d4	c4rc4rc4<
+
+C	afarb4r4	>d<b>drc4<r4
+C	a4>c4<b4g4	V80 >c<g>cd4c4<r
+C	V60
+C	afarb4r4	>d<b>dre4r4
+C	e4re4re4<	g4a4>c4d4
+
+C	V80
+C	rffgg<r4.
+
+C	o5V70
+C	[!CpartB !CpartC]2
+C	ecef4de4	dd4e4.r4
+
+;===============================================================================
+; ÉxÅ[ÉX
+
+!DpartA [>c4c4<g4gf rfrfg4g4]2 a4rae4efr frfc4c4
+!DpartB f4rfg4.r e4rea4.r
+!DpartC frfrfrfr ererarar drdrgrgr crcrfrer
+!DpartD frfrgrgr g+rg+rarar drdrdrdr grgrgrgr
+
+D	V80o2@0l8D-24
+D	r4 L
+
+D	!DpartA
+D	d4rdd4df	rfrgg4g4
+D	!DpartA
+D	f4f4g4g4	c4r>c4<rc4
+
+D	!DpartB
+D	d4rdg4.r	c4rc>c4<c4
+D	!DpartB
+D	d4rdd4d4	g4rgg4g4	rffggr4.
+
+D	[!DpartC !DpartD]2		c4r>c2r		ccrc4.<r4
+
+;===============================================================================
+; ÉhÉâÉÄ
+
+F =1
+F	l8
+F	r4 L
+
+F	[!bg4!sg4!bg4!sg!bg4 g!sg4!bg4!sg4]3
+F	!bg4!sg4!bg4!sg!bg4 g!sg4!bg!sg gg
+F	[!bg4!sg4!bg4!sg!bg4 g!sg4!bg4!sg4]3
+F	!bg4!sg4!bg4!sg4 !bg4!sg4!bg4!tg16!ug16!vg
+
+F	[!bg4.gg4!sg4]3 !bg4.gg!sg!bg!sg
+F	[!bg4.gg4!sg4]4 !bg!sg ggg2
+
+F	!bg4g4g4g4 g4g4g!Cg g4
+F	!bg4g4g4g4 g4g4g!tg!ug!vg
+F	!bg4g4g4g4 g4g4g!Cg g4
+F	!bg4g4g4g4 r!sg gg r!tg!ug!vg
+F	!bg4g4g4g4 g4g4g!Cg g4
+F	!bg4g4g4g4 g4g4g!tg!ug!vg
+F	!bg4g4g4g4 g4g4g!Cg g4
+F	!bg4g4g4g4 g4g4g!sg gg
+F	!bg4!sg!bg4g!ug!vg !bg4!sg!bg4g!sg g
+

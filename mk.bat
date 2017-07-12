@@ -28,11 +28,14 @@ FOR %%A IN (EV_????NIGHT.BIN) DO CALL :RENAME_EV_BIN %%A 6
 @echo on
 pceth2bin2 -s *.BIN
 
+make -C mml
+copy /Y mml\*.pmd .\
+
 par c -C -T pceth2.par -f *.pgx *.pgd *.ppd *.scp *.pmd
 
 :clean
 @echo on
-del *.BM2 *.bmp *.pg* *.WAV *.ppd *.BIN *.scp
+del *.BM2 *.bmp *.pg* *.WAV *.ppd *.BIN *.scp *.pmd
 
 @echo off
 goto end

@@ -1,0 +1,79 @@
+#Title	#11 ’©
+#Title2	(c)AQUAPLUS^Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T88
+
+ABCDEF D0E0,0,0,0Y0,0,0,0_+1
+
+!ApartA reeeedef4>c4 c16d16e.c.
+!ApartB r4de16f.efg
+!ApartC g12a12b-12>c4.<ff4 ab->c4.dc4< a>c<
+A V100o5@2l8D0L
+A [r1]4
+A !ApartA <a4g&g2. r1
+A !ApartA d4c&c2.< r1
+A !ApartB a.c16c2 c<a16b-16&b-2. b-g16a16&a2r2>
+A !ApartB a.g.f4 f>ccc4<ff4. f12>c12c12c4.dc1r4<
+A !ApartC b-4.ff4 a12g12f12g2.
+A !ApartC f2f4g4f1 r1
+
+B l8D0L
+B V80o4@0
+
+B cd16ec16d16e16&e2   cf16fgf16&f4r4
+B cd16ec16d16e16&e4cd e2fccd
+B V90@2
+B e4r4.g4. f2r2
+B e4.g4.r4 f4.a4gag
+B e4r4.g4.  f2aga4
+B g2r4.f g2g2
+B >f1&f4e4f4g4f2.g4a2 ea>def1&f2c4<a4
+B f2.fga2.&ab-16a16g1
+B >c1&c2&cfec <b-2&b->dfag1<
+B a2.>g4f2.e4f2d4e4f2c4<b-4a2g4f4
+
+C V80o4@0l8D8
+
+C r4 L
+C r4. g>c.<b32b-32a2agag4. r4. g>c.<b32b-32a2aga g4.
+C r2.
+C r1 r4.>c16d16e.c.<g g2f2r1
+C r1 r4.>c16d16ed16c.d c2<b2b-2r2
+C [r1]15
+C r2r cfga2 agag4.
+
+!DpartA g4&grde grg8.ded
+
+D V70o3@0l16D-8L_-6
+
+D [[!DpartA]3 g4&grde grg8>c<bad]2
+D [!DpartA]3 g4&grde grg8>dc<bg
+
+D f4&frcd frf8.>c<f>c<   e4&er>c<e ere4ge
+D d4&dref grg8.dg8       >c4&crc<b a8g8>c<bge
+D f4&frcd frf8.>c<f>c<   e4&erge ara8.eae
+D d4&drb>c drd8.d<a>d<   g4&grde grg8.dag+
+D g4&grde grgrgabg
+
+D c4>c4 <crc8.c>c<b      a4rege ara8.eae
+D d4rf>ce dr<a8.>d<ag+   g4&gra>c drd8<g8ab
+D >c4<c4 >crc8.<c>c<b    a4rege ara8.eae
+D d4&dref grg8.>d<b>d    c4&cr<ga >crc8.<gab
+D >c4&cr<ga >drd8<a8>d<a
+
+F =1
+F l16L
+F !hg!og!hg8!sg8!hg g g!og!hg8!sg8!hg8
+
+

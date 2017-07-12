@@ -1,0 +1,149 @@
+#Title	#04 笹森 花梨
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T140
+
+ABCDEF E0,0,0,0Y0,0,0,0D0
+
+;===============================================================================
+; メイン
+
+!ApartA e& efec<g4>re& efec<g>arg& g4.ec4.e
+
+A	l8D+24L
+
+A	V80o6@0
+
+A	crdr
+A	ererdc<ba	g>drc4rcd
+A	ererdefg	r2crgr
+A	__+3
+A	frfredc<b	g>drc4r<g4
+A	f4>cc4rd4	c<b>cd4.r4
+A	__-3
+
+A	V90o5@1
+A	r2.r
+A	!ApartA	fecdr4.
+A	!ApartA	ffgerd4r
+
+A	__+3
+A	r4<afa4>ed&	d4e<b4ag4
+A	r4geg4>d4	c+c+der2
+A	r4<afa4>ed&	d4e<b4aga&
+A	a1			r2
+A__-3
+
+
+;===============================================================================
+; サブ
+
+!BpartA >r2.cc r2.ccr r<<g16a16>c4r<g16a16>c4
+!BpartB f4rff4rg rgrgg4f4 g4rgg4ra raraa4
+
+
+B	l8D+8
+
+B	r2L
+
+B	V90o5@1
+B	r4c4r2	r2.<a4
+B	g2.r4	e4f4f+4g4
+B	__+3
+B	r4a4r2		r4<e4g4>c4
+B	d2<a4>c4	c4r<bb4r>c	rcrdd4r
+B	__-3
+
+B	!BpartA	defgr4.
+B	!BpartA	defgrg4.
+
+B	V70o4@0
+B	__+3
+B	!BpartB g4
+B	!BpartB a4
+B	__-3
+
+;===============================================================================
+; 伴奏
+
+!CpartA [c4r2.]2 r <frfrerer
+!CpartB d4rdd4rd rdrdd4d4 e4ree4re reree4e4
+
+C	l8D-8
+
+C	r2L
+
+C	V80o4@0
+C	arargrgr	grgrgrgr
+C	frfrgrgr	crdre-rer
+C	__+3
+C	frfrerer	erererer
+C	frfrfrfr	g4rgg4rg	rgrgg4r
+C__-3
+
+C	o5
+C	!CpartA	defgrV90g>g
+C	V80
+C	!CpartA	defgrg4.
+
+C	__+3
+C	V70o4
+C	[!CpartB]2
+C	__-3
+
+;===============================================================================
+; ベース
+
+!DpartA >c4<rg4>c4<r a4re4a4e4 f4f4e4e4 defgrdg
+
+D	V80o2@0l8D-24
+
+D	r2L
+
+D	f4rfg4rg	e4rea4ra
+D	d4rdg4rg	c4d4e-4e4
+D	__+3
+D	d4rdg4rg	c4rcf4rf
+D	d4rddefd	g4rdd4rg	rgrdd4r
+D	__-3
+
+D	[!DpartA]2 d
+D	__+3
+D	d4rdd<a>dg	rgrgg4f4
+D	e4reef+g+a	rarb>c+4<a4
+D	d4rdd<a>dg	rgrgg4g4
+D	a4raegg+a	raraa4a4
+D	__-3
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+
+F	!sg!bg24!sg24g24g!bg
+
+F	L
+F	[!bg4!sg!bg g4!sg4]3
+F	!sg!og!sg!og!bg!tg!ug!vg
+F	[!bg4!sg!bg g4!sg4]3
+F	!bg4!sg!bg g!tg g!ug4g4!vg!bg!sg16g16g
+
+F	!bg4.!sg!bg g4!sg !bg4.!sg!bg g4!sg4
+F	!bg4!sg4!bg4!sg4 !bg!tg!ug!vg4!Cg g
+F	!bg4.!sg!bg g4!sg !bg4.!sg!bg g4!sg4
+F	!bg4!sg4!bg4!sg4 !bg4!sg!bg!hg!bg!sg g
+F	[!bg4!sg!bg g4!sg !sg4g4g!bg!sg g4]3
+F	!bg4!sg!bg g!sg g!tg4g4g!ug4!vg4
+

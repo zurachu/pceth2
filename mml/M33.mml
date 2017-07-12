@@ -1,0 +1,55 @@
+#Title	#33 1ere Gymnopedie
+#Title2	Erik Alfred Leslie SatieÅ^Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A	T80
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_0V100
+
+A	LV100l2o2
+A	[g.d.]8
+A	f+.<b.>e.e.	d.<a.>d.d.
+A	d.d.d.d.	d.d.d.e.
+A	f+.<b.>e.e.	e.a.a.
+
+B	LV95l4o3
+B	[rb2ra2]8
+B	ra2rb2rg2rb2	rf2ra2rg2rd2
+B	rc2rc2ra2ra2	rd2rc2rc2rb2
+B	ra2rb2>rc+2<ra2	<rb>e<g2.d2.
+
+C	LV95l4o4
+C	[rd2rc+2]8
+C	rc+2rd2<rb2>rd2	<ra2>rc2<rb2rb2
+C	ra2ra2>rc2rc2	<rb2ra2ra2>re2
+C	rc+2rd2re2rf+2	<rab>c2.d2.
+
+D	LV95l4o4
+D	[rf+2]16
+D	rf+2rf+2r2.rg2	rd2re2re2re2
+D	rd2rd2rf2re2	re2rd2rd2rg2
+D	rf+2rf+2ra2ra2	rdga2.a2.
+
+!FpartA	rf+agf+c+<b>c+d<a2.
+
+F	LV100l4o5D+16
+F	[r2.]4
+F	!FpartA
+F	f+2.&f+2.&f+2.&f+2.>
+F	!FpartA
+F	>c+2.f+2.<e2.&e2.&e2.
+F	ab>ced<b>dc<b>d2.&d2d
+F	efgacded<b>d2.&d2d
+F	g2.f+2.<bab>c+dec+de<f+2.
+F	>c2.d2.
+
