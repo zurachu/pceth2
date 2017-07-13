@@ -21,6 +21,13 @@
 void FontFuchi_SetPos( int x, int y );
 
 /**
+	次の文字表示座標を取得.
+	@param [out] x x座標. NULL の場合取得しない
+	@param [out] y y座標. NULL の場合取得しない
+*/
+void FontFuchi_GetPos( int* x, int* y );
+
+/**
 	文字表示範囲を指定.
 	@param left 左端x座標
 	@param top 上端y座標

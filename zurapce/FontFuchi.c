@@ -32,6 +32,18 @@ void FontFuchi_SetPos( int x, int y )
 	s_y = y;
 }
 
+void FontFuchi_GetPos( int* x, int* y )
+{
+	if( x )
+	{
+		*x = s_x;
+	}
+	if( y )
+	{
+		*y = s_y;
+	}
+}
+
 void FontFuchi_SetRange( int left, int top, int right, int bottom )
 {
 	s_left = left;
