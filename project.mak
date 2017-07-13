@@ -33,13 +33,13 @@ LIBRARIES := libfpk/libfpk.lib ufe/ufe.lib
 # オブジェクトを高速 RAM に配置する場合、
 # pceAppInit() の先頭で FramObject_Init() を呼んで下さい
 #=======================================
-FRAM_OBJECTS := fram_ld.o mmc_fram.o
+FRAM_OBJECTS := mmc_fram.o
 
 #=======================================
 # 16階調描画関連コードを高速 RAM に配置するかどうか
 # 不要な場合コメントアウトして下さい
 #=======================================
-USE_LDIRECT_ON_FRAM := false
+USE_LDIRECT_ON_FRAM := true
 
 #=======================================
 # 縁取りフォント関連コードを高速 RAM に配置するかどうか

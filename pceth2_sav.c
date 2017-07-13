@@ -9,7 +9,6 @@
 #include <string.h>
 #include <piece.h>
 #include "zurapce/zurapce.h"
-#include "ld.h"
 
 #include "common.h"
 #include "pceth2_sav.h"
@@ -130,6 +129,11 @@ BOOL pceth2_writeSaveData(int num)
 #define TITLE_BG	"B001000.pgx"
 #define TITLE_LOGO	"TH2_LOGO.pgx"
 
+static void draw_object(const PIECE_BMP *pbmp, int dx, int dy)
+{
+	Ldirect_DrawObject(pbmp, dx, dy, 0, 0, pbmp->header.w, pbmp->header.h);
+}
+
 /*
  *	タイトル画像準備
  *	（lbuffに描画してすぐに解放します）
@@ -141,17 +145,15 @@ static void pceth2_drawTitleGraphic()
 
 	_title = fpk_getEntryData(TITLE_BG, NULL, NULL);	// 背景
 	PieceBmp_Construct(&p_title, _title);
-	ld_DrawObject(&p_title, 0, 0);
+	draw_object(&p_title, 0, 0);
 	pceHeapFree(_title);
 	_title = NULL;
 
 	_title = fpk_getEntryData(TITLE_LOGO, NULL, NULL);	// タイトル
 	PieceBmp_Construct(&p_title, _title);
-	ld_DrawObject(&p_title, 28, 4);
+	draw_object(&p_title, 28, 4);
 	pceHeapFree(_title);
 	_title = NULL;
-
-	ld_LBuffUpdate();
 }
 
 static int index = 0;
@@ -168,14 +170,15 @@ void pceth2_TitleInit()
 
 	pceth2_writeGlobalSaveData();	// ここでグローバルセーブ保存したら回避できるかにゃ？
 
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);	// 選択肢
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);	// 選択肢
 	FontFuchi_SetPos(38, 56);
 	FontFuchi_PutStr("はじめから");
 	FontFuchi_SetPos(38, 68);
 	FontFuchi_PutStr("つづきから");
 	FontFuchi_Put(28, 56 + index * 12, '>');
 	FontFuchi_Put(28 + 65, 56 + index * 12, '<');
-	ld_VBuffUpdate();
+	Ldirect_VBuffView(TRUE);
+	Ldirect_Update();
 
 	play.gameMode = GM_TITLE;
 }
@@ -207,12 +210,11 @@ void pceth2_Title()
 	}
 
 	if (LCDUpdate) {
-		ld_VBuffClear(28, 56, 8, 24);
-		ld_VBuffClear(92, 56, 8, 24);
+		Ldirect_VBuffClear(28, 56, 8, 24);
+		Ldirect_VBuffClear(92, 56, 8, 24);
 		FontFuchi_Put(28, 56 + index * 12, '>');
 		FontFuchi_Put(28 + 65, 56 + index * 12, '<');
-		ld_LBuffUpdate();
-		ld_VBuffUpdate();
+		Ldirect_Update();
 		LCDUpdate = FALSE;
 	}
 
@@ -242,7 +244,7 @@ static void pceth2_drawSaveMenu()
 	FILEACC pfa;
 	int month, day, i;
 
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	FontFuchi_SetPos(MSG_X_MIN + 5 * 5, MSG_Y_MIN);
 	FontFuchi_PutStr("セーブ・ロード\n");
 
@@ -257,8 +259,7 @@ static void pceth2_drawSaveMenu()
 		}
 		FontFuchi_PutStr("\n");
 	}
-	ld_LBuffUpdate();
-	ld_VBuffUpdate();
+	Ldirect_Update();
 }
 
 void pceth2_SaveInit()
@@ -299,14 +300,13 @@ void pceth2_SaveMenu()
 	}
 
 	if (LCDUpdate) {
-		ld_VBuffClear(0, 0, MSG_X_MIN + FONT_W / 2 + 1, DISP_Y);
+		Ldirect_VBuffClear(0, 0, MSG_X_MIN + FONT_W / 2 + 1, DISP_Y);
 		FontFuchi_Put(MSG_X_MIN, MSG_Y_MIN + global.save_index * FONT_H + FONT_H, '>');
 		if (phase == 1) {
 			pceLCDPaint(3, 42, 32, 12, 24);
 			pceFontPut(44, 34 + mode * 10, '>');
 		}
-		ld_LBuffUpdate();
-		ld_VBuffUpdate();
+		Ldirect_Update();
 		LCDUpdate = FALSE;
 	}
 
@@ -333,7 +333,7 @@ void pceth2_SaveMenu()
 			pceFontSetPos(54, 44);
 			pceFontPutStr("セーブ");
 			pceFontPut(44, 34 + mode * 10, '>');
-			ld_VBuffUpdate();
+			Ldirect_Update();
 			phase = 1;
 		}
 
@@ -374,7 +374,6 @@ static void pceth2_comeBack(int musplay_flag)
 		pceth2_loadGraphic(buf, i);
 	}
 	pceth2_DrawGraphic();	// 画像描画
-	ld_LBuffUpdate();
 
 	if (musplay_flag) {
 		strcpy(buf, play.pmdname);
@@ -385,7 +384,7 @@ static void pceth2_comeBack(int musplay_flag)
 	play.scData.data = fpk_getEntryData(play.scData.name, &play.scData.size, NULL);	// スクリプト
 
 	FontFuchi_PutStr("\n");	// なんか知らんけど無駄改行入れておかないとメッセージの後ろに改行が入る
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
 	FontFuchi_PutStr(play.msg);	// メッセージ
 
@@ -393,5 +392,5 @@ static void pceth2_comeBack(int musplay_flag)
 		pceth2_drawSelArrow();
 	}
 	msgView = 1;
-	ld_VBuffUpdate();
+	Ldirect_Update();
 }

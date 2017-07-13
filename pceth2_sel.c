@@ -11,7 +11,6 @@
 #include <string.h>
 #include <piece.h>
 #include "zurapce/zurapce.h"
-#include "ld.h"
 
 #include "common.h"
 #include "pceth2_sel.h"
@@ -33,7 +32,7 @@ static void pceth2_loadMapChipChara();
  */
 void pceth2_drawSelArrow()
 {
-	ld_VBuffClear(0, 0, MSG_X_MIN + FONT_W / 2 + 1, DISP_Y);
+	Ldirect_VBuffClear(0, 0, MSG_X_MIN + FONT_W / 2 + 1, DISP_Y);
 	FontFuchi_Put(MSG_X_MIN, play.selY[play.selIndex], '>');
 }
 
@@ -63,17 +62,15 @@ int pceth2_SelectEx(int amount)
 		if (play.gameMode == GM_MAPSELECT) {	// マップ選択は
 			pceth2_loadMapChipChara();			// チップキャラも描き替え
 		}
-		ld_LBuffUpdate();
 		pceth2_drawSelArrow();	// 矢印
-		ld_VBuffUpdate();
+		Ldirect_Update();
 		LCDUpdate = FALSE;
 	}
 
 	if (pcePadGet() & TRG_A) {	// A
 		pceth2_setPageTop();
 		pceth2_clearMessage();
-		ld_LBuffUpdate();
-		ld_VBuffUpdate();
+		Ldirect_Update();
 
 		return play.selIndex;
 	}
@@ -185,7 +182,7 @@ static void pceth2_putMapItem()
 		FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
 		play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
 	}
-	ld_VBuffUpdate();
+	Ldirect_Update();
 }
 
 /*

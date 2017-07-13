@@ -38,7 +38,6 @@
 #include "zurapce/zurapce.h"
 #include "usbcapt.h"
 #include "muslib2.h"
-#include "ld.h"
 
 #include "ufe/ufe.h" /*{{2005/06/09 Naoyuki Sawa}}*/
 #include "mmc_api.h" //2005/06/11 Added by Madoka
@@ -87,9 +86,13 @@ void pceAppInit(void)
 	}
 	/*}}2005/06/09 Naoyuki Sawa*/
 
+	usbCaptureInit();	// pceCaps初期化
+	if(!Ldirect_Init())
+	{
+		return;
+	}
 	pceLCDDispStop();
 
-	usbCaptureInit();	// pceCaps初期化
 	FontProxy_Hook_Set();
 	FontExtend_Hook_GetAdrs();	// 特殊フォント追加pceFontGetAdrsをフック
 	FontFuchi_SetType(0);
@@ -101,11 +104,6 @@ void pceAppInit(void)
 
 
 	pceAppSetProcPeriod(PROC_PERIOD);
-	pceLCDSetBuffer(vbuff);
-	memset(vbuff,0,DISP_X*DISP_Y);	//2005/06/11 Added by Madoka 一応画面をキレイにするが
-	pceLCDTrans();					//まだゴミがでますね。対処よろー＞ヅラChuさん
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);
-	// ↑UFEライヴラリの表示(Trans)→ldライブラリによる表示(TransDirect)に移る間の問題？
 
 	if (pceth2_readGlobalSaveData()) {
 
@@ -200,10 +198,9 @@ void pceAppProc(int cnt)
 	pceFontSetTxColor(3);
 	pceFontSetBkColor(FC_SPRITE);
 	pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
-	ld_LBuffUpdate();
-	ld_VBuffUpdate();
+	Ldirect_Update();
 
-	ld_LCDTransDirect();
+	Ldirect_Trans();
 
 	s_frame_us = PrecisionTimer_Count(&s_frame_timer);
 	s_proc_us = PrecisionTimer_Count(&proc_timer);
@@ -228,6 +225,7 @@ void pceAppExit(void)
 	fpk_ReleaseHandle();
 	FontExtend_Unhook_GetAdrs();	// pceFontGetAdrsを元に戻す
 	FontProxy_Unhook_Set();
+	Ldirect_Exit();
 	usbCaptureRelease();	// pceCaps解放
 
 	//2005/06/11 Added by Madoka
@@ -293,8 +291,7 @@ void pceth2_Init()
 
 	pceth2_loadEVScript(&play.evData);
 
-	ld_LBuffUpdate();
-	ld_VBuffUpdate();
+	Ldirect_Update();
 
 //	play.gameMode = GM_EVSCRIPT;
 }
@@ -309,8 +306,7 @@ void pceth2_waitKey()
 		if (pcePadGet() & (TRG_A | PAD_RI)) {	// スクリプトを進める
 			if (pceth2_isPageTop()) {
 				pceth2_clearMessage();
-				ld_LBuffUpdate();
-				ld_VBuffUpdate();
+				Ldirect_Update();
 			}
 			if (pceth2_isCalenderMode()) {	// カレンダーモード時
 				pceth2_clearGraphic(GRP_C);	// カレンダー画像消去
@@ -319,7 +315,8 @@ void pceth2_waitKey()
 		} else if (pcePadGet() & TRG_B) {
 			if (!pceth2_isCalenderMode()) {	// カレンダーの時は消せない
 				msgView = FALSE;
-				ld_LBuffUpdate();	// 文字消去
+				Ldirect_VBuffView(FALSE);	// 文字消去
+				Ldirect_Update();
 			}
 		}
 	}
@@ -327,7 +324,8 @@ void pceth2_waitKey()
 	{
 		if (pcePadGet() & (TRG_A | TRG_B)) {	
 			msgView = TRUE;
-			ld_VBuffUpdate();	// メッセージ表示
+			Ldirect_VBuffView(TRUE);	// メッセージ表示
+			Ldirect_Update();
 		}
 		// ＋上下左右でコントラスト、音量の調節
 		if (pcePadGet() & TRG_LF && global.bright > 0) {
@@ -445,6 +443,6 @@ int pceth2_readScript(SCRIPT_DATA *s)
 	}
 
 UPDATE:
-	ld_VBuffUpdate();
+	Ldirect_Update();
 	return 0;
 }

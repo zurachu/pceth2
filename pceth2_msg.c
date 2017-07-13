@@ -14,7 +14,6 @@
 #include <string.h>
 #include <piece.h>
 #include "zurapce/zurapce.h"
-#include "ld.h"
 
 #include "common.h"
 #include "pceth2_msg.h"
@@ -60,7 +59,7 @@ void pceth2_setPageTop()
  */
 void pceth2_clearMessage(void)
 {
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	*play.msg = '\0';
 	play.msglen = 0;
 }
@@ -139,14 +138,14 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 					pceth2_putCR();
 					if (pceth2_isPageTop()) {
 						play.gameMode = GM_KEYWAIT;
-						ld_VBuffUpdate();
+						Ldirect_Update();
 						return 0;
 					}
 				}
 			}
 			if (!pceth2_isPageTop()) {
 				play.gameMode = GM_KEYWAIT;
-				ld_VBuffUpdate();
+				Ldirect_Update();
 				return 0;
 			}
 		}
@@ -160,7 +159,7 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 							pceth2_putCR();
 							if (pceth2_isPageTop()) {
 								play.gameMode = GM_KEYWAIT;
-								ld_VBuffUpdate();
+								Ldirect_Update();
 								return 0;
 							}
 							break;
@@ -176,7 +175,7 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 			if (!pceth2_isPageTop()) {				// ページ先頭でなければキー待ち改ページ
 				pceth2_setPageTop();
 				play.gameMode = GM_KEYWAIT;
-				ld_VBuffUpdate();
+				Ldirect_Update();
 				return 0;
 			}
 		}

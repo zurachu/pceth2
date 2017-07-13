@@ -13,7 +13,6 @@
 #include <string.h>
 #include <piece.h>
 #include "zurapce/zurapce.h"
-#include "ld.h"
 
 #include "common.h"
 #include "pceth2_cal.h"
@@ -70,7 +69,7 @@ void pceth2_calenderInit()
 		pceth2_loadGraphic(buf, GRP_C);
 		pceth2_DrawGraphic();
 
-		ld_VBuffClear(0, 0, DISP_X, DISP_Y);
+		Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	}
 	circle = fpk_getEntryData(CIRCLE_CALENDER, NULL, NULL);	// ŠÛ
 	PieceBmp_Construct(&pcircle, circle);
@@ -109,7 +108,7 @@ void pceth2_calenderDrawCircle()
 					(DAY + zero_date[MONTH_INDEX(MONTH)]) / 7 * CIRCLE_H + CIRCLE_T, \
 					0, (circleAnim / ANIMATION_PROC) * 16, 16, 16, DRW_CLR(COLOR_GLAY_B, COLOR_MASK));
 	pceLCDDrawObject(d);
-	ld_VBuffUpdate();
+	Ldirect_Update();
 
 	if (++circleAnim >= 16 * ANIMATION_PROC) {
 		pceHeapFree(circle);
