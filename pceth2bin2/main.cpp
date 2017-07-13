@@ -193,7 +193,7 @@ int main(int argc, char *argv[])
 						j += getNumber(buf + j, &num[0]) + 1;
                         fprintf(fpout, "-%d", num[0]);
 						break;
-					case 0x19:	// ウェイト
+					case 0x19:	// ウェイト（33ms単位→10ms単位に変換）
 						j += calcRevPolish(buf + j, &num[0]) + 1;
 						fprintf(fpout, "w%03d", num[0] * 1000 / 30 / 10);
 						break;

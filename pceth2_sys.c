@@ -285,7 +285,7 @@ int pceth2_decReg(SCRIPT_DATA *s)
 int pceth2_wait(SCRIPT_DATA *s)
 {
     s->p++;
-	wait = pceth2_getNum(s);
+	wait = pceth2_getNum(s) * 30 / 100;
 	play.gameMode = GM_TIMEWAIT;
 
 	return 0;
