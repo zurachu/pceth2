@@ -54,7 +54,6 @@
 #include "pceth2_cal.h"
 #include "pceth2_sav.h"
 
-int _bright, _masteratt;	// 起動時のコントラスト、音量
 BOOL file_load = FALSE;		// ファイルを開けたかどうか
 
 int speed, wait, msgView;
@@ -92,7 +91,9 @@ void pceAppInit(void)
 	pceLCDDispStop();
 
 	usbCaptureInit();	// pceCaps初期化
-	hook_FontGetAdrs();	// 特殊フォント追加pceFontGetAdrsをフック
+	FontProxy_Hook_Set();
+	FontExtend_Hook_GetAdrs();	// 特殊フォント追加pceFontGetAdrsをフック
+
 	loadInst();			// ドラム音色分離キット初期化
 	InitMusic();		// 音楽ライブラリ初期化
 
@@ -107,8 +108,7 @@ void pceAppInit(void)
 	if (pceth2_readGlobalSaveData()) {
 
 		// 実行前のコントラスト、音量を保存
-		_bright = pceLCDSetBright(global.bright);
-		_masteratt = pceWaveSetMasterAtt(global.masteratt);
+		Configure_Init();
 
 		// アーカイブ読み込み
 		file_load = fpk_InitHandle(ARCHIVE_FILE_NAME);
@@ -221,11 +221,11 @@ void pceAppExit(void)
 	pceth2_writeGlobalSaveData();
 
 	// 実行前のコントラスト、音量に戻す
-	pceLCDSetBright(_bright);
-	pceWaveSetMasterAtt(_masteratt);
+	Configure_Exit();
 
 	fpk_ReleaseHandle();
-	unhook_FontGetAdrs();	// pceFontGetAdrsを元に戻す
+	FontExtend_Unhook_GetAdrs();	// pceFontGetAdrsを元に戻す
+	FontProxy_Unhook_Set();
 	usbCaptureRelease();	// pceCaps解放
 
 	//2005/06/11 Added by Madoka
