@@ -10,8 +10,8 @@
 
 #include <string.h>
 #include <piece.h>
+#include "zurapce/zurapce.h"
 #include "ld.h"
-#include "font_ex.h"
 
 #include "common.h"
 #include "pceth2_sel.h"
@@ -33,8 +33,8 @@ static void pceth2_loadMapChipChara();
  */
 void pceth2_drawSelArrow()
 {
-	ld_VBuffClear(0, 0, sFontStatus.xMin + FONT_W / 2 + 2, DISP_Y);
-	sFontPut(sFontStatus.xMin + 1, play.selY[play.selIndex], '>');
+	ld_VBuffClear(0, 0, MSG_X_MIN + FONT_W / 2 + 1, DISP_Y);
+	FontFuchi_Put(MSG_X_MIN, play.selY[play.selIndex], '>');
 }
 
 /*
@@ -93,7 +93,7 @@ int pceth2_addSelItem(SCRIPT_DATA *s)
 {
 	s->p++;
 
-	play.selY[play.selAmount] = sFontStatus.y;	// y座標を記憶
+	FontFuchi_GetPos(NULL, &play.selY[play.selAmount]);	// y座標を記憶
 
 	while (*(s->data + s->p) != ' ') {	// 選択肢を描画
 		if (strncmp(s->data + s->p, "　", 2) && strncmp(s->data + s->p, "\\n", 2)) {	// P/ECEではズレてしまうので無視
@@ -181,8 +181,8 @@ static void pceth2_putMapItem()
 	pceth2_clearMessage();
 	for (i = 0; i < play.lmAmount; i++) {
 		pceth2_putKanji("　");
-		play.selY[i] = sFontStatus.y;	// y座標を記憶
-		sFontPrintf("%s\n", landName[play.lm[i].land]);
+		FontFuchi_GetPos(NULL, &play.selY[i]);	// y座標を記憶
+		FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
 		play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
 	}
 	ld_VBuffUpdate();

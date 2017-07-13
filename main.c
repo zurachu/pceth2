@@ -39,7 +39,6 @@
 #include "usbcapt.h"
 #include "muslib2.h"
 #include "ld.h"
-#include "font_ex.h"
 
 #include "ufe/ufe.h" /*{{2005/06/09 Naoyuki Sawa}}*/
 #include "mmc_api.h" //2005/06/11 Added by Madoka
@@ -93,7 +92,10 @@ void pceAppInit(void)
 	usbCaptureInit();	// pceCaps初期化
 	FontProxy_Hook_Set();
 	FontExtend_Hook_GetAdrs();	// 特殊フォント追加pceFontGetAdrsをフック
-
+	FontFuchi_SetType(0);
+	FontFuchi_SetRange(MSG_X_MIN, MSG_Y_MIN, MSG_X_MAX, MSG_Y_MAX);
+	FontFuchi_SetTxColor(0);
+	FontFuchi_SetBdColor(3);
 	loadInst();			// ドラム音色分離キット初期化
 	InitMusic();		// 音楽ライブラリ初期化
 

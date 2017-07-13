@@ -3,6 +3,10 @@
 
 #define NAMEBUF_LEN	9
 
+#define MSG_X_MIN	4
+#define MSG_X_MAX	124
+#define MSG_Y_MIN	4
+#define MSG_Y_MAX	84
 #define FONT_W	10
 #define FONT_H	10
 
