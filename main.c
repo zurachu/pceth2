@@ -59,6 +59,9 @@ BOOL file_load = FALSE;		// ファイルを開けたかどうか
 
 int speed, wait, msgView;
 
+static PrecisionTimer s_frame_timer;
+static unsigned long s_frame_us, s_proc_us;
+
 int  pceth2_readScript(SCRIPT_DATA *s);
 void pceth2_waitKey();
 
@@ -123,6 +126,7 @@ void pceAppInit(void)
 	speed = 0;
 
 	pceLCDDispStart();
+	PrecisionTimer_Construct(&s_frame_timer);
 }
 
 /*
@@ -130,6 +134,9 @@ void pceAppInit(void)
  */
 void pceAppProc(int cnt)
 {
+	PrecisionTimer proc_timer;
+	PrecisionTimer_Construct(&proc_timer);
+
 	/*{{2005/06/09 Naoyuki Sawa*/
 //	if(!hFpk) { //初期化失敗?
 	if (!file_load) {	// 2005/07/23変更
@@ -185,7 +192,19 @@ void pceAppProc(int cnt)
 		}
 	}
 
+	pceLCDPaint(0, 0, 82, DISP_X, 6);
+	pceFontSetType(2);
+	pceFontSetPos(0, 82);
+	pceFontSetTxColor(3);
+	pceFontSetBkColor(FC_SPRITE);
+	pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
+	ld_LBuffUpdate();
+	ld_VBuffUpdate();
+
 	ld_LCDTransDirect();
+
+	s_frame_us = PrecisionTimer_Count(&s_frame_timer);
+	s_proc_us = PrecisionTimer_Count(&proc_timer);
 }
 
 /*

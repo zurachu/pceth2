@@ -328,6 +328,7 @@ void pceth2_SaveMenu()
 		} else {	// ロード・セーブ選択へ
 /* ウィンドウを書く */
 			pceLCDPaint(3, 42, 32, 44, 24);
+			pceFontSetType(0);
 			pceFontSetTxColor(0);
 			pceFontSetBkColor(FC_SPRITE);
 			pceFontSetPos(54, 34);

@@ -141,6 +141,7 @@ unsigned short sFontPutFuchi( int x, int y, unsigned short code )
 
 unsigned short sFontPut( int x, int y, unsigned short code )
 {
+	pceFontSetType(0);
 	//âèéÊÇËï`âÊ
 	if ( sFontStatus.spr&4 ) sFontPutFuchi( x, y, code );
 	
@@ -164,6 +165,7 @@ char *sFontPutStrEx( char Type, const char *p )
 	char *rpt = NULL;
 	m.s = 0;
 
+	pceFontSetType(0);
 	while (1) {
 		c1 = *p++;
 		if (!c1) break;
