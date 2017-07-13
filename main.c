@@ -192,6 +192,7 @@ void pceAppProc(int cnt)
 		}
 	}
 
+#ifdef _DEBUG
 	pceLCDPaint(0, 0, 82, DISP_X, 6);
 	pceFontSetType(2);
 	pceFontSetPos(0, 82);
@@ -199,6 +200,7 @@ void pceAppProc(int cnt)
 	pceFontSetBkColor(FC_SPRITE);
 	pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
 	Ldirect_Update();
+#endif
 
 	Ldirect_Trans();
 
