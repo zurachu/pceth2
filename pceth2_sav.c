@@ -293,6 +293,9 @@ void pceth2_SaveMenu()
 		FontFuchi_Put(MSG_X_MIN, MSG_Y_MIN + global.save_index * FONT_H + FONT_H, '>');
 		if (phase == 1) {
 			pceLCDPaint(3, 42, 32, 12, 24);
+			pceFontSetType(0);
+			pceFontSetTxColor(0);
+			pceFontSetBkColor(FC_SPRITE);
 			pceFontPut(44, 34 + mode * 10, '>');
 		}
 		Ldirect_Update();
