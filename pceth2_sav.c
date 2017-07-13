@@ -33,15 +33,11 @@ SAVE_DATA play;
  */
 BOOL pceth2_readGlobalSaveData()
 {
-	FILEACC pfa;
-
 	memset(&global, 0, sizeof(GLOBAL_SAVE_DATA));
 	global.bright = pceLCDSetBright(INVALIDVAL);
 	global.masteratt = pceWaveSetMasterAtt(INVALIDVAL);
 
-	if (pceFileOpen(&pfa, GLOBAL_SAVE_FILE_NAME, FOMD_RD) == 0) {
-		pceFileReadSct(&pfa, &global, 0, sizeof(GLOBAL_SAVE_DATA));
-		pceFileClose(&pfa);
+	if(File_ReadTo((unsigned char*)&global, GLOBAL_SAVE_FILE_NAME) == sizeof(GLOBAL_SAVE_DATA)) {
 		if (global.bright < MIN_BRIGHT) {
 			global.bright = MIN_BRIGHT;
 		}
@@ -87,16 +83,9 @@ BOOL pceth2_writeGlobalSaveData()
 BOOL pceth2_readSaveData(int num)
 {
 	char buf[FNAMELEN_SAV + 1];
-	FILEACC pfa;
 
 	sprintf(buf, "pceth2_%d.sav", num);
-	if (pceFileOpen(&pfa, buf, FOMD_RD) == 0) {
-		pceFileReadSct(&pfa, &play, 0, sizeof(SAVE_DATA));
-		pceFileClose(&pfa);
-		return TRUE;
-	}
-
-	return FALSE;
+	return (File_ReadTo((unsigned char*)&play, buf) == sizeof(SAVE_DATA));
 }
 
 
