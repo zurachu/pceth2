@@ -17,6 +17,9 @@
 
 #include <piece.h>
 
+#define LDIRECT_PAGE_NUM	5 ///< 切り替えページ数
+#define LDIRECT_COLOR_NUM	16 ///< 階調数（LDIRECT_PAGE_NUM * 3 + 1）
+
 /** @page pgx_format 16階調画像フォーマット
 	PIECE_BMP の拡張フォーマットです。
 

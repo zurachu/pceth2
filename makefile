@@ -55,7 +55,7 @@ LIBRARIES += $(ZURAPCE_LIBRARY)
 #=======================================
 ifeq ($(strip $(USE_LDIRECT_ON_FRAM)),true)
 
-FRAM_LDIRECT := Ldirect.o
+FRAM_LDIRECT := Ldirect_Fram.o
 FRAM_OBJECTS += $(FRAM_LDIRECT)
 
 $(FRAM_LDIRECT) : $(ZURAPCE_LIBRARY)
