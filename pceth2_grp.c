@@ -18,6 +18,7 @@
 
 #include <string.h>
 #include <piece.h>
+#include "zurapce/zurapce.h"
 #include "ld.h"
 
 #include "common.h"
@@ -85,7 +86,7 @@ void pceth2_loadGraphic(const char *fName, const int pos)
 	/*pgx[pos] =*/ fpk_getEntryData(play.pgxname[pos], NULL, pgx[pos]);
 
 	if (pgx[pos] != NULL) {
-		Get_PieceBmp(&pbmp[pos], pgx[pos]);
+		PieceBmp_Construct(&pbmp[pos], pgx[pos]);
 	} else {
 		*play.pgxname[pos] = '\0';
 	}

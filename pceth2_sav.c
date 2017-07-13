@@ -140,13 +140,13 @@ static void pceth2_drawTitleGraphic()
 	BYTE		*_title;
 
 	_title = fpk_getEntryData(TITLE_BG, NULL, NULL);	// ”wŒi
-	Get_PieceBmp(&p_title, _title);
+	PieceBmp_Construct(&p_title, _title);
 	ld_DrawObject(&p_title, 0, 0);
 	pceHeapFree(_title);
 	_title = NULL;
 
 	_title = fpk_getEntryData(TITLE_LOGO, NULL, NULL);	// ƒ^ƒCƒgƒ‹
-	Get_PieceBmp(&p_title, _title);
+	PieceBmp_Construct(&p_title, _title);
 	ld_DrawObject(&p_title, 28, 4);
 	pceHeapFree(_title);
 	_title = NULL;

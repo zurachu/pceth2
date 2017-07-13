@@ -12,6 +12,7 @@
 
 #include <string.h>
 #include <piece.h>
+#include "zurapce/zurapce.h"
 #include "ld.h"
 
 #include "common.h"
@@ -72,7 +73,7 @@ void pceth2_calenderInit()
 		ld_VBuffClear(0, 0, DISP_X, DISP_Y);
 	}
 	circle = fpk_getEntryData(CIRCLE_CALENDER, NULL, NULL);	// 丸
-	Get_PieceBmp(&pcircle, circle);
+	PieceBmp_Construct(&pcircle, circle);
 	// ↑毎日解放されてるので、毎日確保しないといけなかった。if{}から出しました。
 	// 　速度が遅いからメモリ残量が問題なければ常に置いときたいけど…。
 	circleAnim = 0;
