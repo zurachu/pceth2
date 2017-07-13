@@ -73,7 +73,7 @@ void pceth2_waitKey();
  */
 #define ARCHIVE_FILE_NAME	"pceth2.par"	// アーカイブファイル名
 #define DEBUG_FILE_NAME		"999999999.scp"	// デバッグメニュースクリプト
-#define PROC_PERIOD	10	// Proc/msec
+#define PROC_PERIOD	33	// Proc/msec
 
 void pceAppInit(void)
 {	
