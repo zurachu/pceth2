@@ -85,6 +85,7 @@ typedef struct tagSAVE_DATA {
 extern GLOBAL_SAVE_DATA global;
 extern SAVE_DATA play;
 extern unsigned short reg[];
+extern BOOL debug_mode;
 extern int msgView, speed, wait;
 
 void pceth2_Init();

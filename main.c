@@ -54,6 +54,7 @@
 
 BOOL file_load = FALSE;		// ファイルを開けたかどうか
 
+BOOL debug_mode = FALSE;
 int speed, wait, msgView;
 
 static PrecisionTimer s_frame_timer;
@@ -75,7 +76,11 @@ void pceth2_waitKey();
 void pceAppInit(void)
 {	
 	FramObject_Init();
-	
+
+	if(pcePadGetDirect() & PAD_C) {
+		debug_mode = TRUE;
+	}
+
 	/*{{2005/06/09 Naoyuki Sawa*/
 	if(ufe_setup() != 0)	// UFE初期化
 	{
@@ -113,12 +118,13 @@ void pceAppInit(void)
 		// アーカイブ読み込み
 		file_load = fpk_InitHandle(ARCHIVE_FILE_NAME);
 		if (file_load) {
-#ifdef _DEBUG
-			pceth2_Init();
-			pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);	// 2005/06/13追加
-#else
-			pceth2_TitleInit();
-#endif
+			if(debug_mode) {
+				pceth2_Init();
+				pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);	// 2005/06/13追加
+				play.gameMode = GM_SCRIPT;
+			} else {
+				pceth2_TitleInit();
+			}
 		}
 	}
 
@@ -192,15 +198,15 @@ void pceAppProc(int cnt)
 		}
 	}
 
-#ifdef _DEBUG
-	pceLCDPaint(0, 0, 82, DISP_X, 6);
-	pceFontSetType(2);
-	pceFontSetPos(0, 82);
-	pceFontSetTxColor(3);
-	pceFontSetBkColor(FC_SPRITE);
-	pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
-	Ldirect_Update();
-#endif
+	if(debug_mode) {
+		pceLCDPaint(0, 0, 82, DISP_X, 6);
+		pceFontSetType(2);
+		pceFontSetPos(0, 82);
+		pceFontSetTxColor(3);
+		pceFontSetBkColor(FC_SPRITE);
+		pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
+		Ldirect_Update();
+	}
 
 	Ldirect_Trans();
 
@@ -385,32 +391,32 @@ int pceth2_readScript(SCRIPT_DATA *s)
 
 	// 最後まで読んだら終了
 	if (s->p >= s->size) {
-#ifdef _DEBUG	// デバッグモードの場合デバッグメニューに戻る
-		pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
-#else
-		switch(play.gameMode)
-		{
-			case GM_EVSCRIPT:
-				if (!pceth2_initMapSelect()) {	// マップ選択肢があればマップ選択へ
-					JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
-					if (TIME > EV_NIGHT) {	// 一日終了
-						TIME = EV_MORNING;
-						DAY++;
-						pceth2_calenderInit();	// カレンダー
-					} else {
-						pceth2_loadEVScript();	// 次のEVスクリプトを読む
+		if(debug_mode) {	// デバッグモードの場合デバッグメニューに戻る
+			pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
+		} else {
+			switch(play.gameMode)
+			{
+				case GM_EVSCRIPT:
+					if (!pceth2_initMapSelect()) {	// マップ選択肢があればマップ選択へ
+						JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
+						if (TIME > EV_NIGHT) {	// 一日終了
+							TIME = EV_MORNING;
+							DAY++;
+							pceth2_calenderInit();	// カレンダー
+						} else {
+							pceth2_loadEVScript();	// 次のEVスクリプトを読む
+						}
+	//					if (play.evData.size == 0) {	// 読めなかったら終了
+	//						pceAppReqExit(0);
+	//					}
 					}
-//					if (play.evData.size == 0) {	// 読めなかったら終了
-//						pceAppReqExit(0);
-//					}
-				}
-				break;
-			case GM_SCRIPT:
-				pceth2_closeScript(&play.scData);
-				play.gameMode = GM_EVSCRIPT;
-				break;
+					break;
+				case GM_SCRIPT:
+					pceth2_closeScript(&play.scData);
+					play.gameMode = GM_EVSCRIPT;
+					break;
+			}
 		}
-#endif
 		return 0;
 	}
 

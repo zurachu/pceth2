@@ -182,9 +182,9 @@ void pceth2_TitleInit()
 int pceth2_backTitle(SCRIPT_DATA *s)
 {
 	s->p++;
-#ifndef _DEBUG	// デバッグ版は何もしない
-	pceth2_TitleInit();
-#endif
+	if(!debug_mode) {	// デバッグ版は何もしない
+		pceth2_TitleInit();
+	}
 
 	return 0;
 }
