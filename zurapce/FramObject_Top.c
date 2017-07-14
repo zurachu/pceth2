@@ -1,3 +1,9 @@
+/** @file
+	高速RAM転送コードの先頭アドレス定義.
+	__START_Fram_Top_codeシンボルを生成するための空ソース。
+	CLiP - Common Library for P/ECE（nsawa氏）より引用。
+*/
+
 /*	
  *	framtop.c
  *

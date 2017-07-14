@@ -9,6 +9,7 @@
 
 #include <string.h>
 #include <piece.h>
+#include "zurapce/zurapce.h"
 #include "muslib2.h"
 
 #include "common.h"
@@ -59,18 +60,6 @@ static void Stop_PieceWave(PCEWAVEINFO *pWav)
 }
 
 /*
- *	PCEWAVEINFO作成
- *
- *	*pWav	PCEWAVEDATA構造体のポインタ
- *	*data	メモリ上のppdファイルデータ
- */
-static void Get_PieceWave(PCEWAVEINFO *pWav, BYTE* data)
-{
-	*pWav = *((PCEWAVEINFO *)(data + 8));
-	pWav->pData = data + 8 + sizeof(PCEWAVEINFO);
-}
-
-/*
  *	PCEWAVEINFO作成拡張（pfEndProcでリピート再生）
  *
  *	*pWav	PCEWAVEDATA構造体のポインタ
@@ -79,7 +68,7 @@ static void Get_PieceWave(PCEWAVEINFO *pWav, BYTE* data)
  */
 static void Get_PieceWaveEx(PCEWAVEINFO *pWav, BYTE *data, const int rep)
 {
-	Get_PieceWave(pWav, data);
+	PceWaveInfo_Construct(pWav, data);
 	if (rep) {	// リピート
 		pWav->pfEndProc = Play_PieceWave;
 	} else {	// 再生終了

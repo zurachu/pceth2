@@ -13,8 +13,7 @@
 
 #include <string.h>
 #include <piece.h>
-#include "font_ex.h"
-#include "ld.h"
+#include "zurapce/zurapce.h"
 
 #include "common.h"
 #include "pceth2_msg.h"
@@ -30,7 +29,9 @@
  */
 BOOL pceth2_isLineTop()
 {
-	return (sFontStatus.x <= sFontStatus.xMin + 1);
+	int x;
+	FontFuchi_GetPos(&x, NULL);
+	return (x <= MSG_X_MIN);
 }
 
 /*
@@ -38,7 +39,9 @@ BOOL pceth2_isLineTop()
  */
 BOOL pceth2_isPageTop()
 {
-	return (pceth2_isLineTop() && (sFontStatus.y <= sFontStatus.yMin + 1));
+	int y;
+	FontFuchi_GetPos(NULL, &y);
+	return (pceth2_isLineTop() && (y <= MSG_Y_MIN));
 }
 
 /*
@@ -56,7 +59,7 @@ void pceth2_setPageTop()
  */
 void pceth2_clearMessage(void)
 {
-	ld_VBuffClear(0, 0, DISP_X, DISP_Y);
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	*play.msg = '\0';
 	play.msglen = 0;
 }
@@ -66,7 +69,7 @@ void pceth2_clearMessage(void)
  */
 void pceth2_putKanji(const char *str)
 {
-	sFontPrintf("%c%c", *str, *(str + 1));
+	FontFuchi_Printf("%c%c", *str, *(str + 1));
 	*(play.msg + play.msglen++)	= *str;
 	*(play.msg + play.msglen++)	= *(str + 1);
 	*(play.msg + play.msglen)	= '\0';
@@ -77,7 +80,7 @@ void pceth2_putKanji(const char *str)
  */
 void pceth2_putCR(void)
 {
-	sFontPutStr("\n");
+	FontFuchi_PutStr("\n");
 	*(play.msg + play.msglen++)	= '\n';
 	*(play.msg + play.msglen)	= '\0';
 }
@@ -135,14 +138,14 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 					pceth2_putCR();
 					if (pceth2_isPageTop()) {
 						play.gameMode = GM_KEYWAIT;
-						ld_VBuffUpdate();
+						Ldirect_Update();
 						return 0;
 					}
 				}
 			}
 			if (!pceth2_isPageTop()) {
 				play.gameMode = GM_KEYWAIT;
-				ld_VBuffUpdate();
+				Ldirect_Update();
 				return 0;
 			}
 		}
@@ -156,7 +159,7 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 							pceth2_putCR();
 							if (pceth2_isPageTop()) {
 								play.gameMode = GM_KEYWAIT;
-								ld_VBuffUpdate();
+								Ldirect_Update();
 								return 0;
 							}
 							break;
@@ -172,7 +175,7 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 			if (!pceth2_isPageTop()) {				// ページ先頭でなければキー待ち改ページ
 				pceth2_setPageTop();
 				play.gameMode = GM_KEYWAIT;
-				ld_VBuffUpdate();
+				Ldirect_Update();
 				return 0;
 			}
 		}
@@ -189,9 +192,10 @@ int pceth2_procEscape(SCRIPT_DATA *s)
 int pceth2_jpnHyphenation(const char *str)
 {
 	static const char *hypWords[] = {"。", "、", "」", "』", "）"};
-	int i;
+	int i, x;
 
-	if (sFontStatus.x > sFontStatus.xMax - (FONT_W + 1)) {
+	FontFuchi_GetPos(&x, NULL);
+	if (x > MSG_X_MAX - (FONT_W + 1)) {
 		for (i = 0; i < array_size(hypWords); i++) {
 			if (!strncmp(str, hypWords[i], 2)) {
 				return 1;
