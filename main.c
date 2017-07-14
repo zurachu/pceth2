@@ -60,8 +60,10 @@ int speed, wait, msgView;
 static PrecisionTimer s_frame_timer;
 static unsigned long s_frame_us, s_proc_us;
 
+void pceth2_initGraphicAndSound();
 int  pceth2_readScript(SCRIPT_DATA *s);
 void pceth2_waitKey();
+void pceth2_startDebugMenu();
 
 //=============================================================================
 //=============================================================================
@@ -120,8 +122,7 @@ void pceAppInit(void)
 		if (file_load) {
 			if(debug_mode) {
 				pceth2_Init();
-				pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);	// 2005/06/13追加
-				play.gameMode = GM_SCRIPT;
+				pceth2_startDebugMenu();
 			} else {
 				pceth2_TitleInit();
 			}
@@ -191,10 +192,18 @@ void pceAppProc(int cnt)
 	}
 
 	if (pcePadGet() & PAD_D) {
-		if (play.gameMode == GM_TITLE) {
-			pceAppReqExit(0);
+		if(debug_mode) {
+			if(!strncmp(play.scData.name, DEBUG_FILE_NAME, 6)) { // デバッグメニュースクリプト中
+				pceAppReqExit(0);
+			} else {
+				pceth2_startDebugMenu();
+			}
 		} else {
-			pceth2_TitleInit();
+			if (play.gameMode == GM_TITLE) {
+				pceAppReqExit(0);
+			} else {
+				pceth2_TitleInit();
+			}
 		}
 	}
 
@@ -271,14 +280,6 @@ int pceAppNotify(int type, int param)
  */
 void pceth2_Init()
 {
-	int i;
-
-	pceth2_setPageTop();
-	pceth2_clearMessage();
-
-	msgView = 1;
-	speed = 0;
-
 	memset(play, 0, sizeof(SAVE_DATA));
 
 	MONTH	= START_MONTH;	// 月
@@ -289,6 +290,23 @@ void pceth2_Init()
 
 	memset(reg, 0, REG_NUM);	// レジスタ
 
+	pceth2_initGraphicAndSound();
+
+	pceth2_loadEVScript(&play.evData);
+
+//	play.gameMode = GM_EVSCRIPT;
+}
+
+void pceth2_initGraphicAndSound()
+{
+	int i;
+
+	pceth2_setPageTop();
+	pceth2_clearMessage();
+
+	msgView = 1;
+	speed = 0;
+
 	for (i = 0; i <= GRP_NUM; i++) {
 		pceth2_clearGraphic(i);
 	}
@@ -297,11 +315,7 @@ void pceth2_Init()
 
 	Stop_PieceMML();
 
-	pceth2_loadEVScript(&play.evData);
-
 	Ldirect_Update();
-
-//	play.gameMode = GM_EVSCRIPT;
 }
 
 /*
@@ -392,7 +406,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 	// 最後まで読んだら終了
 	if (s->p >= s->size) {
 		if(debug_mode) {	// デバッグモードの場合デバッグメニューに戻る
-			pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
+			pceth2_startDebugMenu();
 		} else {
 			switch(play.gameMode)
 			{
@@ -453,4 +467,11 @@ int pceth2_readScript(SCRIPT_DATA *s)
 UPDATE:
 	Ldirect_Update();
 	return 0;
+}
+
+void pceth2_startDebugMenu()
+{
+	pceth2_initGraphicAndSound();
+	pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
+	play.gameMode = GM_SCRIPT;
 }
