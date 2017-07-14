@@ -22,6 +22,7 @@
 GLOBAL_SAVE_DATA global;
 SAVE_DATA play;
 
+static int const s_debug_mode_flag = 0x100; ///< @see common.h SAVE_DATA::gameMode
 
 //=============================================================================
 //	グローバルセーブファイル
@@ -85,7 +86,12 @@ BOOL pceth2_readSaveData(int num)
 	char buf[FNAMELEN_SAV + 1];
 
 	sprintf(buf, "pceth2_%d.sav", num);
-	return (File_ReadTo((unsigned char*)&play, buf) == sizeof(SAVE_DATA));
+	if(File_ReadTo((unsigned char*)&play, buf) == sizeof(SAVE_DATA)) {
+		debug_mode = play.gameMode & s_debug_mode_flag;
+		play.gameMode &= ~s_debug_mode_flag;
+		return TRUE;
+	}
+	return FALSE;
 }
 
 
@@ -238,13 +244,18 @@ static void pceth2_drawSaveMenu()
 	FontFuchi_PutStr("セーブ・ロード\n");
 
 	for (i = 0; i < SAVE_FILE_NUM; i++) {
-		FontFuchi_Printf("%c %d.",((i == global.save_index)? '>' : ' '), i);
+		FontFuchi_Printf("%c %d. ",((i == global.save_index)? '>' : ' '), i);
 		sprintf(buf, "pceth2_%d.sav", i);
 		if (pceFileOpen(&pfa, buf, FOMD_RD) == 0) {
 			pceFileReadSct(&pfa, NULL, 0, sizeof(SAVE_DATA));
-			month = ((SAVE_DATA*)pfa.aptr)->flag[0];
-			day = ((SAVE_DATA*)pfa.aptr)->flag[1];
-			FontFuchi_Printf("%2d月%2d日 %s曜日", month, day, date[pceth2_getDate(month, day)]);
+			if(((SAVE_DATA*)pfa.aptr)->gameMode & s_debug_mode_flag) {
+				FontFuchi_PutStr(((SAVE_DATA*)pfa.aptr)->scData.name);
+			} else {
+				month = ((SAVE_DATA*)pfa.aptr)->flag[0];
+				day = ((SAVE_DATA*)pfa.aptr)->flag[1];
+				FontFuchi_Printf("%1d月%2d日 %s曜日", month, day, date[pceth2_getDate(month, day)]);
+			}
+			pceFileClose(&pfa);
 		}
 		FontFuchi_PutStr("\n");
 	}
@@ -310,6 +321,9 @@ void pceth2_SaveMenu()
 			}
 		} else if (phase == 1) {	// セーブ
 			play.gameMode = last_gameMode;	// セーブ用に一瞬戻す
+			if(debug_mode) {
+				play.gameMode |= s_debug_mode_flag;
+			}
 			pceth2_writeSaveData(global.save_index);
 			play.gameMode = GM_SAVE;
 			pceth2_drawSaveMenu();

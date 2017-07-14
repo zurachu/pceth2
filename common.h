@@ -65,7 +65,7 @@ typedef struct tagGLOBAL_SAVE_DATA {
 
 // セーブデータ構造体
 typedef struct tagSAVE_DATA {
-	int				gameMode;			// ゲーム状態
+	int				gameMode;			// ゲーム状態（セーブ時のみ、16bit目にデバッグモードフラグを保存）
 	int				msglen;				// メッセージ長さ
 	char			msg[12*8*2+4];		// メッセージバッファ
 	unsigned short	flag[FLAG_NUM];		// フラグ
