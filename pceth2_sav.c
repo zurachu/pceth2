@@ -166,7 +166,6 @@ void pceth2_TitleInit()
 	FontFuchi_PutStr("‚Â‚Ã‚«‚©‚ç");
 	FontFuchi_Put(28, 56 + index * 12, '>');
 	FontFuchi_Put(28 + 65, 56 + index * 12, '<');
-	Ldirect_VBuffView(TRUE);
 	Ldirect_Update();
 
 	play.gameMode = GM_TITLE;

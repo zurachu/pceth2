@@ -55,12 +55,14 @@
 BOOL file_load = FALSE;		// ファイルを開けたかどうか
 
 int speed, wait, msgView;
+static int bButtonMenuTime = 0;
 
 static PrecisionTimer s_frame_timer;
 static unsigned long s_frame_us, s_proc_us;
 
 int  pceth2_readScript(SCRIPT_DATA *s);
 void pceth2_waitKey();
+void pceth2_drawBMenu();
 
 //=============================================================================
 //=============================================================================
@@ -91,6 +93,7 @@ void pceAppInit(void)
 	{
 		return;
 	}
+	Ldirect_VBuffView(TRUE);
 	pceLCDDispStop();
 
 	FontProxy_Hook_Set();
@@ -317,32 +320,64 @@ void pceth2_waitKey()
 		} else if (pcePadGet() & TRG_B) {
 			if (!pceth2_isCalenderMode()) {	// カレンダーの時は消せない
 				msgView = 0;
-				Ldirect_VBuffView(FALSE);	// 文字消去
-				Ldirect_Update();
+				Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
+				pceth2_drawBMenu();
 			}
 		}
 	}
 	else			// メッセージ非表示状態
 	{
+		if(bButtonMenuTime > 0) {
+			if(--bButtonMenuTime == 0) {
+				Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
+			}
+		}
 		if (pcePadGet() & (TRG_A | TRG_B)) {	
 			msgView = 1;
-			Ldirect_VBuffView(TRUE);	// メッセージ表示
+			Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
+			FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
+			FontFuchi_PutStr(play.msg);	// メッセージ
 			Ldirect_Update();
 		}
 		// ＋上下左右でコントラスト、音量の調節
-		if (pcePadGet() & TRG_LF && global.bright > 0) {
-			pceLCDSetBright(--global.bright);
+		if (pcePadGet() & TRG_LF) {
+			if(global.bright > 0) {
+				pceLCDSetBright(--global.bright);
+			}
+			pceth2_drawBMenu();
 		}
-		if (pcePadGet() & TRG_RI && global.bright < 63) {
-			pceLCDSetBright(++global.bright);
+		if (pcePadGet() & TRG_RI) {
+			if(global.bright < 63) {
+				pceLCDSetBright(++global.bright);
+			}
+			pceth2_drawBMenu();
 		}
-		if (pcePadGet() & TRG_DN && global.masteratt < 127) {
-			pceWaveSetMasterAtt(++global.masteratt);
+		if (pcePadGet() & TRG_DN) {
+			if(global.masteratt < 127) {
+				pceWaveSetMasterAtt(++global.masteratt);
+			}
+			pceth2_drawBMenu();
 		}
-		if (pcePadGet() & TRG_UP && global.masteratt > 0) {
-			pceWaveSetMasterAtt(--global.masteratt);
+		if (pcePadGet() & TRG_UP) {
+			if(global.masteratt > 0) {
+				pceWaveSetMasterAtt(--global.masteratt);
+			}
+			pceth2_drawBMenu();
 		}
 	}
+}
+
+void pceth2_drawBMenu()
+{
+	pceLCDPaint(0, 0, 0, DISP_X, 6);
+	pceFontSetType(2);
+	pceFontSetPos(0, 0);
+	pceFontSetTxColor(3);
+	pceFontSetBkColor(FC_SPRITE);
+	pceFontPrintf("<>BRIGHT:%2d ^VOL:%3d", global.bright, 127 - global.masteratt);
+	pceFontPut(48, 1, 'v');
+	Ldirect_Update();
+	bButtonMenuTime = 3 * 1000 / PROC_PERIOD;
 }
 
 /*
