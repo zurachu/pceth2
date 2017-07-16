@@ -15,6 +15,7 @@ BOOL pceth2_isPageTop();
 void pceth2_setPageTop();
 
 void pceth2_clearMessage(void);
+void pceth2_comeBackMessage(void);
 void pceth2_putKanji(const char *str);
 void pceth2_putCR(void);
 

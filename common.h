@@ -89,5 +89,7 @@ extern BOOL debug_mode;
 extern int msgView, speed, wait;
 
 void pceth2_Init();
+void pceth2_bButtonMenu();
+void pceth2_drawBButtonMenu();
 
 #endif

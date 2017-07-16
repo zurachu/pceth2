@@ -47,33 +47,44 @@ void pceth2_drawSelArrow()
 
 int pceth2_SelectEx(int amount)
 {
-	static BOOL LCDUpdate = FALSE;
+	BOOL LCDUpdate = FALSE;
 
-	if (pcePadGet() & TRG_UP) {	// ↑
-		play.selIndex = (play.selIndex + amount - 1) % amount;
-		LCDUpdate = TRUE;
-	}
-	if (pcePadGet() & TRG_DN) {	// ↓
-		play.selIndex = (play.selIndex + 1) % amount;
-		LCDUpdate = TRUE;
-	}
-
-	if (LCDUpdate) {
-		if (play.gameMode == GM_MAPSELECT) {	// マップ選択は
-			pceth2_loadMapChipChara();			// チップキャラも描き替え
+	if (msgView)	// メッセージ表示状態
+	{
+		if (pcePadGet() & TRG_UP) {	// ↑
+			play.selIndex = (play.selIndex + amount - 1) % amount;
+			LCDUpdate = TRUE;
 		}
-		pceth2_drawSelArrow();	// 矢印
-		Ldirect_Update();
-		LCDUpdate = FALSE;
-	}
+		if (pcePadGet() & TRG_DN) {	// ↓
+			play.selIndex = (play.selIndex + 1) % amount;
+			LCDUpdate = TRUE;
+		}
 
-	if (pcePadGet() & TRG_A) {	// A
-		pceth2_setPageTop();
-		pceth2_clearMessage();
-		Ldirect_Update();
+		if (LCDUpdate) {
+			if (play.gameMode == GM_MAPSELECT) {	// マップ選択は
+				pceth2_loadMapChipChara();			// チップキャラも描き替え
+			}
+			pceth2_drawSelArrow();	// 矢印
+			Ldirect_Update();
+			LCDUpdate = FALSE;
+		}
 
-		return play.selIndex;
+		if (pcePadGet() & TRG_A) {	// A
+			pceth2_setPageTop();
+			pceth2_clearMessage();
+			Ldirect_Update();
+
+			return play.selIndex;
+		} else if (pcePadGet() & TRG_B) {
+			pceth2_drawBButtonMenu();
+		}
 	}
+	else			// メッセージ非表示状態
+	{
+		pceth2_bButtonMenu();
+	}
+	
+	
 
 	return NO_SELECT;
 }

@@ -19,6 +19,7 @@
 #include "pceth2_msg.h"
 #include "pceth2_sys.h"
 #include "pceth2_str.h"
+#include "pceth2_sel.h"
 
 //=============================================================================
 //	文字描画
@@ -62,6 +63,22 @@ void pceth2_clearMessage(void)
 	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
 	*play.msg = '\0';
 	play.msglen = 0;
+}
+
+/*
+ *	メッセージを復帰
+ */
+void pceth2_comeBackMessage(void)
+{
+	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
+	FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
+	FontFuchi_PutStr(play.msg);
+
+	if (play.gameMode == GM_SELECT || play.gameMode == GM_MAPSELECT) {	// 選択中なら矢印描画
+		pceth2_drawSelArrow();
+	}
+	msgView = 1;
+	Ldirect_Update();
 }
 
 /*
