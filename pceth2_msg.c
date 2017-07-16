@@ -87,6 +87,7 @@ void pceth2_comeBackMessage(void)
 void pceth2_putKanji(const char *str)
 {
 	FontFuchi_Printf("%c%c", *str, *(str + 1));
+	Ldirect_VBuffView(TRUE);
 	*(play.msg + play.msglen++)	= *str;
 	*(play.msg + play.msglen++)	= *(str + 1);
 	*(play.msg + play.msglen)	= '\0';

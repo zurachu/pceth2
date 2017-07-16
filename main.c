@@ -1,36 +1,36 @@
 /*
  *	pceth2
  *
- *	(c)2005 ‚Ä‚Æ‚çš‚Û‚Á‚Æ
+ *	(c)2005 ã¦ã¨ã‚‰â˜…ã½ã£ã¨
  *
- *	2005/02/16	D‚«D‚«ƒ^ƒ}‚¨o‚¿‚á‚ñVer.
- *	2005/03/11	‰æ‘œ‚ÍŠO•”ƒtƒ@ƒCƒ‹iparŒ`®j‚©‚ç“Ç‚İ‚Ş‚æ‚¤‚É
- *	2005/04/09	ƒXƒNƒŠƒvƒg“Ç‚İ‚İ’B¬
- *	2005/04/20	“Áê•¶š‚Ìˆ—Ï‚İAƒn[ƒg’Ç‰Á
- *	2005/04/21	‹Ö‘¥ˆ—iABj’Ç‰ÁAw3Œ…‚É
- *	2005/04/23	‰æ‘œƒf[ƒ^ƒ|ƒCƒ“ƒ^‚ğƒq[ƒv‰ğ•úŒã‚ÉŠmÀ‚ÉNULL‚É
- *	2005/04/25	<S>A<W>‚É‘Î‰A\kŒã‚Å‚È‚¢\n‚ğ–³‹
- *				w3Œ…‚É‚¿‚á‚ñ‚Æ‘Î‰‚µ‚Ä‚¢‚È‚©‚Á‚½‚Ì‚ğC³
- *				–¼‘O’uŠ·‚É*nnk1‚ğ’Ç‰Á
- *	2005/04/27	pceth2_grp.c‚É•ª—£
- *				ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒviğŒ‚È‚µj‚ğ’Ç‰Á
- *	2005/04/30	ƒtƒ‰ƒOƒ[ƒhAƒ‰ƒxƒ‹ƒuƒ‰ƒ“ƒ`AƒXƒNƒŠƒvƒgƒWƒƒƒ“ƒv‚ğ’Ç‰Á
- *	2005/05/01	ƒtƒ‰ƒOƒZ[ƒu‚ğ’Ç‰Á
- *				‹Ö‘¥ˆ—‚Évx‚ğ’Ç‰Á
- *				pceth2_sys.c‚É•ª—£
- *	2005/05/07	pceth2_snd.c‚ğ’Ç‰Á
- *	2005/05/08	pceth2_msg.c‚É•ª—£
- *	2005/06/11	ƒJƒŒƒ“ƒ_[ƒ‚[ƒh‚Ì‚ÍBƒ{ƒ^ƒ“‚ÅVBuff‚ªÁ‚¦‚È‚¢‚æ‚¤‚ÉC³
- *	2005/06/12	B{ã‰º¶‰E‚ÅƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Ê’²ß‰Â”\‚É
- *	2005/06/13	ƒfƒoƒbƒO—pƒrƒ‹ƒh’Ç‰Á
- *	2005/06/15	ˆês‚Ì•¶š”‚Ìˆá‚¢‚É‚æ‚é‰üs‚Ì•â³
- *	2005/06/25	–¼‘O’uŠ·ˆ—‚ğƒRƒ“ƒo[ƒ^‘¤‚ÉˆÚ“®
- *	2005/06/30	ƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Ê’²ß‚Ì‘€ì‚ğ•ÏXiƒEƒBƒ“ƒhƒEÁ‚µ‚Ä‚éó‘Ô‚Åã‰º¶‰Ej
- *	2005/07/19	calFlag”p~Apgxname[GRP_C]‚Å”»’f‚·‚é‚æ‚¤‚É
- *				ƒXƒNƒŠƒvƒg’†‚ÌƒJƒŒƒ“ƒ_[ƒ‚[ƒh‚É‘Î‰
- *				BG•\¦–½—ß‚Å÷‚ğ“ú•t‚É‡‚í‚¹‚È‚¢ƒP[ƒXi‰ñ‘z‚È‚Çj‚É‘Î‰
+ *	2005/02/16	å¥½ãå¥½ãã‚¿ãƒãŠå§‰ã¡ã‚ƒã‚“Ver.
+ *	2005/03/11	ç”»åƒã¯å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆparå½¢å¼ï¼‰ã‹ã‚‰èª­ã¿è¾¼ã‚€ã‚ˆã†ã«
+ *	2005/04/09	ã‚¹ã‚¯ãƒªãƒ—ãƒˆèª­ã¿è¾¼ã¿é”æˆ
+ *	2005/04/20	ç‰¹æ®Šæ–‡å­—ã®å‡¦ç†æ¸ˆã¿ã€ãƒãƒ¼ãƒˆè¿½åŠ 
+ *	2005/04/21	ç¦å‰‡å‡¦ç†ï¼ˆã€ã€‚ï¼‰è¿½åŠ ã€w3æ¡ã«
+ *	2005/04/23	ç”»åƒãƒ‡ãƒ¼ã‚¿ãƒã‚¤ãƒ³ã‚¿ã‚’ãƒ’ãƒ¼ãƒ—è§£æ”¾å¾Œã«ç¢ºå®Ÿã«NULLã«
+ *	2005/04/25	<S>ã€<W>ã«å¯¾å¿œã€\kå¾Œã§ãªã„\nã‚’ç„¡è¦–
+ *				w3æ¡ã«ã¡ã‚ƒã‚“ã¨å¯¾å¿œã—ã¦ã„ãªã‹ã£ãŸã®ã‚’ä¿®æ­£
+ *				åå‰ç½®æ›ã«*nnk1ã‚’è¿½åŠ 
+ *	2005/04/27	pceth2_grp.cã«åˆ†é›¢
+ *				ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—ï¼ˆæ¡ä»¶ãªã—ï¼‰ã‚’è¿½åŠ 
+ *	2005/04/30	ãƒ•ãƒ©ã‚°ãƒ­ãƒ¼ãƒ‰ã€ãƒ©ãƒ™ãƒ«ãƒ–ãƒ©ãƒ³ãƒã€ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¸ãƒ£ãƒ³ãƒ—ã‚’è¿½åŠ 
+ *	2005/05/01	ãƒ•ãƒ©ã‚°ã‚»ãƒ¼ãƒ–ã‚’è¿½åŠ 
+ *				ç¦å‰‡å‡¦ç†ã«ã€ã€ã‚’è¿½åŠ 
+ *				pceth2_sys.cã«åˆ†é›¢
+ *	2005/05/07	pceth2_snd.cã‚’è¿½åŠ 
+ *	2005/05/08	pceth2_msg.cã«åˆ†é›¢
+ *	2005/06/11	ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯Bãƒœã‚¿ãƒ³ã§VBuffãŒæ¶ˆãˆãªã„ã‚ˆã†ã«ä¿®æ­£
+ *	2005/06/12	Bï¼‹ä¸Šä¸‹å·¦å³ã§ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡èª¿ç¯€å¯èƒ½ã«
+ *	2005/06/13	ãƒ‡ãƒãƒƒã‚°ç”¨ãƒ“ãƒ«ãƒ‰è¿½åŠ 
+ *	2005/06/15	ä¸€è¡Œã®æ–‡å­—æ•°ã®é•ã„ã«ã‚ˆã‚‹æ”¹è¡Œã®è£œæ­£
+ *	2005/06/25	åå‰ç½®æ›å‡¦ç†ã‚’ã‚³ãƒ³ãƒãƒ¼ã‚¿å´ã«ç§»å‹•
+ *	2005/06/30	ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡èª¿ç¯€ã®æ“ä½œã‚’å¤‰æ›´ï¼ˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦æ¶ˆã—ã¦ã‚‹çŠ¶æ…‹ã§ä¸Šä¸‹å·¦å³ï¼‰
+ *	2005/07/19	calFlagå»ƒæ­¢ã€pgxname[GRP_C]ã§åˆ¤æ–­ã™ã‚‹ã‚ˆã†ã«
+ *				ã‚¹ã‚¯ãƒªãƒ—ãƒˆä¸­ã®ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã«å¯¾å¿œ
+ *				BGè¡¨ç¤ºå‘½ä»¤ã§æ¡œã‚’æ—¥ä»˜ã«åˆã‚ã›ãªã„ã‚±ãƒ¼ã‚¹ï¼ˆå›æƒ³ãªã©ï¼‰ã«å¯¾å¿œ
  *				 *
- *	TODO		ƒXƒNƒŠƒvƒg‚ÌŠ®‘S‰ğÍ
+ *	TODO		ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®å®Œå…¨è§£æ
  */
 
 #include <string.h>
@@ -52,43 +52,49 @@
 #include "pceth2_cal.h"
 #include "pceth2_sav.h"
 
-BOOL file_load = FALSE;		// ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚½‚©‚Ç‚¤‚©
+BOOL file_load = FALSE;		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ãŸã‹ã©ã†ã‹
 
+BOOL debug_mode = FALSE;
 int speed, wait, msgView;
 static int bButtonMenuTime = 0;
 
 static PrecisionTimer s_frame_timer;
 static unsigned long s_frame_us, s_proc_us;
 
+void pceth2_initGraphicAndSound();
 int  pceth2_readScript(SCRIPT_DATA *s);
 void pceth2_waitKey();
-void pceth2_drawBButtonMenu();
+void pceth2_startDebugMenu();
 
 //=============================================================================
 //=============================================================================
 
 /*
- *	‰Šú‰»
+ *	åˆæœŸåŒ–
  */
-#define ARCHIVE_FILE_NAME	"pceth2.par"	// ƒA[ƒJƒCƒuƒtƒ@ƒCƒ‹–¼
-#define DEBUG_FILE_NAME		"999999999.scp"	// ƒfƒoƒbƒOƒƒjƒ…[ƒXƒNƒŠƒvƒg
+#define ARCHIVE_FILE_NAME	"pceth2.par"	// ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«å
+#define DEBUG_FILE_NAME		"999999999.scp"	// ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 #define PROC_PERIOD	33	// Proc/msec
 
 void pceAppInit(void)
 {	
 	FramObject_Init();
-	
+
+	if(pcePadGetDirect() & PAD_C) {
+		debug_mode = TRUE;
+	}
+
 	/*{{2005/06/09 Naoyuki Sawa*/
-	if(ufe_setup() != 0)	// UFE‰Šú‰»
+	if(ufe_setup() != 0)	// UFEåˆæœŸåŒ–
 	{
 		//2005/06/11 Added by Madoka
-		if(mmcInit(MMC_FILESIZE_MAX) != 1) {	// MMC‰Šú‰»
+		if(mmcInit(MMC_FILESIZE_MAX) != 1) {	// MMCåˆæœŸåŒ–
 			return;
 		}
 	}
 	/*}}2005/06/09 Naoyuki Sawa*/
 
-	usbCaptureInit();	// pceCaps‰Šú‰»
+	usbCaptureInit();	// pceCapsåˆæœŸåŒ–
 	if(!Ldirect_Init())
 	{
 		return;
@@ -97,31 +103,31 @@ void pceAppInit(void)
 	pceLCDDispStop();
 
 	FontProxy_Hook_Set();
-	FontExtend_Hook_GetAdrs();	// “ÁêƒtƒHƒ“ƒg’Ç‰ÁpceFontGetAdrs‚ğƒtƒbƒN
+	FontExtend_Hook_GetAdrs();	// ç‰¹æ®Šãƒ•ã‚©ãƒ³ãƒˆè¿½åŠ pceFontGetAdrsã‚’ãƒ•ãƒƒã‚¯
 	FontFuchi_SetType(0);
 	FontFuchi_SetRange(MSG_X_MIN, MSG_Y_MIN, MSG_X_MAX, MSG_Y_MAX);
 	FontFuchi_SetTxColor(0);
 	FontFuchi_SetBdColor(3);
-	loadInst();			// ƒhƒ‰ƒ€‰¹F•ª—£ƒLƒbƒg‰Šú‰»
-	InitMusic();		// ‰¹Šyƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
+	loadInst();			// ãƒ‰ãƒ©ãƒ éŸ³è‰²åˆ†é›¢ã‚­ãƒƒãƒˆåˆæœŸåŒ–
+	InitMusic();		// éŸ³æ¥½ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
 
 
 	pceAppSetProcPeriod(PROC_PERIOD);
 
 	if (pceth2_readGlobalSaveData()) {
 
-		// Às‘O‚ÌƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Ê‚ğ•Û‘¶
+		// å®Ÿè¡Œå‰ã®ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡ã‚’ä¿å­˜
 		Configure_Init();
 
-		// ƒA[ƒJƒCƒu“Ç‚İ‚İ
+		// ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–èª­ã¿è¾¼ã¿
 		file_load = fpk_InitHandle(ARCHIVE_FILE_NAME);
 		if (file_load) {
-#ifdef _DEBUG
-			pceth2_Init();
-			pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);	// 2005/06/13’Ç‰Á
-#else
-			pceth2_TitleInit();
-#endif
+			if(debug_mode) {
+				pceth2_Init();
+				pceth2_startDebugMenu();
+			} else {
+				pceth2_TitleInit();
+			}
 		}
 	}
 
@@ -133,7 +139,7 @@ void pceAppInit(void)
 }
 
 /*
- *	ƒƒCƒ“
+ *	ãƒ¡ã‚¤ãƒ³
  */
 void pceAppProc(int cnt)
 {
@@ -141,8 +147,8 @@ void pceAppProc(int cnt)
 	PrecisionTimer_Construct(&proc_timer);
 
 	/*{{2005/06/09 Naoyuki Sawa*/
-//	if(!hFpk) { //‰Šú‰»¸”s?
-	if (!file_load) {	// 2005/07/23•ÏX
+//	if(!hFpk) { //åˆæœŸåŒ–å¤±æ•—?
+	if (!file_load) {	// 2005/07/23å¤‰æ›´
 		pceAppReqExit(0);
 		return;
 	}
@@ -150,60 +156,68 @@ void pceAppProc(int cnt)
 
 	switch (play.gameMode)
 	{
-        case GM_TITLE:		// ƒ^ƒCƒgƒ‹‰æ–Ê
+        case GM_TITLE:		// ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢
 			pceth2_Title();
 			break;
-		case GM_SAVE:	// ƒZ[ƒuƒ[ƒhƒƒjƒ…[
+		case GM_SAVE:	// ã‚»ãƒ¼ãƒ–ãƒ­ãƒ¼ãƒ‰ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 			pceth2_SaveMenu();
 			break;
-		case GM_EVSCRIPT:	// EV_`ƒXƒNƒŠƒvƒg“Ç‚İ‚İ
+		case GM_EVSCRIPT:	// EV_ï½ã‚¹ã‚¯ãƒªãƒ—ãƒˆèª­ã¿è¾¼ã¿
 			while (pceth2_readScript(&play.evData));
 			break;
-		case GM_SCRIPT:		// ƒXƒNƒŠƒvƒg“Ç‚İ‚İ
+		case GM_SCRIPT:		// ã‚¹ã‚¯ãƒªãƒ—ãƒˆèª­ã¿è¾¼ã¿
 			while (pceth2_readScript(&play.scData));
 			break;
 		case GM_SELECT:
 			pceth2_Select();
 			if (pcePadGet() & PAD_C) { pceth2_SaveInit(); }
 			break;
-		case GM_MAPSELECT:	// ƒ}ƒbƒv‘I‘ğ
+		case GM_MAPSELECT:	// ãƒãƒƒãƒ—é¸æŠ
 			pceth2_MapSelect();
 			if (pcePadGet() & PAD_C) { pceth2_SaveInit(); }
 			break;
 		case GM_CALENDER:
 			pceth2_calenderDrawCircle();
 			break;
-		case GM_KEYWAIT:	// ƒL[‘Ò‚¿
+		case GM_KEYWAIT:	// ã‚­ãƒ¼å¾…ã¡
 			pceth2_waitKey();
 			if (pcePadGet() & PAD_C && !pceth2_isCalenderMode()) { pceth2_SaveInit(); }
 			break;
-		case GM_TIMEWAIT:	// ŠÔ‘Ò‚¿
+		case GM_TIMEWAIT:	// æ™‚é–“å¾…ã¡
 			if (wait-- <= 0 || (pcePadGet() & PAD_RI)) {
 				play.gameMode = GM_SCRIPT;
 			}
 			break;
-		case GM_SLIDECHR:	// —§‚¿ŠGƒXƒ‰ƒCƒh
+		case GM_SLIDECHR:	// ç«‹ã¡çµµã‚¹ãƒ©ã‚¤ãƒ‰
 			pceth2_slideChara();
 			break;
 	}
 
 	if (pcePadGet() & PAD_D) {
-		if (play.gameMode == GM_TITLE) {
-			pceAppReqExit(0);
+		if(debug_mode) {
+			if(!strncmp(play.scData.name, DEBUG_FILE_NAME, 6)) { // ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆä¸­
+				pceAppReqExit(0);
+			} else {
+				pceth2_startDebugMenu();
+			}
 		} else {
-			pceth2_TitleInit();
+			if (play.gameMode == GM_TITLE) {
+				pceAppReqExit(0);
+			} else {
+				pceth2_TitleInit();
+			}
 		}
 	}
 
-#ifdef _DEBUG
-	pceLCDPaint(0, 0, 82, DISP_X, 6);
-	pceFontSetType(2);
-	pceFontSetPos(0, 82);
-	pceFontSetTxColor(3);
-	pceFontSetBkColor(FC_SPRITE);
-	pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
-	Ldirect_Update();
-#endif
+	if(debug_mode) {
+		pceLCDPaint(0, 0, 82, DISP_X, 6);
+		pceFontSetType(2);
+		pceFontSetPos(0, 82);
+		pceFontSetTxColor(3);
+		pceFontSetBkColor(FC_SPRITE);
+		pceFontPrintf("%6lu/%6luus FREE:%8d", s_proc_us, s_frame_us, pceHeapGetMaxFreeSize());
+		Ldirect_Update();
+	}
 
 	Ldirect_Trans();
 
@@ -212,26 +226,26 @@ void pceAppProc(int cnt)
 }
 
 /*
- *	I—¹
+ *	çµ‚äº†
  */
 void pceAppExit(void)
 {
 	StopMusic();
 	pceWaveStop(0);
 
-	/*** “Ç‚İ‚ñ‚¾ƒtƒ@ƒCƒ‹‚ğ–¾¦“I‚É‰ğ•ú‚µ‚Ä‚È‚¢‚ª–â‘è‚È‚µH ***/
+	/*** èª­ã¿è¾¼ã‚“ã ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ˜ç¤ºçš„ã«è§£æ”¾ã—ã¦ãªã„ãŒå•é¡Œãªã—ï¼Ÿ ***/
 
-	// ƒOƒ[ƒoƒ‹ƒf[ƒ^iƒtƒ‰ƒOAƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Êj‚ğ•Û‘¶
+	// ã‚°ãƒ­ãƒ¼ãƒãƒ«ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ•ãƒ©ã‚°ã€ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡ï¼‰ã‚’ä¿å­˜
 	pceth2_writeGlobalSaveData();
 
-	// Às‘O‚ÌƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Ê‚É–ß‚·
+	// å®Ÿè¡Œå‰ã®ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡ã«æˆ»ã™
 	Configure_Exit();
 
 	fpk_ReleaseHandle();
-	FontExtend_Unhook_GetAdrs();	// pceFontGetAdrs‚ğŒ³‚É–ß‚·
+	FontExtend_Unhook_GetAdrs();	// pceFontGetAdrsã‚’å…ƒã«æˆ»ã™
 	FontProxy_Unhook_Set();
 	Ldirect_Exit();
-	usbCaptureRelease();	// pceCaps‰ğ•ú
+	usbCaptureRelease();	// pceCapsè§£æ”¾
 
 	//2005/06/11 Added by Madoka
 	mmcExit();
@@ -243,20 +257,20 @@ void pceAppExit(void)
 
 //2005/06/11 Added by Madoka
 /*
- *	ƒVƒXƒeƒ€’Ê’m
+ *	ã‚·ã‚¹ãƒ†ãƒ é€šçŸ¥
  */
 int pceAppNotify(int type, int param)
 {	
 	
-	//MMC‘Î‰ƒJ[ƒlƒ‹Ver.1.27ˆÈ~‚Å‚Ìˆ—
-	//ƒJ[ƒlƒ‹‘¤‚Å‚ÌMMC‰Šú‰»‚ğ–³Œø‚É‚·‚é
-	//‚±‚¤‚µ‚È‚¢‚ÆA‘å‚«‚¢ƒtƒ@ƒCƒ‹‚ªˆµ‚¦‚È‚¢‚½‚ß
+	//MMCå¯¾å¿œã‚«ãƒ¼ãƒãƒ«Ver.1.27ä»¥é™ã§ã®å‡¦ç†
+	//ã‚«ãƒ¼ãƒãƒ«å´ã§ã®MMCåˆæœŸåŒ–ã‚’ç„¡åŠ¹ã«ã™ã‚‹
+	//ã“ã†ã—ãªã„ã¨ã€å¤§ãã„ãƒ•ã‚¡ã‚¤ãƒ«ãŒæ‰±ãˆãªã„ãŸã‚
 	if(type == APPNF_INITMMC)
 	{
 		return APPNR_REJECT;
 	}
 
-	return APPNR_IGNORE;	//ƒfƒtƒHƒ‹ƒg‚Ìˆ—
+	return APPNR_IGNORE;	//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†
 }
 
 //=============================================================================
@@ -264,9 +278,28 @@ int pceAppNotify(int type, int param)
 //=============================================================================
 
 /*
- *	‚Í‚¶‚ß‚©‚ç
+ *	ã¯ã˜ã‚ã‹ã‚‰
  */
 void pceth2_Init()
+{
+	memset(play, 0, sizeof(SAVE_DATA));
+
+	MONTH	= START_MONTH;	// æœˆ
+	DAY		= START_DAY;	// æ—¥
+	TIME	= EV_MORNING;	// æ™‚é–“
+	// ã‚¯ãƒªã‚¢ãƒ•ãƒ©ã‚°ã‚’ã‚°ãƒ­ãƒ¼ãƒãƒ«ã¨åŒæœŸã™ã‚‹
+	memcpy(&play.flag[80], &global.flag, GLOBAL_FLAG_NUM * sizeof(unsigned short));
+
+	memset(reg, 0, REG_NUM);	// ãƒ¬ã‚¸ã‚¹ã‚¿
+
+	pceth2_initGraphicAndSound();
+
+	pceth2_loadEVScript(&play.evData);
+
+//	play.gameMode = GM_EVSCRIPT;
+}
+
+void pceth2_initGraphicAndSound()
 {
 	int i;
 
@@ -276,54 +309,40 @@ void pceth2_Init()
 	msgView = 1;
 	speed = 0;
 
-	memset(play, 0, sizeof(SAVE_DATA));
-
-	MONTH	= START_MONTH;	// Œ
-	DAY		= START_DAY;	// “ú
-	TIME	= EV_MORNING;	// ŠÔ
-	// ƒNƒŠƒAƒtƒ‰ƒO‚ğƒOƒ[ƒoƒ‹‚Æ“¯Šú‚·‚é
-	memcpy(&play.flag[80], &global.flag, GLOBAL_FLAG_NUM * sizeof(unsigned short));
-
-	memset(reg, 0, REG_NUM);	// ƒŒƒWƒXƒ^
-
 	for (i = 0; i <= GRP_NUM; i++) {
 		pceth2_clearGraphic(i);
 	}
 	pceth2_DrawGraphic();
-	BG_TIME = BG_WEATHER = '0';	// ”wŒi‰æ‘œƒtƒ@ƒCƒ‹–¼Cüq
+	BG_TIME = BG_WEATHER = '0';	// èƒŒæ™¯ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«åä¿®é£¾å­
 
 	Stop_PieceMML();
 
-	pceth2_loadEVScript(&play.evData);
-
 	Ldirect_Update();
-
-//	play.gameMode = GM_EVSCRIPT;
 }
 
 /*
- *	ƒL[‘Ò‚¿
+ *	ã‚­ãƒ¼å¾…ã¡
  */
 void pceth2_waitKey()
 {
-	if (msgView)	// ƒƒbƒZ[ƒW•\¦ó‘Ô
+	if (msgView)	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºçŠ¶æ…‹
 	{
-		if (pcePadGet() & (TRG_A | PAD_RI)) {	// ƒXƒNƒŠƒvƒg‚ği‚ß‚é
+		if (pcePadGet() & (TRG_A | PAD_RI)) {	// ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’é€²ã‚ã‚‹
 			if (pceth2_isPageTop()) {
 				pceth2_clearMessage();
 				Ldirect_Update();
 			}
-			if (pceth2_isCalenderMode()) {	// ƒJƒŒƒ“ƒ_[ƒ‚[ƒh
-				pceth2_clearGraphic(GRP_C);	// ƒJƒŒƒ“ƒ_[‰æ‘œÁ‹
+			if (pceth2_isCalenderMode()) {	// ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ãƒ¢ãƒ¼ãƒ‰æ™‚
+				pceth2_clearGraphic(GRP_C);	// ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ç”»åƒæ¶ˆå»
 			}
 			play.gameMode = GM_SCRIPT;
 		} else if (pcePadGet() & TRG_B) {
-			if (!pceth2_isCalenderMode()) {	// ƒJƒŒƒ“ƒ_[‚Ì‚ÍÁ‚¹‚È‚¢
+			if (!pceth2_isCalenderMode()) {	// ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®æ™‚ã¯æ¶ˆã›ãªã„
 				pceth2_drawBButtonMenu();
 			}
 		}
 	}
-	else			// ƒƒbƒZ[ƒW”ñ•\¦ó‘Ô
+	else			// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸éè¡¨ç¤ºçŠ¶æ…‹
 	{
 		pceth2_bButtonMenu();
 	}
@@ -339,7 +358,7 @@ void pceth2_bButtonMenu()
 	if (pcePadGet() & (TRG_A | TRG_B)) {
 		pceth2_comeBackMessage();
 	}
-	// {ã‰º¶‰E‚ÅƒRƒ“ƒgƒ‰ƒXƒgA‰¹—Ê‚Ì’²ß
+	// ï¼‹ä¸Šä¸‹å·¦å³ã§ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã€éŸ³é‡ã®èª¿ç¯€
 	if (pcePadGet() & TRG_LF) {
 		if(global.bright > 0) {
 			pceLCDSetBright(--global.bright);
@@ -382,83 +401,83 @@ void pceth2_drawBButtonMenu()
 }
 
 /*
- *	ƒXƒNƒŠƒvƒg‚ğ“Ç‚Ş
- *	return	1‚ÌŠÔpceAppProc()‚©‚çŒJ‚è•Ô‚µ‚ÄŒÄ‚Ño‚³‚ê‚é
+ *	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’èª­ã‚€
+ *	return	1ã®é–“pceAppProc()ã‹ã‚‰ç¹°ã‚Šè¿”ã—ã¦å‘¼ã³å‡ºã•ã‚Œã‚‹
  */
 int pceth2_readScript(SCRIPT_DATA *s)
 {
-	/* –½—ß‰ğÍƒe[ƒuƒ‹ */
+	/* å‘½ä»¤è§£æãƒ†ãƒ¼ãƒ–ãƒ« */
 	static const struct {
 		char com;
 		int  (*func)(SCRIPT_DATA *);
-	} com_table[] =	   {{'B',  pceth2_loadBG},		// ”wŒi‰æ‘œiB6.pgx11•¶š{—§‚¿ŠGÁ‹ƒtƒ‰ƒO1•¶šj
-						{'G',  pceth2_setBGOption},	// ”wŒi‰æ‘œ‚ÌƒIƒvƒVƒ‡ƒ“w’è
-						{'V',  pceth2_loadBG},		// ƒCƒxƒ“ƒg‰æ‘œiV6.pgx11•¶š{—§‚¿ŠGÁ‹ƒtƒ‰ƒO1•¶šj
-						{'C',  pceth2_loadChara},	// —§‚¿ŠG‰æ‘œiC8.pgx13•¶š{ˆÊ’u1•¶š{XVŠúƒtƒ‰ƒO1•¶šj
-						{'c',  pceth2_clearChara},	// —§‚¿ŠGÁ‹ic3•¶š{XVŠúƒtƒ‰ƒO1•¶šj
-						{'S',  pceth2_loadSE},		// SEÄ¶iSE_4.ppd11•¶š{ƒŠƒs[ƒgƒtƒ‰ƒO1•¶šj
-						{'M',  pceth2_loadBGM},		// BGM‰‰‘tiM2.pmd7•¶šjywin‘¤–¢À‘•z
-						{'w',  pceth2_wait},		// ŠÔƒEƒFƒCƒgiw3•¶šj
-						{'m',  pceth2_addMapItem},	// ƒ}ƒbƒv‘I‘ğˆ‚ğ’Ç‰Ái9.scp13•¶š{êŠ2•¶š{ƒ`ƒbƒvƒLƒƒƒ‰2•¶šj
-						{'J',  pceth2_jumpScript},	// ƒXƒNƒŠƒvƒgƒWƒƒƒ“ƒvi9.scp13•¶šj
-						{'j',  pceth2_jumpLabel},	// ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-						{'b',  pceth2_branchLabel},	// ğŒ•t‚«ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-						{'l',  pceth2_loadFlag},	// ƒtƒ‰ƒO‚ğƒŒƒWƒXƒ^‚Éƒ[ƒh
-						{'s',  pceth2_saveFlag},	// ƒtƒ‰ƒO‚ğ‘‚«Š·‚¦
-						{'=', pceth2_setReg},		// ƒŒƒWƒXƒ^‚É’l‚ğƒZƒbƒg
-						{'+', pceth2_incReg},		// ƒŒƒWƒXƒ^‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
-						{'-', pceth2_decReg},		// ƒŒƒWƒXƒ^‚ğƒfƒNƒŠƒƒ“ƒg
-						{'q',  pceth2_addSelItem},	// ‘I‘ğˆ‚ğ’Ç‰Á
-						{'Q',  pceth2_initSelect},	// ‘I‘ğ
-						{'@',  pceth2_skipLabel},	// ƒ‰ƒxƒ‹i“Ç‚İ”ò‚Î‚µj
-						{'<',  pceth2_procControl},	// ƒƒbƒZ[ƒW§Œä
-						{'\\', pceth2_procEscape},	// ƒGƒXƒP[ƒvƒV[ƒPƒ“ƒXˆ—
-						{'D', pceth2_calenderInitEx},	// ƒXƒNƒŠƒvƒg‚©‚çƒJƒŒƒ“ƒ_[ƒ‚[ƒh‚ÉˆÚs
-						{'z', pceth2_goEpilogue},	// ƒGƒsƒ[ƒO‚Ö
-						{'Z', pceth2_backTitle},	// ƒ^ƒCƒgƒ‹‚É–ß‚é
+	} com_table[] =	   {{'B',  pceth2_loadBG},		// èƒŒæ™¯ç”»åƒï¼ˆB6.pgxï¼11æ–‡å­—ï¼‹ç«‹ã¡çµµæ¶ˆå»ãƒ•ãƒ©ã‚°1æ–‡å­—ï¼‰
+						{'G',  pceth2_setBGOption},	// èƒŒæ™¯ç”»åƒã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³æŒ‡å®š
+						{'V',  pceth2_loadBG},		// ã‚¤ãƒ™ãƒ³ãƒˆç”»åƒï¼ˆV6.pgxï¼11æ–‡å­—ï¼‹ç«‹ã¡çµµæ¶ˆå»ãƒ•ãƒ©ã‚°1æ–‡å­—ï¼‰
+						{'C',  pceth2_loadChara},	// ç«‹ã¡çµµç”»åƒï¼ˆC8.pgxï¼13æ–‡å­—ï¼‹ä½ç½®1æ–‡å­—ï¼‹æ›´æ–°æ™‚æœŸãƒ•ãƒ©ã‚°1æ–‡å­—ï¼‰
+						{'c',  pceth2_clearChara},	// ç«‹ã¡çµµæ¶ˆå»ï¼ˆc3æ–‡å­—ï¼‹æ›´æ–°æ™‚æœŸãƒ•ãƒ©ã‚°1æ–‡å­—ï¼‰
+						{'S',  pceth2_loadSE},		// SEå†ç”Ÿï¼ˆSE_4.ppdï¼11æ–‡å­—ï¼‹ãƒªãƒ”ãƒ¼ãƒˆãƒ•ãƒ©ã‚°1æ–‡å­—ï¼‰
+						{'M',  pceth2_loadBGM},		// BGMæ¼”å¥ï¼ˆM2.pmdï¼7æ–‡å­—ï¼‰ã€winå´æœªå®Ÿè£…ã€‘
+						{'w',  pceth2_wait},		// æ™‚é–“ã‚¦ã‚§ã‚¤ãƒˆï¼ˆw3æ–‡å­—ï¼‰
+						{'m',  pceth2_addMapItem},	// ãƒãƒƒãƒ—é¸æŠè‚¢ã‚’è¿½åŠ ï¼ˆ9.scpï¼13æ–‡å­—ï¼‹å ´æ‰€2æ–‡å­—ï¼‹ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©2æ–‡å­—ï¼‰
+						{'J',  pceth2_jumpScript},	// ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¸ãƒ£ãƒ³ãƒ—ï¼ˆ9.scpï¼13æ–‡å­—ï¼‰
+						{'j',  pceth2_jumpLabel},	// ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+						{'b',  pceth2_branchLabel},	// æ¡ä»¶ä»˜ããƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+						{'l',  pceth2_loadFlag},	// ãƒ•ãƒ©ã‚°ã‚’ãƒ¬ã‚¸ã‚¹ã‚¿ã«ãƒ­ãƒ¼ãƒ‰
+						{'s',  pceth2_saveFlag},	// ãƒ•ãƒ©ã‚°ã‚’æ›¸ãæ›ãˆ
+						{'=', pceth2_setReg},		// ãƒ¬ã‚¸ã‚¹ã‚¿ã«å€¤ã‚’ã‚»ãƒƒãƒˆ
+						{'+', pceth2_incReg},		// ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+						{'-', pceth2_decReg},		// ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+						{'q',  pceth2_addSelItem},	// é¸æŠè‚¢ã‚’è¿½åŠ 
+						{'Q',  pceth2_initSelect},	// é¸æŠ
+						{'@',  pceth2_skipLabel},	// ãƒ©ãƒ™ãƒ«ï¼ˆèª­ã¿é£›ã°ã—ï¼‰
+						{'<',  pceth2_procControl},	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸åˆ¶å¾¡
+						{'\\', pceth2_procEscape},	// ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚·ãƒ¼ã‚±ãƒ³ã‚¹å‡¦ç†
+						{'D', pceth2_calenderInitEx},	// ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‹ã‚‰ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã«ç§»è¡Œ
+						{'z', pceth2_goEpilogue},	// ã‚¨ãƒ”ãƒ­ãƒ¼ã‚°ã¸
+						{'Z', pceth2_backTitle},	// ã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹
 	};
 	int i;
 
-	// ÅŒã‚Ü‚Å“Ç‚ñ‚¾‚çI—¹
+	// æœ€å¾Œã¾ã§èª­ã‚“ã ã‚‰çµ‚äº†
 	if (s->p >= s->size) {
-#ifdef _DEBUG	// ƒfƒoƒbƒOƒ‚[ƒh‚Ìê‡ƒfƒoƒbƒOƒƒjƒ…[‚É–ß‚é
-		pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
-#else
-		switch(play.gameMode)
-		{
-			case GM_EVSCRIPT:
-				if (!pceth2_initMapSelect()) {	// ƒ}ƒbƒv‘I‘ğˆ‚ª‚ ‚ê‚Îƒ}ƒbƒv‘I‘ğ‚Ö
-					JUMP = 0;	// 2005/06/20 ‚Ü‚é‚µ‚·‚³‚ñˆÄF1e, 4, 1‚ª—ˆ‚½‚çgoto‚Ì‰Šú‰»
-					if (TIME > EV_NIGHT) {	// ˆê“úI—¹
-						TIME = EV_MORNING;
-						DAY++;
-						pceth2_calenderInit();	// ƒJƒŒƒ“ƒ_[
-					} else {
-						pceth2_loadEVScript();	// Ÿ‚ÌEVƒXƒNƒŠƒvƒg‚ğ“Ç‚Ş
+		if(debug_mode) {	// ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã®å ´åˆãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«æˆ»ã‚‹
+			pceth2_startDebugMenu();
+		} else {
+			switch(play.gameMode)
+			{
+				case GM_EVSCRIPT:
+					if (!pceth2_initMapSelect()) {	// ãƒãƒƒãƒ—é¸æŠè‚¢ãŒã‚ã‚Œã°ãƒãƒƒãƒ—é¸æŠã¸
+						JUMP = 0;	// 2005/06/20 ã¾ã‚‹ã—ã™ã•ã‚“æ¡ˆï¼š1e, 4, 1ãŒæ¥ãŸã‚‰gotoã®åˆæœŸåŒ–
+						if (TIME > EV_NIGHT) {	// ä¸€æ—¥çµ‚äº†
+							TIME = EV_MORNING;
+							DAY++;
+							pceth2_calenderInit();	// ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼
+						} else {
+							pceth2_loadEVScript();	// æ¬¡ã®EVã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’èª­ã‚€
+						}
+	//					if (play.evData.size == 0) {	// èª­ã‚ãªã‹ã£ãŸã‚‰çµ‚äº†
+	//						pceAppReqExit(0);
+	//					}
 					}
-//					if (play.evData.size == 0) {	// “Ç‚ß‚È‚©‚Á‚½‚çI—¹
-//						pceAppReqExit(0);
-//					}
-				}
-				break;
-			case GM_SCRIPT:
-				pceth2_closeScript(&play.scData);
-				play.gameMode = GM_EVSCRIPT;
-				break;
+					break;
+				case GM_SCRIPT:
+					pceth2_closeScript(&play.scData);
+					play.gameMode = GM_EVSCRIPT;
+					break;
+			}
 		}
-#endif
 		return 0;
 	}
 
 
-	// –½—ß‰ğÍ
+	// å‘½ä»¤è§£æ
 	for (i = 0; i < array_size(com_table); i++) {
 		if (*(s->data + s->p) == com_table[i].com) {
 			return com_table[i].func(s);
 		}
 	}
 
-	// c‚è‚Í‰æ–Ê•\¦•¶š‚¾‚¯‚Ì‚Í‚¸‚Å‚·‚æ
+	// æ®‹ã‚Šã¯ç”»é¢è¡¨ç¤ºæ–‡å­—ã ã‘ã®ã¯ãšã§ã™ã‚ˆ
 	if (pceth2_jpnHyphenation(s->data + s->p + 2) || pceth2_lineFeed(s->data + s->p)) {
 		pceth2_putCR();
 		if (pceth2_isPageTop()) {
@@ -466,8 +485,8 @@ int pceth2_readScript(SCRIPT_DATA *s)
 			goto UPDATE;
 		}
 	}
-	// ˜A‘±‹ó”’‚Íˆê‚Â‚µ‚©•\¦‚µ‚È‚¢i‚±‚ê‚Åè“®ƒZƒ“ƒ^ƒŠƒ“ƒO‚ğ‰ñ”ğ‚Å‚«‚éHj
-	if (strncmp(play.msg + play.msglen - 2, "@", 2) || strncmp(s->data + s->p, "@", 2)) {
+	// é€£ç¶šç©ºç™½ã¯ä¸€ã¤ã—ã‹è¡¨ç¤ºã—ãªã„ï¼ˆã“ã‚Œã§æ‰‹å‹•ã‚»ãƒ³ã‚¿ãƒªãƒ³ã‚°ã‚’å›é¿ã§ãã‚‹ï¼Ÿï¼‰
+	if (strncmp(play.msg + play.msglen - 2, "ã€€", 2) || strncmp(s->data + s->p, "ã€€", 2)) {
 		pceth2_putKanji(s->data + s->p);
 	}
 	s->p += 2;
@@ -476,11 +495,18 @@ int pceth2_readScript(SCRIPT_DATA *s)
 		goto UPDATE;
 	}
 
-	if (pcePadGet() & PAD_RI) {	// ¨‚ğ‰Ÿ‚µ‚Ä‚¢‚ê‚ÎreadScript‚ğÄŒÄ‚Ño‚µiƒXƒLƒbƒv•\¦j
+	if (pcePadGet() & PAD_RI) {	// â†’ã‚’æŠ¼ã—ã¦ã„ã‚Œã°readScriptã‚’å†å‘¼ã³å‡ºã—ï¼ˆã‚¹ã‚­ãƒƒãƒ—è¡¨ç¤ºï¼‰
 		return 1;
 	}
 
 UPDATE:
 	Ldirect_Update();
 	return 0;
+}
+
+void pceth2_startDebugMenu()
+{
+	pceth2_initGraphicAndSound();
+	pceth2_loadScript(&play.scData, DEBUG_FILE_NAME);
+	play.gameMode = GM_SCRIPT;
 }
