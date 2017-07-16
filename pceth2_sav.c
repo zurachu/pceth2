@@ -15,7 +15,6 @@
 #include "pceth2_grp.h"
 #include "pceth2_snd.h"
 #include "pceth2_cal.h"
-#include "pceth2_sel.h"
 #include "pceth2_msg.h"
 #include "pceth2_arc.h"
 
@@ -374,14 +373,6 @@ static void pceth2_comeBack(int musplay_flag)
 	play.evData.data = fpk_getEntryData(play.evData.name, &play.evData.size, NULL);	// EV
 	play.scData.data = fpk_getEntryData(play.scData.name, &play.scData.size, NULL);	// スクリプト
 
-	FontFuchi_PutStr("\n");	// なんか知らんけど無駄改行入れておかないとメッセージの後ろに改行が入る
-	Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
-	FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
-	FontFuchi_PutStr(play.msg);	// メッセージ
-
-	if (play.gameMode == GM_SELECT || play.gameMode == GM_MAPSELECT) {	// 選択中なら矢印描画
-		pceth2_drawSelArrow();
-	}
-	msgView = 1;
-	Ldirect_Update();
+	pceth2_comeBackMessage();
 }
+

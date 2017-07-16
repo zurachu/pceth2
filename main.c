@@ -333,11 +333,7 @@ void pceth2_waitKey()
 			}
 		}
 		if (pcePadGet() & (TRG_A | TRG_B)) {	
-			msgView = 1;
-			Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
-			FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
-			FontFuchi_PutStr(play.msg);	// メッセージ
-			Ldirect_Update();
+			pceth2_comeBackMessage();
 		}
 		// ＋上下左右でコントラスト、音量の調節
 		if (pcePadGet() & TRG_LF) {
