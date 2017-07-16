@@ -88,5 +88,7 @@ extern unsigned short reg[];
 extern int msgView, speed, wait;
 
 void pceth2_Init();
+void pceth2_bButtonMenu();
+void pceth2_drawBButtonMenu();
 
 #endif
