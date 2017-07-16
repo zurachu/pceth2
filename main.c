@@ -316,7 +316,7 @@ void pceth2_waitKey()
 			play.gameMode = GM_SCRIPT;
 		} else if (pcePadGet() & TRG_B) {
 			if (!pceth2_isCalenderMode()) {	// カレンダーの時は消せない
-				msgView = FALSE;
+				msgView = 0;
 				Ldirect_VBuffView(FALSE);	// 文字消去
 				Ldirect_Update();
 			}
@@ -325,7 +325,7 @@ void pceth2_waitKey()
 	else			// メッセージ非表示状態
 	{
 		if (pcePadGet() & (TRG_A | TRG_B)) {	
-			msgView = TRUE;
+			msgView = 1;
 			Ldirect_VBuffView(TRUE);	// メッセージ表示
 			Ldirect_Update();
 		}
