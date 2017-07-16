@@ -1,0 +1,149 @@
+#Title	#27 Feeling Heart
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T115
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+4
+
+;===============================================================================
+; メイン
+
+!APartB	a4ra>e4<a>c16c16 <b2.rg
+!APartC	e.e.ee.d.c g4.dd4c<b16>c16& c2.rc g.f.ee4dc c4.r<a.b.>c <g4.ra.b.>c
+
+A	l8D+24
+
+A	V80o3@0
+A	ar4.br4.>cr4.dr4. L
+
+A	V90o5@1
+A	c<b>cd16c2r16 g4dc16<b4.r16g a.>c.d<b.a.g g2.r4
+A	a.b.>c<b4.r g.>e.<b>c4.r r4<a4.b>cd c4.<bb4rg>
+A	c<b>cd16c2r16 g4dc16<b4.r. a.>c.d<b.a.g g2.r4
+A	a.b.>c<b4.r g.a.b>dcc<b >c2d4.c c4.rc4<b4
+
+A	!APartB a4rab4ab16g16& g2r4>c<b
+A	!APartB a4rab.a.b >e.e.ee.e.f d1
+A	r4.cdcdg& g2.r4
+
+A	!APartC f4g4e4dc <b4.>cc4.r
+A	!APartC c2d4.c c2.r4
+
+E	l8D+8
+
+E	[r1]2 L
+
+E	V100o5@2
+E	c<b>cd16c2r16 g4dc16<b4.r16g a.>c.d<b.a.g g2.r4
+E	a.b.>c<b4.r g.>e.<b>c4.r r4<a4.b>cd c4.<bb4rg>
+E	c<b>cd16c2r16 g4dc16<b4.r. a.>c.d<b.a.g g2.r4
+E	a.b.>c<b4.r g.a.b>dcc<b >c2d4.c c4.rc4<b4
+
+E	!APartB a4rab4ab16g16& g2r4>c<b
+E	!APartB a4rab.a.b >e.e.ee.e.f d1
+E	r4.cdcdg& g2.r4
+
+E	!APartC f4g4e4dc <b4.>cc4.r
+E	!APartC c2d4.c c2.r4
+
+
+;===============================================================================
+; サブ・伴奏
+
+!BPartA	c.c.cc.<b.a >d4.<bb4ag16f16& f2.re >e.d.cc4<ba a4.re.g.a d4.re.g.a 
+
+B	l8D+8
+
+B	V90o4@0
+
+B	e4ed4d4c4rcd4rd4 L
+
+B	V70o4@0
+B	[r1]6 r4f4.gab
+B	V90o4@0
+B	g16r16gr4.gr4
+
+B	V70o5@0
+B	r1 e4<ba16g4.r. f.a.bg.f.e e2.r4
+B	e.g.ag4.r e.e.ebaag f2f4.e e4.rr2
+
+B	[r1]5 r2.re f4rfg.g.g >c.c.cc.c.c <g1
+B	r4.gggg>d& d2.r4
+
+B	!BPartA >c4d4<b4ag g4.aa4.r>
+B	!BPartA a2a4.g g2.r4
+
+
+;===============================================================================
+; 伴奏
+
+!CPartA	 V100o6@2 c1 <b4g4d4c4 <f4 V90o6@0 c16r16<b16g16 V100o5@2 f4g4 e2.g4
+
+C	l8D-8
+
+C	V80o4@0
+
+C	c4c<b4b4a4rab4rb4 L
+
+C	V90o4@0
+C	[r1]7 d16r16dr4.dr4
+
+C	[r1]8
+
+C	V100o4@2
+C	[r1]3 V90o5@0 r4e16r.g16r.>c16r16d16c16
+C	r1 V100o4@2 r4age2 f2g2 >c2a4e4 d4 V90o6@0 d16r.c16r.<b16r. grr2.
+C	V100o6@2
+C	d2&dc4r
+
+C	!CPartA
+C	a1 g4.dc2 c2<b4.a g4.aab>cg
+C	!CPartA
+C	a1 g4.dc.d.e e2f4.e e2.r4
+
+;===============================================================================
+; ベース
+
+!DPartA	c4rcr<g>cd e4r<be4r4 f4rfg4rg >c2r<g>c<e f2r4.f e4reaea4
+
+D	V80o2@0l8D-24
+
+D	d4r4e4r4f4r4g<bg4L
+
+D	V80o2@0
+D	!DPartA >d2r<ad4 g16r16gr4.g4r>
+D	!DPartA d4rdg4rg >c4r<g>c4<b4
+
+D	a2rac+d e2r4e4 f4rfg4rg >c2rc<g4
+D	a2rac+d e2r4ee- d4rde4re f4rff+4rf+
+D	g2r4.d g2rd>ga g4rd4<g4r
+
+D	f2rf>cd e4<gg+a4ra d4rdg4rg >c2r<ge4
+D	f2rf>c<f e4rea4ra f4rfgdg4 a4b4>c4e4
+D	f2rfcd e4<gg+a4ra d4rdg4rg >c4r<g>c4<e4
+D	f2r4f4 e4rea4ra >d2<g2 >c2<rg>dc
+D	c& ; これ足しておかないと何故かループ再生時に欠ける
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+
+F	!cg1 r4.!hg g4 !bg4 L
+
+F	[!bg4!hg4!sg!hg g4 !bg4!hg4!sg4!hg g]13
+F	!bg!hg!sg4!hg!sg!hg g
+F	[!bg4!hg4!sg4!hg g !bg4!hg4!sg!hg g4]8
+
