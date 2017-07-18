@@ -1,0 +1,155 @@
+
+par -- P/ECE fpk archiver
+	By Yui N., 2003 - 2005.
+===========================
+
+P/ECE で使われている標準(?)書庫形式 fpk ファイルを作成，展開，一覧表示します。
+
+また，Yui N. の拡張による，LZSS / zlib 圧縮形式 fpk ファイル（par）を作成・展開
+・一覧表示することもできます。
+
+ヅラChu さんの P/ECE Visual Novel System 用の書庫ファイル pva フォーマットの
+展開に対応しました。
+
+使い方
+------
+- から始まるオプションは，書庫ファイル名以降の好きなところにかけます。
+圧縮時に書庫ファイル名の指定を忘れたままファイルを複数指定すると，最初に指定さ
+れたファイルに上書きしてしまいます。ご注意ください。
+
+	par {l | e | c} [-cCtTrlz] fpkfile.par [file [...]]
+	l	fpk / par ファイルの内容を表示します。
+		このとき，file ... の指定は無効になります。
+	e	fpk / par ファイルから，file で指定されたファイル（複数可）を
+		展開します。
+		file を指定しないと，すべてのファイルを展開します。
+	c	fpk / par ファイルを新たに作成し，そこに files を追加します。
+		fpk / par ファイルがすでに存在する場合，上書きされます。
+	-c	ファイル名を小文字で格納します。
+	-C	ファイル名に変更を加えません。
+	-t	ファイル名を強制的に 8.3 形式にして格納します．
+	-T	ファイル名を切り詰めません（デフォルト）．
+	-r	今後指定されるファイルを圧縮しません（デフォルト）。
+		作成される par は，標準 fpk と 100% 互換になります。
+	-l	今後指定されるファイルを LZSS 圧縮して格納します。
+	-z	今後指定されるファイルを zlib（deflate）圧縮して格納します
+
+
+拡張圧縮 fpk（par）について
+---------------------------
+拡張圧縮 fpk（par）では，書庫に格納される個々のファイルについて，LZSS または
+zlib 圧縮をするか否かを指定することができます。
+
+FPKHEADER 構造体の dwHeader メンバが 0x4650414b であれば fpk, 0x50415243 であれ
+ば par です，
+
+par のファイルそれぞれについてどの圧縮メソッドを使ったか調べるには，FPKENTRY 構
+造体（fpk.h）の szFileName メンバの最後の文字 szFileName[15] の上位 2 ビットを
+テストすることで判定できます。(szFileName[15] & 0xc0) == 0xc0 となる場合，その
+エントリは zlib によって圧縮されています。(szFileName[15] & 0xc0) == 0x80 とな
+る場合，そのエントリは LZSS によって圧縮されています。
+
+
+ファイル名の扱い
+----------------
+v20050321 から，オプションで書庫作成時のファイル名を 8 + 3 文字に縮められるよう
+にしました。展開はどの書庫もそのまま行います。
+
+同じファイル名が書庫に複数存在することになっても，par は処理を続行します。こ
+うなると，書庫ファイル中で先に存在する方のファイルしか展開できなくなります。
+（libfpk でインデックス指定をすることで展開できますが，par ではサポートして
+いません）
+
+
+libfpk
+------
+fpk / par の展開をすることが出来る P/ECE 側ライブラリ libfpk をバンドルしてあり
+ます。
+使い方については libfpk/libfpk.zip の中の libfpk.txt をご覧ください。
+
+v20050321 より，libfpk も pva フォーマットの展開をサポートしました．
+
+
+改版履歴
+--------
+	v20030517	初版。標準 fpk の一覧と展開しかできない。
+	v20030523	拡張圧縮 fpk をサポート
+			書庫の作成をサポート
+	v20030524	LZSS 圧縮・展開ルーチンの著作権表記を改定
+	v20030525	書庫の作成時，ファイル名を強制的に 8 + 3 に縮めるように
+			した（展開するときは手をつけない）
+	v20030527	拡張 zlib 圧縮書庫をサポート。
+			コマンドラインオプションの扱いがあんまりだったので変更
+			libfpk を zlib 対応
+	v20030529	名称を par に変更，ヘッダを FPAK → PARC に変更
+			ファイルがひとつでも圧縮指定されていればヘッダが PARC
+			になるようにした（Thanx to ヅラ Chu）
+			fpk 作成クラス構造の変更
+	v20030901	豪メモリリークしていたのを修正
+			pva フォーマットの展開に対応
+			コンパイラを Visual C++ .NET 2003 へ変更
+	v20050321	ファイル名を 8.3 に詰めるのはオプションとした
+			libfpk も pva を展開できるようにした
+
+
+著作権について
+--------------
+
+複雑で，しかも libfpk とは微妙に内容が異なりますので最後まで読んでください。
+
+par の，pceFileReadPos() と LZSS / zlib 圧縮・展開ルーチン以外の著作権は
+Yui N. が保持します。
+
+par の LZSS 展開ルーチンは，p/ware / Hitode Yamatsuki さんの plz のソースコ
+ードおよび後述の URL の記事が元になっています。この LZSS 展開ルーチンの著作権表
+示は以下のとおりです（ファイル名や関数名を par に合わせています）。
+
+	hitodeLZSSDecoder() のソースコードの著作権は p/ware / Hitode Yamatsuki
+	が保持していますが、転載・改変・再配布・利用は自由です。便利だと思われ
+	たら積極的にご利用ください
+
+p/ware さんによるオリジナルの LZSS デコードルーチンは，
+	http://www.aw.wakwak.com/~hitode/piece/index.html#plz
+から得ることができます。
+
+par における zlib 圧縮エントリの作成・展開には，本家 zlib を使用しています。
+zlib の著作権表示は以下のとおりです。
+
+/******************************************************************************
+  zlib.h -- interface of the 'zlib' general purpose compression library
+  version 1.1.4, March 11th, 2002
+
+  Copyright (C) 1995-2002 Jean-loup Gailly and Mark Adler
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+
+  Jean-loup Gailly        Mark Adler
+  jloup@gzip.org          madler@alumni.caltech.edu
+
+
+  The data format used by the zlib library is described by RFCs (Request for
+  Comments) 1950 to 1952 in the files ftp://ds.internic.net/rfc/rfc1950.txt
+  (zlib format), rfc1951.txt (deflate format) and rfc1952.txt (gzip format).
+******************************************************************************/
+
+私が書いた部分については転載・改変・再配布自由です。あなたが開発するアプリに合
+わせてチューニングしたり，プライベートビルドを作成して配布するなどしてください。
+
+-----------------------------
+Yui N. (a.k.a. Autch)
+mailto:yui@autch.net
+http://www.autch.net/
