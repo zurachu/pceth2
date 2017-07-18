@@ -1,0 +1,133 @@
+#Title	#16
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T165
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-6
+
+;===============================================================================
+; メイン
+
+!APartA	rc<ag>c4<ag >cc<ag>e-&e&e-&e rfffeedc
+!APartB	c16r16c16d16e16d16c16<b16a16r16g+16r16a>r
+!APartC	d16r16d16e16f+16r16d16r16gr4.
+
+A	l8D+24
+
+A	V100o5@0
+A	[e.&d16&cr]3 g16r16g16r16gr
+
+A	V100o5@1
+A	!APartA d<ab>cdr4. L
+A	!APartA d<abg>cr4.
+
+A	eeereeer !APartB
+A	dddrdddr !APartC
+
+A	V100o3@0
+A	g4g+4a4b-4 b4>c4c+4d4 gg+ab-b>cc+d
+A	rg16r16g16r16g16r16gr4.
+
+; ループがおかしくなる不具合があるためループ位置を調整
+A	V100o5@1
+A	!APartA d<ab>cdr4.
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8
+
+B	V100o4@0
+B	[c.&d16&er]3
+B	V100o5@1
+B	c16r16c16r16cr L
+
+B	V90o4@0
+B	r1 r2b&>c&<b&>c r1 r2rg16r16gr
+B	r1 r2f+&g&f+&g& [r1]2
+
+B	V100o6@0
+B	er4.er4.
+B	V110o6@2
+B	!APartB
+B	V100o6@0
+B	dr4.dr4.
+B	V110o6@2
+B	!APartC
+
+B	V100o4@0
+B	g4g+4a4b-4 b4>c4c+4d4 gg+ab-b>cc+d
+B	V100o5@1
+B	rc16r16c16r16c16r16cr4.
+
+;===============================================================================
+; 伴奏
+
+C	l8D-8
+
+C	V110o5@2
+C	r1 r2 g16r16g16r16gr L
+
+C	V90o4@0Y0,0,0,0
+C	[r1]3 r2rg16r16gr
+C	[r1]4
+
+C	V110o5@2
+C	[re16r16er]2 r[e16r16]5er
+C	[rd16r16dr]2 <r[b16r16]3br4.
+
+C	V110o5@2
+C	[r4gr>gr<gr]2 [rg16r16>g16r16<g16r16]2
+C	V110o5@2
+C	rg16r16g16r16g16r16gr
+
+C	Y255,80,127,255
+C	>gr
+
+;===============================================================================
+; ベース
+
+!DPartA	crcrgrgrcrcrgrgr crcrgrgrcrcrgrgr frfrcrfrcrcrgrgr
+
+D	V80o3@0l16D-24
+
+D	c4r4c4r4 c4r4<grgrg8>r8
+
+D	!DPartA f+rf+rdrdrg8r4. L
+D	!DPartA drdrgrgrc8r4.
+D	e4r4e4r4 a4r4arara8r8 d4r4d4r4r8grgrgrg8r4.
+D	[r1]3
+D	r8grgrgrg8r4.
+
+; ループがおかしくなる不具合があるためループ位置を調整
+D	!DPartA f+rf+rdrdrg8r4.
+
+;===============================================================================
+; ドラム
+
+!FPartA	!cg4!sg4!bg4!sg4 [!bg4!sg4!bg4!sg4]2 !bg!sg ggg4!cg4
+
+F =1
+F	l8
+
+F	!cg2g2g2!sg gg4
+
+F	!FPartA L
+F	[!bg4!sg4!bg4!sg4]3 !bg!sg ggg!tg!ug4
+F	!cg2g2g2 !bg!sg g4 !cg2!cg2 !bg!sg ggg4!Cg4
+F	[!bg!hg]12 !cg!sg ggg2
+
+; ループがおかしくなる不具合があるためループ位置を調整
+F	!FPartA
+
