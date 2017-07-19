@@ -54,6 +54,12 @@ HFPK fpkOpenArchive(LPSTR lpszFileName);
 BOOL fpkGetFileInfoS(HFPK hFpk, LPSTR lpszFileName, FPKENTRY *lpFileEntry);
 BOOL fpkGetFileInfoN(HFPK hFpk, DWORD dwFileIndex, FPKENTRY *lpFileEntry);
 
+//int pceFileReadPos(FILEACC *pfa, unsigned char *buf, int pos, int size);
+//↓{{2005/06/12 Naoyuki Sawa}}
+// int pceFileReadPos(HFPK hFpk, unsigned char *buf, int pos, int size);
+// yui: 2005.07.03 もはや P/ECE 標準 pceFileReadPos() ではないので改名
+int fpkFileReadPos(HFPK hFpk, unsigned char *buf, int pos, int size);
+
 // 2005/08/20 ヅラChu 確保済みバッファに展開できるよう変更
 BYTE *fpkExtractToBuffer(HFPK hFpk, FPKENTRY *fpkEntry, BYTE* pDst);
 VOID fpkCloseArchive(HFPK hFpk);

@@ -12,12 +12,6 @@
 #include "libfpk.h"
 
 
-//int pceFileReadPos(FILEACC *pfa, unsigned char *buf, int pos, int size);
-//Å´{{2005/06/12 Naoyuki Sawa}}
-// int pceFileReadPos(HFPK hFpk, unsigned char *buf, int pos, int size);
-// yui: 2005.07.03 Ç‡ÇÕÇ‚ P/ECE ïWèÄ pceFileReadPos() Ç≈ÇÕÇ»Ç¢ÇÃÇ≈â¸ñº
-int fpkFileReadPos(HFPK hFpk, unsigned char *buf, int pos, int size);
-
 /*{{2005/06/12 Naoyuki Sawa*/
 int fpkStrCaseCmp(const char* s1, const char* s2);
 int fpkFileNameCRC(const char* fname); /* 16bit */
