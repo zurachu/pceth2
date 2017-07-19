@@ -37,6 +37,7 @@ main()
 	//
 	int serial = 0;
 	int state = -1; /* 初回メッセージのため */
+	int sleep_time = 0; /* ポーリング間隔。P/ECEからのファイルアクセス要求が無ければ、10ミリ秒づつ増やして行って、最長100ミリ秒間隔まで増やす。 */
 
 	/* ismExit()のメッセージが邪魔なので、エラー出力を閉じておきます。 */
 	close(2);
@@ -92,9 +93,11 @@ L_REDO:
 			goto L_ERR;
 		}
 		if(!ufe.ksno) {
-			Sleep(0);
+			if((sleep_time += 10/*調整可*/) > 100/*調整可*/) { sleep_time = 100/*調整可*/; } /* P/ECEからのファイルアクセス要求が無ければ、P/ECE側の負荷低減のために、ポーリング間隔を増やして行く。 */
+			Sleep(sleep_time);
 			continue;
 		}
+		sleep_time = 0; /* P/ECEからのファイルアクセス要求が発生したら、ポーリング間隔をリセットする。P/ECEからのファイルアクセス要求は連続的に発生する事が多いと想定して、次回の要求にもなるべく素早く応答するためです。 */
 
 		retval = ismReadMem((void*)&ufe.api, ufe_addr + 8/*api*/, 16/*api*/);
 		if(retval != 0) {
