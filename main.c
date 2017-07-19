@@ -451,19 +451,20 @@ int pceth2_readScript(SCRIPT_DATA *s)
 			switch(play.gameMode)
 			{
 				case GM_EVSCRIPT:
-					if (!pceth2_initMapClock()) {	// マップ選択肢があればマップ前時計へ
-						JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
-						if (TIME > EV_NIGHT) {	// 一日終了
-							TIME = EV_MORNING;
-							DAY++;
-							pceth2_calenderInit();	// カレンダー
-						} else {
-							pceth2_loadEVScript();	// 次のEVスクリプトを読む
-						}
-	//					if (play.evData.size == 0) {	// 読めなかったら終了
-	//						pceAppReqExit(0);
-	//					}
+					JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
+					if (TIME == EV_MAP_SELECT) {
+						pceth2_initMapClock();
+						TIME++;
+					} else if (TIME > EV_NIGHT) {	// 一日終了
+						TIME = EV_MORNING;
+						DAY++;
+						pceth2_calenderInit();	// カレンダー
+					} else {
+						pceth2_loadEVScript();	// 次のEVスクリプトを読む
 					}
+	//				if (play.evData.size == 0) {	// 読めなかったら終了
+	//					pceAppReqExit(0);
+	//				}
 					break;
 				case GM_SCRIPT:
 					pceth2_closeScript(&play.scData);

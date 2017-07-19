@@ -70,7 +70,6 @@ void pceth2_loadEVScript()
 
 	// “Ç‚Ýž‚ñ‚¾Žž“_‚ÅŽŸ‚ÌŽžŠÔ‘Ñ‚Éi‚ß‚Ä‚¨‚­
 	TIME++;
-	if (TIME == EV_MAP_SELECT) { TIME++; }
 
 	play.gameMode = GM_EVSCRIPT;
 }
