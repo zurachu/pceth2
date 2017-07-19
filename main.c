@@ -456,6 +456,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 						pceth2_initMapClock();
 						TIME++;
 					} else if (TIME > EV_NIGHT) {	// 一日終了
+						play.lmAmount = 0;	// マップ選択肢があるがマップ選択に行かなかった場合、ここで初期化
 						TIME = EV_MORNING;
 						DAY++;
 						pceth2_calenderInit();	// カレンダー
