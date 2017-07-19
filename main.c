@@ -188,6 +188,11 @@ void pceAppProc(int cnt)
 				play.gameMode = GM_SCRIPT;
 			}
 			break;
+		case GM_MAPCLOCK:	// マップ前時計（時間待ち）
+			if (wait-- <= 0 || (pcePadGet() & PAD_RI)) {
+				pceth2_initMapSelect();
+			}
+			break;
 		case GM_SLIDECHR:	// 立ち絵スライド
 			pceth2_slideChara();
 			break;
@@ -446,7 +451,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 			switch(play.gameMode)
 			{
 				case GM_EVSCRIPT:
-					if (!pceth2_initMapSelect()) {	// マップ選択肢があればマップ選択へ
+					if (!pceth2_initMapClock()) {	// マップ選択肢があればマップ前時計へ
 						JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
 						if (TIME > EV_NIGHT) {	// 一日終了
 							TIME = EV_MORNING;

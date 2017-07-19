@@ -13,6 +13,7 @@
 #include "zurapce/zurapce.h"
 
 #include "common.h"
+#include "pceth2_cal.h"
 #include "pceth2_sel.h"
 #include "pceth2_sys.h"
 #include "pceth2_msg.h"
@@ -230,35 +231,54 @@ int pceth2_addMapItem(SCRIPT_DATA *s)
 	return 1;
 }
 
+#define BG_MAPCLOCK	"B009001.pgx"
+#define FNAMELEN_CLOCK 11
+
+/*
+ *	マップ選択前時計を初期化
+ *	EV_????AFTER_SCHOOLを読み終わった時に呼び出されます
+ *	return ランドマーク登録数が0＝表示しない場合 FALSE
+ */
+BOOL pceth2_initMapClock()
+{
+	if (play.lmAmount > 0) {	// ランドマークが登録されている
+		char buf[FNAMELEN_CLOCK + 1];
+		int const time = (pceth2_getDate(MONTH, DAY) == 6) ? 11 : 19; // 土曜は 12:10, 平日は 14:50
+
+		pceth2_loadGraphic(BG_MAPCLOCK, GRP_BG);
+		pcesprintf(buf, "CLOCK%02d.pgx", time);
+		pceth2_loadGraphic(buf, GRP_C);
+		pceth2_clearGraphic(GRP_L);
+		pceth2_clearGraphic(GRP_R);
+		pceth2_DrawGraphic();
+		wait = 100;
+		play.gameMode = GM_MAPCLOCK;
+
+		return TRUE;
+	}
+	return FALSE;
+}
+
 #define BG_MAPSELECT	"MAP_BG.pgx"
 #define BGM_MAPSELECT	"MAP.pmd"
 
 /*
  *	マップ選択を初期化
- *	EV_????AFTER_SCHOOLを読み終わった時に呼び出されます
- *	return ランドマーク登録数（0なら失敗）
  */
-int pceth2_initMapSelect()
+void pceth2_initMapSelect()
 {
-	if (play.lmAmount > 0) {	// ランドマークが登録されている
-		if (pceth2_isCalenderMode()) {	// カレンダーモード時
-			pceth2_clearGraphic(GRP_C);	// カレンダー画像消去
-//			calFlag = 0;	// カレンダーモード終了
-		}
+	// 自宅を追加
+	pceth2_addMapItemEx(LM_MYHOME, CH_NOTHING, "");
 
-		// 自宅を追加
-		pceth2_addMapItemEx(LM_MYHOME, CH_NOTHING, "");
+	pceth2_loadGraphic(BG_MAPSELECT, GRP_BG);	// 背景
+	pceth2_clearGraphic(GRP_L);
+	pceth2_clearGraphic(GRP_C);
+	pceth2_loadMapChipChara();					// チップキャラ
+	pceth2_putMapItem();						// 選択肢
+	pceth2_drawSelArrow();						// 矢印
+	Play_PieceMML(BGM_MAPSELECT);				// BGM
 
-		pceth2_loadGraphic(BG_MAPSELECT, GRP_BG);	// 背景
-		pceth2_loadMapChipChara();					// チップキャラ
-		pceth2_putMapItem();						// 選択肢
-		pceth2_drawSelArrow();						// 矢印
-		Play_PieceMML(BGM_MAPSELECT);				// BGM
-
-		play.gameMode = GM_MAPSELECT;
-	}
-
-	return play.lmAmount;
+	play.gameMode = GM_MAPSELECT;
 }
 
 
