@@ -123,15 +123,16 @@ BYTE	*pmd;
  */
 void Play_PieceMML(const char *fName)
 {
-	Stop_PieceMML();
+	if (!pmd || strcmp(play.pmdname, fName) != 0) {
+		Stop_PieceMML();
+		strcpy(play.pmdname, fName);
+		pmd = fpk_getEntryData(play.pmdname, NULL, NULL);
 
-	strcpy(play.pmdname, fName);
-	pmd = fpk_getEntryData(play.pmdname, NULL, NULL);
-
-	if (pmd != NULL) {
-		PlayMusic(pmd);
-	} else {
-		*play.pmdname = '\0';
+		if (pmd != NULL) {
+			PlayMusic(pmd);
+		} else {
+			*play.pmdname = '\0';
+		}
 	}
 }
 
