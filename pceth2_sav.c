@@ -37,19 +37,17 @@ BOOL pceth2_readGlobalSaveData()
 	global.bright = pceLCDSetBright(INVALIDVAL);
 	global.masteratt = pceWaveSetMasterAtt(INVALIDVAL);
 
-	if(File_ReadTo((unsigned char*)&global, GLOBAL_SAVE_FILE_NAME) == sizeof(GLOBAL_SAVE_DATA)) {
-		if (global.bright < MIN_BRIGHT) {
-			global.bright = MIN_BRIGHT;
-		}
-		return TRUE;
+	if(File_ReadTo((unsigned char*)&global, GLOBAL_SAVE_FILE_NAME) != sizeof(GLOBAL_SAVE_DATA)
+		&& pceFileCreate(GLOBAL_SAVE_FILE_NAME, sizeof(GLOBAL_SAVE_DATA)) != 0) {	// ‚È‚¯‚ê‚Îì‚é
+		return FALSE;
 	}
 
-	// ‚È‚¯‚ê‚Îì‚é
-	if (pceFileCreate(GLOBAL_SAVE_FILE_NAME, sizeof(GLOBAL_SAVE_DATA)) == 0) {
-		return TRUE;
+	if (global.bright < MIN_BRIGHT) {
+		global.bright = MIN_BRIGHT;
 	}
-
-	return FALSE;
+	pceLCDSetBright(global.bright);
+	pceWaveSetMasterAtt(global.masteratt);
+	return TRUE;
 }
 
 /*
