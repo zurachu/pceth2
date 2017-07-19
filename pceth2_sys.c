@@ -314,18 +314,18 @@ int pceth2_goEpilogue(SCRIPT_DATA *s)
  *	オーバーフローチェックをしていない駄目なスタック
  */
 #define STACK_NUM	8
-int stack[STACK_NUM];
-int stack_index;
+static int stack[STACK_NUM];
+static int stack_index;
 
 // プッシュ
-void _push(int num)
+static void _push(int num)
 {
 	stack[stack_index] = num;
 	stack_index++;
 }
 
 // ポップ（スタックが空のときは0を返す）
-int _pop(void)
+static int _pop(void)
 {
 	if (stack_index > 0) {
 		stack_index--;
@@ -342,7 +342,7 @@ int _pop(void)
  */
 int pceth2_calcExpression(SCRIPT_DATA *s)
 {
-	static const char *operator_table[] = {
+	static const char * const operator_table[] = {
 		"＋", "－", "×", "÷", "＝", "≠", "＜", "＞", "≦", "≧",
 	};
 	int val1, val2, i;

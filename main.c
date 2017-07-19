@@ -61,10 +61,10 @@ static int bButtonMenuTime = 0;
 static PrecisionTimer s_frame_timer;
 static unsigned long s_frame_us, s_proc_us;
 
-void pceth2_initGraphicAndSound();
-int  pceth2_readScript(SCRIPT_DATA *s);
-void pceth2_waitKey();
-void pceth2_startDebugMenu();
+static void pceth2_initGraphicAndSound();
+static int  pceth2_readScript(SCRIPT_DATA *s);
+static void pceth2_waitKey();
+static void pceth2_startDebugMenu();
 
 //=============================================================================
 //=============================================================================

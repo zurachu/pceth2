@@ -141,7 +141,7 @@ int pceth2_procControl(SCRIPT_DATA *s)
  */
 int pceth2_procEscape(SCRIPT_DATA *s)
 {
-	static const char *lfWords[] = {"　", "「", "『", "（"};
+	static const char * const lfWords[] = {"　", "「", "『", "（"};
 	int i;
 
 	s->p++;
@@ -209,7 +209,7 @@ int pceth2_procEscape(SCRIPT_DATA *s)
  */
 int pceth2_jpnHyphenation(const char *str)
 {
-	static const char *hypWords[] = {"。", "、", "」", "』", "）"};
+	static const char * const hypWords[] = {"。", "、", "」", "』", "）"};
 	int i, x;
 
 	FontFuchi_GetPos(&x, NULL);
@@ -229,8 +229,8 @@ int pceth2_jpnHyphenation(const char *str)
  */
 int pceth2_lineFeed(const char *str)
 {
-	static const char *start_word[] = {"　", "「", "『"};
-	static const char *end_word[] = {"。", "」", "』"};
+	static const char * const start_word[] = {"　", "「", "『"};
+	static const char * const end_word[] = {"。", "」", "』"};
 	int i, j;
 
 	if (play.msglen >= 2 && !pceth2_isLineTop()) {

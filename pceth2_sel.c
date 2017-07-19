@@ -178,7 +178,7 @@ static void pceth2_loadMapChipChara()
  */
 static void pceth2_putMapItem()
 {
-	static const char *landName[] = {
+	static const char * const landName[] = {
 		"©‘î",		"¤“XŠX",	"ƒQ[ƒ€ƒZƒ“ƒ^[",	"Œö‰€",		"’†ŠwZ",	"â“¹",		"Z–å‘O",
 		"Z’ë",		"’“—Öê",	"— ’ë",				"‰º‘Ê” ",	"‘ÌˆçŠÙ",	"‘ŒÉ",		"}‘º",
 		"‹’®Šoº",	"‚PŠK˜L‰º",	"‚QŠK˜L‰º",			"‚PŠK‹³º",	"‚QŠK‹³º",	"‚RŠK˜L‰º",	"‚RŠK‹³º",
@@ -203,7 +203,7 @@ static void pceth2_putMapItem()
  *	chip	ƒ`ƒbƒvƒLƒƒƒ‰”Ô†
  *	*fName	ƒWƒƒƒ“ƒvæƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹–¼
  */
-void pceth2_addMapItemEx(const int land, const int chip, const char *fName)
+static void pceth2_addMapItemEx(int land, int chip, const char *fName)
 {
 	play.lm[play.lmAmount].land = land;
 	play.lm[play.lmAmount].chip = chip;

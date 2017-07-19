@@ -27,8 +27,8 @@ void pceth2_DrawGraphic();
 //=============================================================================
 //	画像ファイル読み込み
 //=============================================================================
-void pceth2_loadGraphic(const char *fName, const int pos);
-void pceth2_clearGraphic(const int pos);
+void pceth2_loadGraphic(const char *fName, int pos);
+void pceth2_clearGraphic(int pos);
 
 //=============================================================================
 //	画像表示・消去

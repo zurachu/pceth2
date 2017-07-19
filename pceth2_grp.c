@@ -25,8 +25,6 @@
 #include "pceth2_arc.h"
 #include "pceth2_str.h"
 
-extern SAVE_DATA play;
-
 static PIECE_BMP	pbmp[GRP_NUM];
 static BYTE			pgx[GRP_NUM][DISP_X * DISP_Y * 5 / 8];
 
@@ -82,7 +80,7 @@ void pceth2_DrawGraphic()
  *	*fName	画像ファイル名
  *	pos		表示位置
  */
-void pceth2_loadGraphic(const char *fName, const int pos)
+void pceth2_loadGraphic(const char *fName, int pos)
 {
 	pceth2_clearGraphic(pos);
 
@@ -101,7 +99,7 @@ void pceth2_loadGraphic(const char *fName, const int pos)
  *
  *	pos	表示位置
  */
-void pceth2_clearGraphic(const int pos)
+void pceth2_clearGraphic(int pos)
 {
 	*play.pgxname[pos] = '\0';
 //	pceHeapFree(pgx[pos]);
@@ -143,7 +141,7 @@ int pceth2_loadBG(SCRIPT_DATA *s)
 {	// 桜背景画像変更テーブル
 	// 2005/07/19	回想などで直接画像番号を指定するケースもあるみたいなので、
 	//				使われていない画像番号にしてみる
-	static const char *cherry[][6] = {
+	static const char * const cherry[][6] = {
 		{"88", "78", "03", "01", "02", "04"},	// 校門（外）
 		{"89", "79", "07", "05", "06", "08"},	// 校門（内）
 		{"90", "80", "36", "34", "35", "37"},	// 橋

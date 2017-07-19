@@ -66,7 +66,7 @@ BOOL fpk_getFileInfoS(char *fName, FPKENTRY *fpkEntry)
 	return fpkGetFileInfoS(hFpk, fName, fpkEntry);
 }
 
-DWORD fpk_getEntryDataPos(FPKENTRY *fpkEntry, BYTE *pDst, DWORD offset, DWORD size)
+DWORD fpk_getEntryDataPos(const FPKENTRY *fpkEntry, BYTE *pDst, DWORD offset, DWORD size)
 {
 	DWORD	ret = 0;
 

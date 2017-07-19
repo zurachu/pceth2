@@ -34,8 +34,8 @@ typedef struct tagPCEWAVEINFO {
 } PCEWAVEINFO;
 */
 
-PCEWAVEINFO	pwav;
-BYTE		*ppd;
+static PCEWAVEINFO	pwav;
+static BYTE			*ppd;
 
 /*
  *	リピート再生用コールバック

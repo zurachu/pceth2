@@ -21,9 +21,9 @@
 #include "pceth2_arc.h"
 #include "pceth2_str.h"
 
-PIECE_BMP	pcircle;
-BYTE		*circle;
-int			circleAnim;
+static PIECE_BMP	pcircle;
+static BYTE		*circle;
+static int			circleAnim;
 
 #define MONTH_INDEX(x)	((x) - START_MONTH)
 
@@ -54,7 +54,7 @@ int pceth2_calenderInitEx(SCRIPT_DATA *s)
  */
 void pceth2_calenderInit()
 {
-	static int day_num[] = {31, 30, 31};	// MONTH_INDEX(x)ŒŽ‚Ì“ú”
+	static const int day_num[] = {31, 30, 31};	// MONTH_INDEX(x)ŒŽ‚Ì“ú”
 	char buf[FNAMELEN_CAL + 1];
 
 	if (DAY > day_num[MONTH_INDEX(MONTH)]) {
@@ -86,7 +86,7 @@ void pceth2_calenderInit()
 #define CIRCLE_H	12
 #define ANIMATION_PROC	1
 
-static int zero_date[] = {0, 3, 5};	// MONTH_INDEX(x)ŒŽ0“ú‚Ì—j“ú
+static const int zero_date[] = {0, 3, 5};	// MONTH_INDEX(x)ŒŽ0“ú‚Ì—j“ú
 
 /*
  *	‰½—j“ú‚©•Ô‚·

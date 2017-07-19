@@ -195,7 +195,7 @@ int pceth2_backTitle(SCRIPT_DATA *s)
 
 void pceth2_Title()
 {
-	static BOOL LCDUpdate = FALSE;
+	BOOL LCDUpdate = FALSE;
 
 	if (pcePadGet() & (TRG_UP | TRG_DN)) {
 		index ^= 1;	// 0‚Æ1Ø‚è‘Ö‚¦
@@ -208,7 +208,6 @@ void pceth2_Title()
 		FontFuchi_Put(28, 56 + index * 12, '>');
 		FontFuchi_Put(28 + 65, 56 + index * 12, '<');
 		Ldirect_Update();
-		LCDUpdate = FALSE;
 	}
 
 	if (pcePadGet() & TRG_A) {	// A
@@ -232,7 +231,7 @@ int last_gameMode;
 
 static void pceth2_drawSaveMenu()
 {
-	static char *date[] = {"“ú", "ŒŽ", "‰Î", "…", "–Ø", "‹à", "“y"};
+	static char * const date[] = {"“ú", "ŒŽ", "‰Î", "…", "–Ø", "‹à", "“y"};
 	char buf[FNAMELEN_SAV + 1];
 	FILEACC pfa;
 	int month, day, i;
@@ -278,7 +277,7 @@ void pceth2_SaveMenu()
 {
 	static int phase = 0;
 	static int mode = LOAD;
-	static BOOL LCDUpdate = FALSE;
+	BOOL LCDUpdate = FALSE;
 
 	if (phase == 0)
 	{
@@ -308,7 +307,6 @@ void pceth2_SaveMenu()
 			pceFontPut(44, 34 + mode * 10, '>');
 		}
 		Ldirect_Update();
-		LCDUpdate = FALSE;
 	}
 
 	if (pcePadGet() & TRG_A) {	// A
