@@ -46,21 +46,68 @@ A	e.d.<a>c.r16dr16d4.r16c16c2r16
 ;===============================================================================
 ; ÉTÉuÅEî∫ët
 
-;B	l8D+8
+!BPartA	V90o6@0l16 r4cr8.er8.gr8. ar8.r4er8.fr8. grr4 V90o5@2l8 c4rc4 <a4rb4rb4 b4rb4rb4
 
+B	l8D+8
+
+B	V100o5@2l16
+B	r2r8d8rc+8r L
+
+B	V90o5@2l8
+B	c1.rcr16c. ; î∫ëtÇÃâ∫
+B	V90o6@0l16
+B	r2.r8ga br8br>cr<br8grerar
+B	r8grr2. r2er8.fr8. grr2.ga brr4b>cdrr4c+r
+B	cr8.r2.
+B	V90o4@2l8
+B	b1 a1 b1 a1 b1 >c2.r4 ; î∫ëtÇÃâ∫
+
+B	V100o5@2l16
+B	r8b-8>d8g4f4r8
+
+B	!BPartA >c4rc4rc4 V90o6@0l16 >er8dr8<ar>er8<ar8br> cr8<br8>crdr8.r4<
+B	!BPartA >c4rc4r V90o6@0l16 rga>c er8dr8<ar>cr8.dr8dr4.ccr2
 
 ;===============================================================================
 ; î∫ët
 
-;C	@0l8D-8
-;C	r4 L
+!CPartA	rc<a>rcr<a>rcr8cr4
+!CPartB	<r8.br8grbr8br4> r8.cr8<a>rcr8cr4
+
+C	V100o4@1l16D-8
+C	r1 L
+
+C	[cr8cr2r8<ga> cr8cr2.]3 <br8br2. br8br2r8ga>
+C	[cr8cr2. r2.r8<ga>]3 cr8cr2. r1
+
+C	[!CPartA]3 rc<a>rcr<a>rcrdrec8r
+C	!CPartB !CPartA rcr8cr<a>rdr8dr4
+C	[!CPartA]3 rc<a>rcr<a>rcrdrec8r
+C	!CPartB [!CPartA]2
+
+;===============================================================================
+; î∫ët
+
+!EPartA	e4re4re4 d4rd4rd4 e4re4re4 c4rd4rd4 d4rd4rd4 e4re4re4
+
+E	l8D+8
+
+E	V100o4@2l8
+E	r2rar16gr16 L
+
+E	V90o5@2l8
+E	e1.rer16e. d1.rdr16d. e1.rer16e. d1.rdr16c+.
+E	c1 d1 c1 d1 c1 d1 e-2.r<b-1>r
+
+E	!EPartA c4rc4rc4 e4rd4rd4
+E	!EPartA c2<a4br16b4.r16g2r8
 
 ;===============================================================================
 ; ÉxÅ[ÉX
 
 !DPartA	c4.rcr16cr16d16r16 e4.rer16er16g16r16 f4.rfr16fr16a16r16 g4.rgr16gr16g16r16 
 
-D	V80o3@0l8D-24
+D	V80o2@0l8D-24
 
 D	r2rar16gr16 L
 D	f4rfrfr16cr16 f4rfrfr16>c16<f16r16 e4rerer16<br16> e4rerer16gr16
