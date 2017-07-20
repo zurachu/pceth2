@@ -22,22 +22,21 @@ ABCDEF E0,0,0,0Y0,0,0,0D0
 !APartA r6ccrcdr6<br6>cr<barg>r2
 !APartB r6ddrder6crdr4r6ddr6gr6 cr3<aarb>crd
 !APartC r6eerefr6dr6erdcrcr2
+!APartD e6rf6r g4r4f6re6r d6r<brg4r4g> c6rc6r<b>rcdre r2 e6rf6r g4r4f6re6r d6r<brg4rg6a> c8r8c8r8r6<a>cr<a> c4d4e4f4
+
 
 A	l12D+24
 
-A	V100o5@0
+A	V100o5@0 E200,70,40,80 Y8,140,80,80
 
-A	r2
-A	r2L r1r6dc6g&g4 r4r1r6>c<b6g&g4 r4r1r6dc6g&g4 r4r1.
+A	r3r2L
+A	r1r6dc6g&g1 r2r6>c<b6g&g1 r2 r6dc6g&g1 r2r2
 A	!APartA !APartB er6drcr6<ag>re
 A	[r1]2
 A	!APartC !APartB er6frer6cr6c
 
-A	r1. e6rf6r
-A	g4r4f6re6r d6r<brg4r4g>
-A	c6rc6r<b>rcdre r2 e6rf6r
-A	g4r4f6re6r d6r<brg4rg6a>
-A	c8r8c8r8r6<a>cr<a> c4d4e4f4
+A	r1.
+A	!APartD
 
 A	e6re6rerer6e r4d4f4e4 c4r6cc6de6ag6rdrdr4r6<a>
 A	c6rcr<a>c6rcr<a>c6rdrc6rcdre f4e4d4e4d4r4g4r4
@@ -47,55 +46,72 @@ A	a4g4e4d4 c6rd6c6r6c4 d4e4f4g4 e4<g4>e4d6c c2
 ;===============================================================================
 ; サブ
 
-
+!BtA V90 o5@2 E200,70,40,80 Y8,140,80,80
+!BtB V100o5@2 E200,70,40,80 Y8,140,80,80
+!BtC V90 o5@0 E200,70,40,80 Y8,140,80,80
 
 B	l12D+8
-B	V90o5@0
 
-B	r2
-B	[r1]3r2c2g1&g4f4e6dc6<g&g1b6gb6>c&c2
+B	r3L
+B	!BtA
+B	c1<b3&b>c&c2 c1<b6gb6>c&c2
+B	g1&g4f4e6dc6<g1rb6gb6>c&c2
+B	!BtB
 B	[r1]6 r4<e4g4>c4<a2>f2
+B	!BtC
 B	!APartA r6<bbrb>cr6<arbr4r6bb>r6er6 <ar3ffrgarb> cr6drcr6<gr6g>
 
-B	r4>c6r<b6ra6rg6rf6re6rf6r
-B	g4r4f6re6r d6r<brg4r4g>
-B	c6rc6r<b>rcdre r2 e6rf6r
-B	g4r4f6re6r d6r<brg4rg6a>
-B	c8r8c8r8r6<a>cr<a> c4d4e4f4
+B	!BtB
+B	r4>c6r<b6ra6rg6rf6r
+B	!BtC
+B	!APartD
 
-B	c6rc6rcrcr6c r4<b4>d4c4 <a4r6aa6b>c6de6r<brb>r2
-B	[r1]4 ;
+B	c6rc6rcrcr6c r4<b4>d4c4 <a4r6aa6b>c6de6r<brbr2
+B	!BtB
+B	a4.r8g4.r8f4arag4.r8 d4.r8d4c4g4.r8g4.r8
+B	!BtC
 B	c6rc6rcrcr6c r4<b4>d4c4 <a4r6aa6b>c6de6rerer2
-B	[r1]4 ;
+B	!BtB
+B	cr<ga6>cr6cd6c cr<ga6>cr6cg6c
+B	[r1]2
 
 ;===============================================================================
 ; 伴奏
 
 
-C	l12D-8
-C	V80o5@2
+C	D-8
 
-C	r2
-C	[r1]8
+C	r3L
+C	V90l4o4@2 q4 E220,80,40,220 Y8,140,80,80
+C	[ggaagggg ggffgggg]2
 
-C	l8o4@0
-C	grgrgrgrarargrgr grgrarargrgrgrgr
-C	arararararararar grgrgrgrarararar
+C	ggggaagg ggaagggg
+C	aaaaaaaa ggggaaaa
+C	ggggaagg ggaagggg
+C	aaaaaaaa gggggggg
+
+C	gggggggg gggggggg
+C	gggggggg ggr4 f32&g32&a32&b32&>c32&d32&e32&f32&g1
+
+C	c1<g2>d2c1d6<r12b6b2r12
+C	>cccccccc ddddcccc
+C	c1<g2>d2c1d6<r12b6b2r12
+C	>cccccccc <gggg g1
 
 ;===============================================================================
 ; ベース
 
 
-D	V90o2@0l12D-24
+D	V100o2@0l12D-24 q4 E255,100,40,220
 
-D	r2L
-D	c6rc6rd6rd6r<b6rb6r>c6rc6r c6rc6r<a6ra6rg6rg6r>c6rc6r
-D	c6rc6rd6rd6r<b6gb6r>c6<g>c6r c6rc6r<a6ra6rg6rg6r>c6rc6<g>
+D	r3L
+D	c6.c6.d6.d6.<b6.b6.>c6.c6. c6.c6.<a6.a6.g6.g6.>c6.c6.
+D	c6.c6.d6.d6.<b6gb6.>c6<g>c6. c6.c6.<a6.a6.g6.g6.>c6.c6<g>
 
 D	cr3c<gr3gfr3f>cr6cr6 er3efr3cer3cer3e
 D	dr3<a>dr3d<gr3dgr3g> cr3<g>cr3<g>cr6<er6fr6g>r6
-D	cr3c<gr3gfr3f>cr3c er3efr3fer3e<b6>re6r
-D	dr3<a>dr<a>d6r<gr3dgr3g> cr3<g>cr3<g>cr6crdcr<g>c6r
+D	cr3c<gr3gfr3f>cr3c er3efr3fer3e<b6>re6.
+D	dr3<a>dr<a>d6.<gr3dgr3g> cr3<g>cr3<g>cr6crdcr<g>c6.
 
 D	<f4a4>c4f4e4<b4g4e4>
 D	d8r8d8r8<b8r8g8r8a8r8e8r8g8r8e8r8
@@ -103,9 +119,9 @@ D	f4a4>c4f4e4<b4g4e4>
 D	d8r8d8r8r4r6d<grgarabrb>d4
 
 D	cr3ccr3c<br3bbr3b ar3aar3>der3<ber3e
-D	fr3fer3e>dr3dcr3c dr3ddr<a>d6r<gr3gg6r>d6r
-D	cr3ccr3c<br3bbrgb6r ar3aareg6aer3eer>e<e6r
-D	fr3fer3e>dr<a>c6dcr6c6r dr3<a>dr6dr6 g2r4<g4>
+D	fr3fer3e>dr3dcr3c dr3ddr<a>d6.<gr3gg6.>d6.
+D	cr3ccr3c<br3bbrgb6. ar3aareg6aer3eer>e<e6.
+D	fr3fer3e>dr<a>c6dcr6c6. dr3<a>dr6dr6 g2r4<g4>
 
 
 
@@ -115,11 +131,18 @@ D	fr3fer3e>dr<a>c6dcr6c6r dr3<a>dr6dr6 g2r4<g4>
 F =1
 F	l12
 
-F	r6!sg gr!bg
-F	[!bg r!hg!sg r!hg!bg r!hg!Cg r!hg]8
-F	
+F	!sg gr!bg
+F	L
+F	[!bg r!hg!sg r!bg gr!hg!Cg r!hg]7
+F	!bg r!hg!sg r!tg!ug r!hg!Cg r!hg
+F	!cg r!hg!sg r!bg [!bg r!hg!sg r!bg]29
+F	[!sg r!hg]4
 
+F	!cg r!hg [!sg r!hg]25
+F	r6!tg gr!ug
+F	!sg r!hg[!sg r g]3
 
-
-
+F	[!bg r!hg!sg r!bg gr!hg!Cg r!hg]15
+F	!bg r!hg!sg r!bg
+F	r6!tg gr!ug
 
