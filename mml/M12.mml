@@ -21,7 +21,7 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_-5
 
 A	l8D+24L
 
-A	V100o5@1
+A	V100o5@1Y8,140,80,80
 
 A	r1L
 
@@ -107,7 +107,7 @@ E	!EPartA c2<a4br16b4.r16g2r8
 
 !DPartA	c4.rcr16cr16d16r16 e4.rer16er16g16r16 f4.rfr16fr16a16r16 g4.rgr16gr16g16r16 
 
-D	V80o2@0l8D-24
+D	V90o2@0l8D-24
 
 D	r2rar16gr16 L
 D	f4rfrfr16cr16 f4rfrfr16>c16<f16r16 e4rerer16<br16> e4rerer16gr16
@@ -132,7 +132,7 @@ D	e4.rer16er16e16r16 a4.rar16ar16a16r16 f4.rd4g.c2.rg16>c16r16<
 F =1
 F	l8
 
-F	!bg!og!sg!tg16!ug16!og!cg.g. L
+F	!bg!og!sg!tg24!ug24!vg24!og!cg.g. L
 F	!FPartA
 F	[!FPartB]6
 F	!bg.g16!sg!bg16 g16 !sg!bg!tg!bg
