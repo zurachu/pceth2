@@ -4,8 +4,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unpack000", "unpack000\unpack000.vcxproj", "{9AE56C73-F8CE-498F-88C1-62E7F15735A8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pgd16cmv", "pgd16cmv\pgd16cmv.vcxproj", "{234D94A6-ABBA-44CC-811F-096DA5810855}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pceth2bmp", "pceth2bmp\pceth2bmp.vcxproj", "{4C2B6180-E2EC-484E-B94A-939B6A9E297D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "th2bm2cmv", "th2bm2cmv\th2bm2cmv.vcxproj", "{58D687AE-AF84-4555-B9EE-725F1E50DE1F}"
@@ -24,10 +22,6 @@ Global
 		{9AE56C73-F8CE-498F-88C1-62E7F15735A8}.Debug|x86.Build.0 = Debug|Win32
 		{9AE56C73-F8CE-498F-88C1-62E7F15735A8}.Release|x86.ActiveCfg = Release|Win32
 		{9AE56C73-F8CE-498F-88C1-62E7F15735A8}.Release|x86.Build.0 = Release|Win32
-		{234D94A6-ABBA-44CC-811F-096DA5810855}.Debug|x86.ActiveCfg = Debug|Win32
-		{234D94A6-ABBA-44CC-811F-096DA5810855}.Debug|x86.Build.0 = Debug|Win32
-		{234D94A6-ABBA-44CC-811F-096DA5810855}.Release|x86.ActiveCfg = Release|Win32
-		{234D94A6-ABBA-44CC-811F-096DA5810855}.Release|x86.Build.0 = Release|Win32
 		{4C2B6180-E2EC-484E-B94A-939B6A9E297D}.Debug|x86.ActiveCfg = Debug|Win32
 		{4C2B6180-E2EC-484E-B94A-939B6A9E297D}.Debug|x86.Build.0 = Debug|Win32
 		{4C2B6180-E2EC-484E-B94A-939B6A9E297D}.Release|x86.ActiveCfg = Release|Win32
