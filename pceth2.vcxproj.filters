@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="font_ex">
+      <UniqueIdentifier>{667c9d7f-2eeb-4c8d-9c9e-040c59533115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="usbcapt">
+      <UniqueIdentifier>{7efc08cd-4df2-4c19-93ce-0adbe7e15543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ld">
+      <UniqueIdentifier>{344d569d-c21a-403b-933b-0b41fa91a773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ufe">
+      <UniqueIdentifier>{d35a162c-fff3-4a4f-a140-dc3cc232920d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mmc_api">
+      <UniqueIdentifier>{3d1ab887-8c0d-48aa-a08b-c9afb264af0e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_arc.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_cal.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_grp.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_msg.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_sav.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_sel.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_snd.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_str.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pceth2_sys.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="font_ex.c">
+      <Filter>font_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="usbcapt.c">
+      <Filter>usbcapt</Filter>
+    </ClCompile>
+    <ClCompile Include="fram_ld.c">
+      <Filter>ld</Filter>
+    </ClCompile>
+    <ClCompile Include="ld.c">
+      <Filter>ld</Filter>
+    </ClCompile>
+    <ClCompile Include="ufe\ufe.c">
+      <Filter>ufe</Filter>
+    </ClCompile>
+    <ClCompile Include="mmc_api.c">
+      <Filter>mmc_api</Filter>
+    </ClCompile>
+    <ClCompile Include="mmc_fram.c">
+      <Filter>mmc_api</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_arc.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_cal.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_grp.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_msg.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_sav.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_sel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_snd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_str.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pceth2_sys.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="font_ex.h">
+      <Filter>font_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="usbcapt.h">
+      <Filter>usbcapt</Filter>
+    </ClInclude>
+    <ClInclude Include="ld.h">
+      <Filter>ld</Filter>
+    </ClInclude>
+    <ClInclude Include="ufe\ufe.h">
+      <Filter>ufe</Filter>
+    </ClInclude>
+    <ClInclude Include="mmc_api.h">
+      <Filter>mmc_api</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
