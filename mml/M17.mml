@@ -1,0 +1,120 @@
+#Title	#17
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T110
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+2
+
+;===============================================================================
+; メイン
+
+!APartA	crderc<g>r6r4 crderc<g>r3g frdercdr<b>cr
+!APartB	!APartA e gr6<gab>cr6r4
+!APartC	f3r<aa3>rf ere-erc<g6>r3
+
+A	l12D+24L
+
+A	V100o4@1
+A	!APartA<a b>rcdr<ag>r6r4
+A	!APartB
+
+A	V110o5@2
+A	!APartC f3r<aa3>rf e4r2cde
+A	!APartC drdd6rdrdd6r <b>rcdr<ag6r3
+
+A	V100o4@1
+A	!APartB
+
+;===============================================================================
+; サブ・伴奏
+
+!BPartB	[r1]2 arfgrefrderg r4br6>cr6r4
+
+B	l12D+8L
+
+B	V90o5@0Q4
+B	[r1]3 r2g>g<g>gr6
+B	!BPartB
+
+B	V90o3@1Q8
+B	r1 r2g6&a&g6&a
+B	V100o5@2
+B	r1 r4a4g4r4
+B	f1
+B	V90o3@1Q8
+B	r2g6&a&g6&a
+B	[r1]2
+
+B	V90o5@0Q4
+B	!BPartB
+
+;===============================================================================
+; 伴奏
+
+!CPartA	[e6r]8 f6re6rd6rc6r
+!CPartB	!CPartA d6rd6rc6r3
+
+C	l12D-8L
+
+C	V100o4@2
+
+C	!CPartA d6rf6rd6r3
+C	!CPartB
+C	[[f6r]4 [e6r]4]3 [drdd6r]3 d6r3
+C	!CPartB
+
+!EPartA	[g6r]8 a6rg6rf6re6r
+
+E	l12D-8L
+
+E	V60o4@2
+
+E	!EPartA f6ra6rf6r3
+E	!EPartA
+E	V80o6@0Q4
+E	r4dr6er6r4
+
+E	V60o4@2Q8
+E	[[a6r]4 [g6r]4]3 [frff6r]3 f6r3
+E	!EPartA
+E	V80o6@0Q4
+E	r4dr6er6r4
+
+;===============================================================================
+; ベース
+
+!DPartA	c6r4c<g6r4g> c6r4c<g6r4g
+!DPartB	!DPartA f6re6rd6rc6r g6>rd6rc6r3
+
+D	V90o2@0l12D-24L
+
+D	!DPartA f6re6rd6r>c6r <b6>rd6r<g6>rgr<g>
+D	!DPartB
+D	[<f6r4ff6r4f> c6r4cc6r4c]3 <b-rb-b-6rb-rb-b-6r> g6rd6r<g6>r3
+D	!DPartB
+
+;===============================================================================
+; ドラム
+
+!FPartB	!vg4!tg4!vg4!Cg4 !vg4!tg4!vg6!tg g4 !vg4!tg4!vg4!tg4 !vg4!tg4!ug2
+
+F =1
+F	l12L
+
+F	!vg4!tg4!vg4!Cg4 !vg4!tg4!vg6!tg g4 !vg4!tg4!vg4!tg rg grg24g24grgg2
+F	!FPartB
+F	!ug rg!Cg4!ug4!Cg4 !ug rg!Cg6gg4!Cg4 [!ug4!Cg6!ug g4!Cg4]4
+F	!ug rgg4grgg4 grgg4!tg4!Cg4
+F	!FPartB
+
