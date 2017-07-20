@@ -22,7 +22,7 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_+4
 !APartB	a4ra>e4<a>c16c16 <b2.rg
 !APartC	e.e.ee.d.c g4.dd4c<b16>c16& c2.rc g.f.ee4dc c4.r<a.b.>c <g4.ra.b.>c
 
-A	l8D+24
+A	l8D+24  Y8,140,80,80
 
 A	V80o3@0
 A	ar4.br4.>cr4.dr4. L
@@ -40,7 +40,7 @@ A	r4.cdcdg& g2.r4
 A	!APartC f4g4e4dc <b4.>cc4.r
 A	!APartC c2d4.c c2.r4
 
-E	l8D+8
+E	l8D+8 Y8,140,80,80
 
 E	[r1]2 L
 
@@ -65,7 +65,7 @@ E	!APartC c2d4.c c2.r4
 
 B	l8D+8
 
-B	V90o4@0
+B	V90o4@0  Y8,140,80,80
 
 B	e4ed4d4c4rcd4rd4 L
 
