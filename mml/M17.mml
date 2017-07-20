@@ -67,7 +67,7 @@ B	!BPartB
 
 C	l12D-8L
 
-C	V100o4@2
+C	V80o4@0
 
 C	!CPartA d6rf6rd6r3
 C	!CPartB
@@ -78,17 +78,17 @@ C	!CPartB
 
 E	l12D-8L
 
-E	V60o4@2
+E	V60o4@0
 
 E	!EPartA f6ra6rf6r3
 E	!EPartA
-E	V80o6@0Q4
+E	V90o6@0Q4
 E	r4dr6er6r4
 
-E	V60o4@2Q8
+E	V60o4@0Q8
 E	[[a6r]4 [g6r]4]3 [frff6r]3 f6r3
 E	!EPartA
-E	V80o6@0Q4
+E	V90o6@0Q4
 E	r4dr6er6r4
 
 ;===============================================================================

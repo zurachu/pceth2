@@ -27,7 +27,7 @@ A	l8D+24
 
 A	[r1]2 L
 
-A	V90o5@0Y17,140,80,80
+A	V100o5@0Y17,140,80,80
 A	!APartA
 A	!APartB c4<bag4.r4>
 A	!APartA
@@ -37,7 +37,7 @@ A	V110o5@2
 A	r4.ccdeg4.fc4d4r egb>c4<bge a2.r4
 A	r4.ccde<g+4.>ed4c4r <b4b>c4<b>cd4<g+>ed4.r4
 
-A	V90o5@0
+A	V100o5@0
 A	!APartC f4re4fgd8& d2r2
 A	!APartC f4ef4g4<g4.r4>d4r4 c2r2 r1
 
@@ -46,7 +46,7 @@ E	l8D+8
 E	V90o6@2
 E	r2 r4.g4rg2r4 L
 
-E	V80o5@0Y17,140,80,80
+E	V90o5@0Y17,140,80,80
 E	!APartA
 E	!APartB c4<bag4.r4>
 E	!APartA
@@ -56,7 +56,7 @@ E	V100o5@2
 E	r4.ccdeg4.fc4d4r egb>c4<bge a2.r4
 E	r4.ccde<g+4.>ed4c4r <b4b>c4<b>cd4<g+>ed4.r4
 
-E	V80o5@0
+E	V90o5@0
 E	!APartC f4re4fgd8& d2r2
 E	!APartC f4ef4g4<g4.r4>d4r4 c2
 
@@ -109,8 +109,8 @@ C	!CPartA f& f4fd4.r4
 C	!CPartA a& agfg4.r4
 
 C	V110o5@2
-C	frfrfrfr frfrfrfr drdrdddr erererer
-C	erereeer erereeer <brbr>crcr c+rc+rdrdr
+C	frfrfrfr frfrfrfr drdrdrdr erererer
+C	erereeer drdrdrdr <brbr>crcr c+rc+rdrdr
 
 C	V110o5@2
 C	!CPartB cd16r16d4r<g4>r
@@ -123,11 +123,11 @@ C	gfed4c4c.r16c16r16c2r4
 ;===============================================================================
 ; ÉxÅ[ÉX
 
-D	V80o2@0l8D-24
+D	V90o2@0l8D-24
 
 D	r2.rg rg16r16g2r4 L
 
-D	V80o2@0
+D	V90o2@0
 D	c4r<g>c4re& erece4e4 f4fce4ec d4d<g>c<g>c4
 D	c4r<g>c4r<g a4rea4r>e& eref4r4d& drdg4.r4
 D	c4r<g>c4re& erecgege f4fce4ec d4d<g>c<g>c4

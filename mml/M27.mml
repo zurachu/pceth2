@@ -27,7 +27,7 @@ A	l8D+24  Y8,140,80,80
 A	V80o3@0
 A	ar4.br4.>cr4.dr4. L
 
-A	V90o5@1
+A	V100o5@1
 A	c<b>cd16c2r16 g4dc16<b4.r16g a.>c.d<b.a.g g2.r4
 A	a.b.>c<b4.r g.>e.<b>c4.r r4<a4.b>cd c4.<bb4rg>
 A	c<b>cd16c2r16 g4dc16<b4.r. a.>c.d<b.a.g g2.r4
@@ -117,7 +117,7 @@ C	a1 g4.dc.d.e e2f4.e e2.r4
 
 !DPartA	c4rcr<g>cd e4r<be4r4 f4rfg4rg >c2r<g>c<e f2r4.f e4reaea4
 
-D	V80o2@0l8D-24
+D	V90o2@0l8D-24
 
 D	d4r4e4r4f4r4g<bg4L
 

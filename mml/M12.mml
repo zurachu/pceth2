@@ -46,23 +46,23 @@ A	e.d.<a>c.r16dr16d4.r16c16c2r16
 ;===============================================================================
 ; サブ・伴奏
 
-!BPartA	V90o6@0l16 r4cr8.er8.gr8. ar8.r4er8.fr8. grr4 V90o5@2l8 c4rc4 <a4rb4rb4 b4rb4rb4
+!BPartA	V90o6@0l16 r4cr8.er8.gr8. ar8.r4er8.fr8. grr4 V80o4@0l8 c4rc4 <a4rb4rb4 b4rb4rb4
 
 B	l8D+8
 
-B	V100o5@2l16
+B	V100o5@0l16
 B	r2r8d8rc+8r L
 
-B	V90o5@2l8
+B	V80o4@0l8
 B	c1.rcr16c. ; 伴奏の下
 B	V90o6@0l16
 B	r2.r8ga br8br>cr<br8grerar
 B	r8grr2. r2er8.fr8. grr2.ga brr4b>cdrr4c+r
 B	cr8.r2.
-B	V90o4@2l8
+B	V80o3@0l8
 B	b1 a1 b1 a1 b1 >c2.r4 ; 伴奏の下
 
-B	V100o5@2l16
+B	V100o5@0l16
 B	r8b-8>d8g4f4r8
 
 B	!BPartA >c4rc4rc4 V90o6@0l16 >er8dr8<ar>er8<ar8br> cr8<br8>crdr8.r4<
@@ -92,15 +92,15 @@ C	!CPartB [!CPartA]2
 
 E	l8D+8
 
-E	V100o4@2l8
+E	V100o4@0l8
 E	r2rar16gr16 L
 
-E	V90o5@2l8
+E	V80o4@0l8
 E	e1.rer16e. d1.rdr16d. e1.rer16e. d1.rdr16c+.
 E	c1 d1 c1 d1 c1 d1 e-2.r<b-1>r
 
 E	!EPartA c4rc4rc4 e4rd4rd4
-E	!EPartA c2<a4br16b4.r16g2r8
+E	!EPartA c2<a4br16b4.r16>c2r8
 
 ;===============================================================================
 ; ベース
