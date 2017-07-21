@@ -84,15 +84,17 @@ void pceth2_DrawGraphic()
  */
 void pceth2_loadGraphic(const char *fName, const int pos)
 {
-	pceth2_clearGraphic(pos);
+	if (!pgx[pos] || strcmp(play.pgxname[pos], fName) != 0) {
+		pceth2_clearGraphic(pos);
 
-	strcpy(play.pgxname[pos], fName);
-	/*pgx[pos] =*/ fpk_getEntryData(play.pgxname[pos], NULL, pgx[pos]);
+		strcpy(play.pgxname[pos], fName);
+		/*pgx[pos] =*/ fpk_getEntryData(play.pgxname[pos], NULL, pgx[pos]);
 
-	if (pgx[pos] != NULL) {
-		PieceBmp_Construct(&pbmp[pos], pgx[pos]);
-	} else {
-		*play.pgxname[pos] = '\0';
+		if (pgx[pos] != NULL) {
+			PieceBmp_Construct(&pbmp[pos], pgx[pos]);
+		} else {
+			*play.pgxname[pos] = '\0';
+		}
 	}
 }
 
