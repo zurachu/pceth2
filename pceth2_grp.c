@@ -37,13 +37,17 @@ static int	slide_pos;			// スライドしている画像のセット位置（LCR）
 //	画像描画
 //=============================================================================
 
-#define POS_L	30
-#define POS_C	64
-#define POS_R	98
-
 static void draw_object(const PIECE_BMP *pbmp, int dx, int dy)
 {
 	Ldirect_DrawObject(pbmp, dx, dy, 0, 0, pbmp->header.w, pbmp->header.h);
+}
+
+static void draw_character(int pos)
+{
+	static const int s_x[GRP_BG] = {30, 64, 98};	// 立ち絵表示中心位置テーブル
+	if (*play.pgxname[pos]) {
+		draw_object(&pbmp[pos], (s_x[pos] - pbmp[pos].header.w / 2) + slide_x[pos], DISP_Y - pbmp[pos].header.h);
+	}
 }
 
 /*
@@ -51,22 +55,20 @@ static void draw_object(const PIECE_BMP *pbmp, int dx, int dy)
  */
 void pceth2_DrawGraphic()
 {
-//	static int pos_table[] = {30, 64, 98};	// 立ち絵表示中心位置テーブル
-
 	if (*play.pgxname[GRP_BG]) {	// 背景
 		draw_object(&pbmp[GRP_BG], 0, 0);
 	} else {
 		Ldirect_Paint(15, 0, 0, DISP_X, DISP_Y);	// 黒背景
 	}
 
-	if (*play.pgxname[GRP_R]) {	// 右
-		draw_object(&pbmp[GRP_R], (POS_R - pbmp[GRP_R].header.w / 2) + slide_x[GRP_R], DISP_Y - pbmp[GRP_R].header.h);
-	}
-	if (*play.pgxname[GRP_L]) {	// 左
-		draw_object(&pbmp[GRP_L], (POS_L - pbmp[GRP_L].header.w / 2) + slide_x[GRP_L], DISP_Y - pbmp[GRP_L].header.h);
-	}
-	if (*play.pgxname[GRP_C]) {	// 中央
-		draw_object(&pbmp[GRP_C], (POS_C - pbmp[GRP_C].header.w / 2) + slide_x[GRP_C], DISP_Y - pbmp[GRP_C].header.h);
+	if(play.gameMode == GM_MAPSELECT) {
+		draw_character(GRP_C);
+		draw_character(GRP_L);
+		draw_character(GRP_R);
+	} else {
+		draw_character(GRP_R);
+		draw_character(GRP_L);
+		draw_character(GRP_C);
 	}
 }
 
@@ -80,7 +82,7 @@ void pceth2_DrawGraphic()
  *	*fName	画像ファイル名
  *	pos		表示位置
  */
-void pceth2_loadGraphic(const char *fName, int pos)
+void pceth2_loadGraphic(const char *fName, const int pos)
 {
 	pceth2_clearGraphic(pos);
 
@@ -99,7 +101,7 @@ void pceth2_loadGraphic(const char *fName, int pos)
  *
  *	pos	表示位置
  */
-void pceth2_clearGraphic(int pos)
+void pceth2_clearGraphic(const int pos)
 {
 	*play.pgxname[pos] = '\0';
 //	pceHeapFree(pgx[pos]);
@@ -141,7 +143,7 @@ int pceth2_loadBG(SCRIPT_DATA *s)
 {	// 桜背景画像変更テーブル
 	// 2005/07/19	回想などで直接画像番号を指定するケースもあるみたいなので、
 	//				使われていない画像番号にしてみる
-	static const char * const cherry[][6] = {
+	static const char *cherry[][6] = {
 		{"88", "78", "03", "01", "02", "04"},	// 校門（外）
 		{"89", "79", "07", "05", "06", "08"},	// 校門（内）
 		{"90", "80", "36", "34", "35", "37"},	// 橋

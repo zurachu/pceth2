@@ -74,8 +74,10 @@ void pceth2_comeBackMessage(void)
 	FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
 	FontFuchi_PutStr(play.msg);
 
-	if (play.gameMode == GM_SELECT || play.gameMode == GM_MAPSELECT) {	// ‘I‘ð’†‚È‚ç–îˆó•`‰æ
+	if (play.gameMode == GM_SELECT) {	// ‘I‘ð’†‚È‚ç–îˆó•`‰æ
 		pceth2_drawSelArrow();
+	} else if (play.gameMode == GM_MAPSELECT) {
+		pceth2_drawMapSelArrow();
 	}
 	msgView = 1;
 	Ldirect_Update();

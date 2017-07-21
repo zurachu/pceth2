@@ -52,11 +52,13 @@ int pceth2_SelectEx(int amount)
 
 	if (msgView)	// メッセージ表示状態
 	{
-		if (pcePadGet() & TRG_UP) {	// ↑
+		if ((*play.msg && pcePadGet() & TRG_UP)	// ↑
+			|| (!*play.msg && pcePadGet() & TRG_LF)) {	// マップ画像選択肢時は←
 			play.selIndex = (play.selIndex + amount - 1) % amount;
 			LCDUpdate = TRUE;
 		}
-		if (pcePadGet() & TRG_DN) {	// ↓
+		if ((*play.msg && pcePadGet() & TRG_DN)	// ↓
+			|| (!*play.msg && pcePadGet() & TRG_RI)) {	// マップ画像選択肢時は→
 			play.selIndex = (play.selIndex + 1) % amount;
 			LCDUpdate = TRUE;
 		}
@@ -64,8 +66,10 @@ int pceth2_SelectEx(int amount)
 		if (LCDUpdate) {
 			if (play.gameMode == GM_MAPSELECT) {	// マップ選択は
 				pceth2_loadMapChipChara();			// チップキャラも描き替え
+				pceth2_drawMapSelArrow();	// 矢印
+			} else {
+				pceth2_drawSelArrow();	// 矢印
 			}
-			pceth2_drawSelArrow();	// 矢印
 			Ldirect_Update();
 			LCDUpdate = FALSE;
 		}
@@ -156,6 +160,20 @@ void pceth2_Select()
 #define LM_MYHOME	0
 
 /*
+ *	マップ選択の矢印を描画
+ */
+void pceth2_drawMapSelArrow()
+{
+	if (*play.msg) { // 文字列選択肢
+		pceth2_drawSelArrow();
+	} else {
+		Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
+		FontFuchi_SetPos(MSG_X_MIN, MSG_Y_MIN);
+		FontFuchi_Printf("<< %d / %d >>", play.selIndex + 1, play.lmAmount);
+	}
+}
+
+/*
  *	チップキャラを読み込んで画面を再描画
  */
 #define FNAMELEN_CHIP	13
@@ -164,6 +182,8 @@ static void pceth2_loadMapChipChara()
 {
 	char buf[FNAMELEN_CHIP + 1];
 
+	pcesprintf(buf, "MAP%02d.pgx", play.lm[play.selIndex].land + 1);
+	pceth2_loadGraphic(buf, GRP_C);
 	if (play.lm[play.selIndex].chip == CH_NOTHING) {	// チップキャラなし
 		pceth2_clearGraphic(GRP_R);
 	} else {
@@ -188,13 +208,15 @@ static void pceth2_putMapItem()
 
 	pceth2_setPageTop();
 	pceth2_clearMessage();
-	for (i = 0; i < play.lmAmount; i++) {
-		pceth2_putKanji("　");
-		FontFuchi_GetPos(NULL, &play.selY[i]);	// y座標を記憶
-		FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
-		play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
+	if (!*play.pgxname[GRP_C]) { // マップ画像が無い場合は文字列選択肢
+		for (i = 0; i < play.lmAmount; i++) {
+			pceth2_putKanji("　");
+			FontFuchi_GetPos(NULL, &play.selY[i]);	// y座標を記憶
+			FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
+			play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
+		}
+		Ldirect_Update();
 	}
-	Ldirect_Update();
 }
 
 /*
@@ -273,12 +295,11 @@ void pceth2_initMapSelect()
 	pceth2_loadGraphic(BG_MAPSELECT, GRP_BG);	// 背景
 	pceth2_clearGraphic(GRP_L);
 	pceth2_clearGraphic(GRP_C);
+	play.gameMode = GM_MAPSELECT;	// pceth2_loadMapChipChara() より先に変えて描画順を調整
 	pceth2_loadMapChipChara();					// チップキャラ
 	pceth2_putMapItem();						// 選択肢
-	pceth2_drawSelArrow();						// 矢印
+	pceth2_drawMapSelArrow();					// 矢印
 	Play_PieceMML(BGM_MAPSELECT);				// BGM
-
-	play.gameMode = GM_MAPSELECT;
 }
 
 
