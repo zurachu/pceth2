@@ -9,6 +9,8 @@ int  pceth2_addSelItem(SCRIPT_DATA *s);
 int  pceth2_initSelect(SCRIPT_DATA *s);
 void pceth2_Select();
 
+void pceth2_drawMapSelArrow();
+
 int pceth2_addMapItem(SCRIPT_DATA *s);
 BOOL pceth2_initMapClock();
 void pceth2_initMapSelect();
