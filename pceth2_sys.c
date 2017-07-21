@@ -21,6 +21,10 @@
 
 int pceth2_isCalenderMode();
 
+#define NUMLEN_LABEL	3
+static char latest_label[NUMLEN_LABEL];
+static DWORD latest_label_ptr;
+
 //=============================================================================
 //	スクリプトファイル読み込み
 //=============================================================================
@@ -36,6 +40,7 @@ void pceth2_loadScript(SCRIPT_DATA *s, const char *fName)
 	pceth2_closeScript(s);
 	strcpy(s->name, fName);
 	s->data = fpk_getEntryData(s->name, &s->size, NULL);
+	*latest_label = '\0';
 }
 
 /*
@@ -103,18 +108,21 @@ int pceth2_jumpScript(SCRIPT_DATA *s)
 //	ラベルジャンプ
 //=============================================================================
 
-#define NUMLEN_LABEL	3
-
 /*
- *	ラベルをスキップするだけ	@000
+ *	直近のラベルを記憶	@000
+ *	同じラベルへの巻戻りループの度に全検索していたら処理が重かったため、
+ *	ループに使われる直近のものだけ記憶して使う
  *
  *	*s		スクリプトデータ
  *
  *	return	1（引き続き実行）
  */
-int pceth2_skipLabel(SCRIPT_DATA *s)
+int pceth2_memoryLabel(SCRIPT_DATA *s)
 {
-	s->p += NUMLEN_LABEL + 1;
+	s->p++;
+	strncpy(latest_label, s->data + s->p, NUMLEN_LABEL);
+	s->p += NUMLEN_LABEL;
+	latest_label_ptr = s->p;
 	return 1;
 }
 
@@ -130,17 +138,29 @@ int pceth2_jumpLabel(SCRIPT_DATA *s)
 	DWORD ptr;
 	s->p++;
 
-	for (ptr = 0; ptr < s->size; ptr++) {
+	if (!strncmp(latest_label, s->data + s->p, NUMLEN_LABEL)) {	// 直前とラベル照合
+		s->p = latest_label_ptr;
+		return 1;
+	}
+	ptr = s->p + NUMLEN_LABEL;
+	while (ptr != s->p) // 基本的にはループ以外のジャンプ先は現在地より後のはずなので、先頭は後回し
+	{
 		if (*(s->data + ptr) == '@') {	// スクリプト走査
 			ptr++;
 			if (!strncmp(s->data + s->p, s->data + ptr, NUMLEN_LABEL)) {	// ラベル照合
 				s->p = ptr + NUMLEN_LABEL;
-				break;
+				return 1;
 			}
+			ptr += NUMLEN_LABEL;
+		} else {
+			if (pceth2_isKanji(s)) { ptr++; }	// 漢字の場合2bytes進める
+			ptr++;
 		}
-		if (pceth2_isKanji(s)) { ptr++; }	// 漢字の場合2bytes進める
+		if (s->size <= ptr) {
+			ptr = 0;
+		}
 	}
-
+	s->p += NUMLEN_LABEL;
 	return 1;
 }
 
