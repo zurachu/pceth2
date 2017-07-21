@@ -356,6 +356,15 @@ int main(int argc, char *argv[])
 							if (!strcmp(str, bl[k].name)) { fprintf(fpout, "j%03d", k); }
 						}
 						break;
+					case 0x6A:	// アニメーション（座標に使っている演算処理 0x04 をスキップしているので、単純に表示するだけ）
+						for (int k = 0; k < 2; k++) { j += getNumber(buf + j, &num[k]) + 1; }
+						j += getString(buf + j, str) + 1;
+						*str = toupper(*str);
+						if (*str != 'F') { // 効果は使用しない
+							*strchr(str, '.') = '\0';
+							fprintf(fpout, "%s.pgx,0", str);
+						}
+						break;
 					case 0x74:	// マップ移動選択肢を追加
 						for(int k = 0; k < 3; k++) { j += getNumber(buf + j, &num[k]) + 1; }
 						j += getString(buf + j, str) + 1;
