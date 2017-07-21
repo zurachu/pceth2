@@ -229,14 +229,15 @@ int main(int argc, char *argv[])
 						for (int k = 0; k < 3; k++) {
 							if (len = calcRevPolish(buf + j, &num[k])) { j += len + 1; }
 						}
-						num[1] = convertBGNum(num[1]);	// 桜統一
+						if (num[1] >= 0) { // 0x6A の後に出てくることがある -1 は無視する
+							num[1] = convertBGNum(num[1]);	// 桜統一
 //**					if (!(code == 0x27 && num[0] == 0)) {	// これはレイヤアニメ無視するんだったら表示しない方が？
 /*							if (code & 1) {	// 立ち絵消去するなら位置初期化
 								for (int q = 0; q < array_size(pos); q++) { pos[q] = 1; }
 							}
 							// 10000足されてると桜背景も日付無視して表示するらしい（回想など）
 */							fprintf(fpout, "B%03d%03d.pgx,%1d", num[1] % 1000, num[2], (code - 0x27) % 2);
-//**					}
+						}
 						break;
 /*					case 0x2E:	// 立ち絵画像C xxx yyyyy .pgxの表示（位置z）（すぐに描く）
 					case 0x2F:	// （すぐには描かない）→P/ECEでは変わらないので共通にしました
