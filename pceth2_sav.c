@@ -355,9 +355,9 @@ void pceth2_SaveMenu()
 /*
  *	セーブデータから各種状態復帰
  *
- *	musplay_flag	0なら音楽を再生し直さない（セーブメニューから復帰しただけの時）
+ *	replay_flag	0なら画像、音楽を再生し直さない（セーブメニューから復帰しただけの時）
  */
-static void pceth2_comeBack(int musplay_flag)
+static void pceth2_comeBack(int replay_flag)
 {
 	char	buf[16];	// ファイル名退避用
 	int		i;
@@ -369,16 +369,18 @@ static void pceth2_comeBack(int musplay_flag)
 		play.flag[80] += play.flag[80 + i];
 	}
 
-	for (i = 0; i < GRP_NUM; i++) {
-		strcpy(buf, play.pgxname[i]);
-		pceth2_loadGraphic(buf, i);
-	}
-	pceth2_DrawGraphic();	// 画像描画
+	if (replay_flag) {
+		for (i = 0; i < GRP_NUM; i++) {
+			strcpy(buf, play.pgxname[i]);
+			pceth2_clearGraphic(i);
+			pceth2_loadGraphic(buf, i);
+		}
 
-	if (musplay_flag) {
 		strcpy(buf, play.pmdname);
+		Stop_PieceMML();
 		Play_PieceMML(buf);	// BGM再生
 	}
+	pceth2_DrawGraphic();	// 画像描画
 
 	play.evData.data = fpk_getEntryData(play.evData.name, &play.evData.size, NULL);	// EV
 	play.scData.data = fpk_getEntryData(play.scData.name, &play.scData.size, NULL);	// スクリプト

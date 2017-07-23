@@ -21,7 +21,7 @@ int pceth2_jumpScript(SCRIPT_DATA *s);
 //=============================================================================
 //	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
 //=============================================================================
-int pceth2_skipLabel(SCRIPT_DATA *s);
+int pceth2_memoryLabel(SCRIPT_DATA *s);
 int pceth2_jumpLabel(SCRIPT_DATA *s);
 int pceth2_branchLabel(SCRIPT_DATA *s);
 

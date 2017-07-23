@@ -229,14 +229,15 @@ int main(int argc, char *argv[])
 						for (int k = 0; k < 3; k++) {
 							if (len = calcRevPolish(buf + j, &num[k])) { j += len + 1; }
 						}
-						num[1] = convertBGNum(num[1]);	// 桜統一
+						if (num[1] >= 0) { // 0x6A の後に出てくることがある -1 は無視する
+							num[1] = convertBGNum(num[1]);	// 桜統一
 //**					if (!(code == 0x27 && num[0] == 0)) {	// これはレイヤアニメ無視するんだったら表示しない方が？
 /*							if (code & 1) {	// 立ち絵消去するなら位置初期化
 								for (int q = 0; q < array_size(pos); q++) { pos[q] = 1; }
 							}
 							// 10000足されてると桜背景も日付無視して表示するらしい（回想など）
 */							fprintf(fpout, "B%03d%03d.pgx,%1d", num[1] % 1000, num[2], (code - 0x27) % 2);
-//**					}
+						}
 						break;
 /*					case 0x2E:	// 立ち絵画像C xxx yyyyy .pgxの表示（位置z）（すぐに描く）
 					case 0x2F:	// （すぐには描かない）→P/ECEでは変わらないので共通にしました
@@ -354,6 +355,15 @@ int main(int argc, char *argv[])
 						j += getLabel(buf + j, str) + 1;
 						for (int k = 0; k < bh.label_num; k++) {
 							if (!strcmp(str, bl[k].name)) { fprintf(fpout, "j%03d", k); }
+						}
+						break;
+					case 0x6A:	// アニメーション（座標に使っている演算処理 0x04 をスキップしているので、単純に表示するだけ）
+						for (int k = 0; k < 2; k++) { j += getNumber(buf + j, &num[k]) + 1; }
+						j += getString(buf + j, str) + 1;
+						*str = toupper(*str);
+						if (*str != 'F') { // 効果は使用しない
+							*strchr(str, '.') = '\0';
+							fprintf(fpout, "%s.pgx,0", str);
 						}
 						break;
 					case 0x74:	// マップ移動選択肢を追加

@@ -102,7 +102,7 @@ int calcRevPolish(const BYTE *ptr, int *num)
 	if (ret == 0) {
 		return 0;
 	}
-	*num = (buf[0] < 0)? *num : buf[0];	// -1ならデフォルト値
+	*num = buf[0];
 	return ret;
 }
 
