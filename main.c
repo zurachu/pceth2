@@ -434,7 +434,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 						{'-', pceth2_decReg},		// レジスタをデクリメント
 						{'q',  pceth2_addSelItem},	// 選択肢を追加
 						{'Q',  pceth2_initSelect},	// 選択
-						{'@',  pceth2_skipLabel},	// ラベル（読み飛ばし）
+						{'@',  pceth2_memoryLabel},	// ラベル（直近のものを記憶）
 						{'<',  pceth2_procControl},	// メッセージ制御
 						{'\\', pceth2_procEscape},	// エスケープシーケンス処理
 						{'D', pceth2_calenderInitEx},	// スクリプトからカレンダーモードに移行
