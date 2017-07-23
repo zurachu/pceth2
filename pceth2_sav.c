@@ -264,7 +264,6 @@ void pceth2_SaveInit()
 	last_gameMode = play.gameMode;
 	play.gameMode = GM_SAVE;
 
-	pceth2_drawTitleGraphic();
 	pceth2_drawSaveMenu();
 }
 
