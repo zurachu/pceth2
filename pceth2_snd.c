@@ -126,12 +126,10 @@ static BYTE	pmd[4096];
  */
 void Play_PieceMML(const char *fName)
 {
-	if (!*pmd || strcmp(play.pmdname, fName) != 0) {
+	if (strcmp(play.pmdname, fName) != 0) {
 		Stop_PieceMML();
 		strcpy(play.pmdname, fName);
-		/*pmd = */fpk_getEntryData(play.pmdname, NULL, pmd);
-
-		if (*pmd) {
+		if (fpk_getEntryData(play.pmdname, NULL, pmd)) {
 			PlayMusic(pmd);
 		} else {
 			*play.pmdname = '\0';
@@ -147,7 +145,6 @@ void Stop_PieceMML()
 	*play.pmdname = '\0';
 	StopMusic();
 	pceWaveAbort(BGM_CH);
-	*pmd = '\0';
 }
 
 //=============================================================================
