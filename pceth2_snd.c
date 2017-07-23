@@ -114,7 +114,10 @@ int pceth2_loadSE(SCRIPT_DATA *s)
 //	pmd再生、停止
 //=============================================================================
 
-BYTE	*pmd;
+// ヒープのフラグメンテーションを回避するため、固定で確保
+// このサイズを超えることは無いと思うが、超えたら増やすこと
+// （v1.04 時点、最大は M35.pmd の 3,998）
+static BYTE	pmd[4096];
 
 /*
  *	BGM再生
@@ -123,10 +126,10 @@ BYTE	*pmd;
  */
 void Play_PieceMML(const char *fName)
 {
-	if (!pmd || strcmp(play.pmdname, fName) != 0) {
+	if (!*pmd || strcmp(play.pmdname, fName) != 0) {
 		Stop_PieceMML();
 		strcpy(play.pmdname, fName);
-		pmd = fpk_getEntryData(play.pmdname, NULL, NULL);
+		/*pmd = */fpk_getEntryData(play.pmdname, NULL, pmd);
 
 		if (pmd != NULL) {
 			PlayMusic(pmd);
@@ -144,8 +147,7 @@ void Stop_PieceMML()
 	*play.pmdname = '\0';
 	StopMusic();
 	pceWaveAbort(BGM_CH);
-	pceHeapFree(pmd);
-	pmd = NULL;
+	*pmd = '\0';
 }
 
 //=============================================================================
