@@ -12,6 +12,7 @@
 
 #include "common.h"
 #include "pceth2_sav.h"
+#include "pceth2_sys.h"
 #include "pceth2_grp.h"
 #include "pceth2_snd.h"
 #include "pceth2_cal.h"
@@ -155,8 +156,10 @@ static int index = 0;
  */
 void pceth2_TitleInit()
 {
-	pceWaveAbort(SND_CH);
+	Stop_PieceWave();
 	Stop_PieceMML();
+	pceth2_closeScript(&play.scData);
+	pceth2_closeScript(&play.evData);
 
 	pceth2_drawTitleGraphic();
 
@@ -259,8 +262,6 @@ static void pceth2_drawSaveMenu()
 
 void pceth2_SaveInit()
 {
-	pceWaveAbort(SND_CH);
-
 	last_gameMode = play.gameMode;
 	play.gameMode = GM_SAVE;
 
@@ -359,6 +360,7 @@ void pceth2_SaveMenu()
 static void pceth2_comeBack(int replay_flag)
 {
 	char	buf[16];	// ファイル名退避用
+	SCRIPT_DATA evBackup, scBackup;	// スクリプトファイル名、ポインタ退避用
 	int		i;
 
 	// クリアフラグをグローバルと同期する
@@ -375,14 +377,20 @@ static void pceth2_comeBack(int replay_flag)
 			pceth2_loadGraphic(buf, i);
 		}
 
+		Stop_PieceWave();
 		strcpy(buf, play.pmdname);
 		Stop_PieceMML();
 		Play_PieceMML(buf);	// BGM再生
+
+		memcpy(&evBackup, &play.evData, sizeof(SCRIPT_DATA));
+		memcpy(&scBackup, &play.scData, sizeof(SCRIPT_DATA));
+		pceth2_closeScript(&play.scData);
+		pceth2_loadScript(&play.evData, evBackup.name);
+		pceth2_loadScript(&play.scData, scBackup.name);
+		play.evData.p = evBackup.p;
+		play.scData.p = scBackup.p;
 	}
 	pceth2_DrawGraphic();	// 画像描画
-
-	play.evData.data = fpk_getEntryData(play.evData.name, &play.evData.size, NULL);	// EV
-	play.scData.data = fpk_getEntryData(play.scData.name, &play.scData.size, NULL);	// スクリプト
 
 	pceth2_comeBackMessage();
 }

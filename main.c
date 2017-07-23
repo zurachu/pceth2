@@ -320,6 +320,7 @@ void pceth2_initGraphicAndSound()
 	pceth2_DrawGraphic();
 	BG_TIME = BG_WEATHER = '0';	// 背景画像ファイル名修飾子
 
+	Stop_PieceWave();
 	Stop_PieceMML();
 
 	Ldirect_Update();
@@ -468,6 +469,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 	//				}
 					break;
 				case GM_SCRIPT:
+					Stop_PieceWave();
 					pceth2_closeScript(&play.scData);
 					play.gameMode = GM_EVSCRIPT;
 					break;
