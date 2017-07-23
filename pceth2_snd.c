@@ -131,7 +131,7 @@ void Play_PieceMML(const char *fName)
 		strcpy(play.pmdname, fName);
 		/*pmd = */fpk_getEntryData(play.pmdname, NULL, pmd);
 
-		if (pmd != NULL) {
+		if (*pmd) {
 			PlayMusic(pmd);
 		} else {
 			*play.pmdname = '\0';
