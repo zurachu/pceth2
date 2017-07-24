@@ -242,7 +242,7 @@ static void pceth2_drawSaveMenu()
 	FontFuchi_PutStr("セーブ・ロード\n");
 
 	for (i = 0; i < SAVE_FILE_NUM; i++) {
-		FontFuchi_Printf("%c %d. ",((i == global.save_index)? '>' : ' '), i);
+		FontFuchi_Printf("%c %d.",((i == global.save_index)? '>' : ' '), i);
 		sprintf(buf, "pceth2_%d.sav", i);
 		if (pceFileOpen(&pfa, buf, FOMD_RD) == 0) {
 			pceFileReadSct(&pfa, NULL, 0, sizeof(SAVE_DATA));
@@ -251,7 +251,11 @@ static void pceth2_drawSaveMenu()
 			} else {
 				month = ((SAVE_DATA*)pfa.aptr)->flag[0];
 				day = ((SAVE_DATA*)pfa.aptr)->flag[1];
-				FontFuchi_Printf("%1d月%2d日 %s曜日", month, day, date[pceth2_getDate(month, day)]);
+				if (month && day) {
+					FontFuchi_Printf("%2d月%2d日 %s曜日", month, day, date[pceth2_getDate(month, day)]);
+				} else { // エピローグ
+					FontFuchi_Printf("○月○日 ○曜日", month, day, date[pceth2_getDate(month, day)]);
+				}
 			}
 			pceFileClose(&pfa);
 		}
