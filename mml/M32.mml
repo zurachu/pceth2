@@ -1,0 +1,95 @@
+#Title	#32
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T105
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+3
+
+;===============================================================================
+; メイン
+
+A	l8D+24L
+A	rL rr2. [r1]7
+A	V90o5@0
+A	[e4rarab>c <a4re4r4. d4rdrgre& e4r2. e4rarab>c dre<a4r4. b4rg4rba& a4r2.]2
+A	V80o6@0
+A	r2ar4. er4.gr4. gr4.r4>cr <ar4ar2
+A	r2ar4. er4grdef& frfg4<b>fe& e4r
+A	V90o5@0
+A	g+abeg+
+A	ab>cdr<br>c rde<a4ra>c eredrfre rdce4.<r4
+A	ab>cdr<br>c rde<a4ra>c eredr<br>c r4.c<beba& a
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8L
+B	V90o4@2Y0,0,0,0
+B	[c1&]7 c2.<b4
+B	V110o4@2Y8,140,80,80
+B	[r1]15 r2ra>ed
+B	e2r<a>ed e2rdef& fe4d4c4d& dc+de4<a>ed
+B	e2r<a>ed e2rdef& frfg4<b>fe& e2r2
+B	[r1]8
+
+;===============================================================================
+; 伴奏
+
+!CPartA	cdef4<a4>c& c4<ba2r >cdef4<a4
+!CPartB	>c4r2. c4r2. <b4rbr>drc& c4r2. c4r2. c4r2. d4r<b4r>d&
+
+C	l8D-8L
+
+C	V90o4@0
+C	!CPartA b& beb>c4r4.
+C	!CPartA >c& c4d<a4>c<b4
+C	V80o3@0
+C	!CPartB c& c4r4<g4r4
+C	!CPartB d r4.e4.r4
+C	e4r4.e4r e4r4.def& fe4d4c4d e4r2.
+C	e4r4.e4r e4r4.def& fr4f4rd4 e4r2e4
+C	e4e4e4e4 e4r4e4r4 f4r4g4b4 e4r4e4r4
+C	e4e4e4e4 e4r4e4r4 c4rd4.rc& c4.rd4.r
+
+!EPartA	r1 cea>c<r2 <b>cdgr4er ceab>cedr <cea>c<r2 cde>c<ra>c<r <b>cdgrdr4
+
+E	l8D+24L
+E	V80o3@0
+E	rearrcfr rdgrrcfr rearrcfr regrrear
+E	rearrcfr rdgrrcfr rearrcfr rdgcredr
+E	!EPartA cea>cdr<br
+E	!EPartA cea>c4<r4.
+E	<b>defr4dr <b>defr2 gr4gr4gr rab>cdea<r
+E	<b>defr4dr <b>defr2 d4rd4rd4 <b4r2b4
+E	a>ce<rgb>e<r f+a>d<rfg+>c<r b>dfa<b>egb ceg>c<g+g+ab<
+E	a>ce<rgb>e<r f+a>d<rfg+>cr c<a>cdr<b>df rcfgrdgg
+
+;===============================================================================
+; ベース
+
+D	V80o2@0l2D-24L
+D	af gf af ea af gf af d4e8f4g4r8
+D	a1 f1 e1 a1 a1 f1 e1 ae
+D	a1 f1 e1 a1 a1 f1 e1 ar4g4
+D	d1 g1 >c1 <a1 d1 g1 b&b8r8b4 er4e4
+D	ag+ gf+ fg >c<e
+D	ag+ gf+ d4.ef8& f4.r8g
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+
+

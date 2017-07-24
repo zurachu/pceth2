@@ -1,0 +1,116 @@
+#Title	#24
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T70
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+0
+
+;===============================================================================
+; メイン
+!APartA	d4.e16c.rc16d16e16e16& e4r<a16>c.&crc16d16 efe<a16>c4d4r16 r.c16c16cr16<ba16g.d16>d16& d4r16f16e16d.c<b>c e4.<a16>c4.r16<a16>c16 efe<a>cr<b12>c12d12 d.c16&c4
+
+A	l8D+24
+A	V110o6@2Y8,140,80,80
+A	[r1]2 r2.rg16f16& frercrdr er16 [f16e16c16]4r16 r.[f16e16c16]4r16 L
+A	V100o5@0_+0
+A	r4g4f4e4 !APartA r2
+A	r.e16f16g.f4e4 !APartA r4.e16f16
+A	g.c16&c4r.<g16a16g16>c16c16 <b.g16&g4r4.>e16f16 g4.a16g.r16>c.<b g4egg.a4r16
+A	_+2
+A	ree16<g>f.ed16er16 d.c.r16c16dc<b>c a4rfde16fb16r16g16& g2r4.e16f16
+A	gf16fe.c.<g4r16 >gf16fec2r16 gf16fec4r16d.c16 c2r2 r1
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8
+B	V100o5@2Y8,140,80,80_+0
+B	g4.d16e16fede c4.c16d16efgc a2gr16cr16g16f16& f4e4c.<a32g32f4
+B	e4&e.g4&g.b16>c16 d.c.<g16a16&a4.r L
+B	V110o5@2
+B	[r1]7 gagcerd12e12f12 f.e16&e4
+B	r.>>c16<b16g16e16d16
+B	c16<r.r2.
+B	[r1]6 gagcerd12e12f12 f.e16&e4r4.g16a16
+B	r1 r2>>c16r16<b16g16r16e16r16g16
+B	_+2
+B	r1 r2<<br16>cr16d
+B	V110o4@2
+B	[r1]3 e4>d4c2
+B	<a2g4>c4 <a2g2 a1 g2
+B	_+0
+B	r4.>f16g16 a4f4c4r4
+
+;===============================================================================
+; 伴奏
+
+C	l8D-8
+C	V80o4@2
+C	g2f4d4 e2c4g4 a2gr16crf16& f4g4g+4b-4 g1 g4.r16a2r16 L
+C	V90o3@2
+C	[[r1]4 a2b2 b4>d4c2 <a1 >c2<b2 >d2<e2]2
+C	a1 g1 a1 b2a2
+C	_+2
+C	g2g+2 a2b-4g4 c2d4b4 g2.e4
+C	f2e2 f2e2 f2f4f4 c2
+C	_+0
+C	r4.<g a2>c2<
+
+E	l8D-8
+E	V80o5@2Y8,140,80,80
+E	[r1]2 r2.r.f16& f4e4f4&f32&g32&a32&b32&>c32&d32&e32&f32& g2.d4 e2.r4 L
+E	V90o5@2_+0
+E	g2g2 g2g2 a2>c.<a.f16g16 a2g2 a2b2 b2b4g4 a2a2 a2g4g4 g2g4g4
+E	g2g2 g2g2 a2a4.f16g16 a2a4g4 a2b4e4 g+4b4a4e4 a2a2 a2g4g4 g2er16fr16g
+E	e1 d1 c4d4e4f4 g2g.a4r16
+E	_+2
+E	c2.d4 e2f4g4 c2.<b4 b2a4g4
+E	f2g2 a2>c2 f2c2 c2
+E	_+0
+E	r4.d16e16 f2c4r4
+
+;===============================================================================
+; ベース
+
+!DPartA	c4.r<g>crc8rc8<g a4r8>f+gae<a8r8b>c d4.r<a>drd4<ag+ g4r8>efgd<g8rg8r f4r8>c<fg4r8>d<g g+4r8eg+a4g4 f4r8>cgf4c4 d4rd<b-ag4>g4 c4.r<g
+
+D	V60o3@0l16D-24
+D	c2e2 <a2g2 f2>e8rc8r<g
+D	V90o2@0
+D	d& d4e4f4g4 c4.r<g>crc8r8<ga >c8rdc<gef16&f4>r4 L
+D	!DPartA >c4<g4>
+D	!DPartA >c<g>dc8<ge8
+D	>f4.rcfrf8r8de- e4.rcec<e8r8ag f4.r>cfrf8r8de- e4r8eca8rb8r>c+8<
+D	_+2
+D	c4r<g>cde4<e4 a4r>eag+g4c4 <f4.r>c<f>c<f8r>d<af e4r8f+ga4>a4
+D	d4r8<a>dece8r8ce f4r8cfece4r8 d4r8ag+g4<g4 >c4.r<g>crc8r8<g>c
+D	<f4>
+D	_+0
+D	r8efg4r4
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+
+F	[!og4r.g16g2]2 g4r.g16g4r.!cg4r16g4g.!bg16!cg16!tg16!ug
+F	!cg!hg!Cg!hg16!bg16g!hg!Cg!hg !bg!hg!Cg!hg16!bg8.!hg16!ug16!hg g
+F	L
+F	[!bg!hg gg16!bg16g!hg!Cg!hg]17 !bg!hg gg16!bg16g!sg16!bg!cg.
+F	[!bg!hg!Cg!hg16!bg16g!hg!Cg!hg]3 !bg!hg!Cg!hg16!bg16g.g16!sg16!tg16!ug
+F	[!bg!hg!sg!hg16!bg16g!hg!sg!hg !bg!hg!sg!hg16!bg16g!hg16!bg16!sg!hg]3
+F	!bg!hg!sg!hg16!bg16g!cg.!tg16!ug !cg!hg gg16!bg16g!hg!Cg!hg
+F	!bg!hg gg16!bg16g.!tg16!ug4
+

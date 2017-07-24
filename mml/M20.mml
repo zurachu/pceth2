@@ -1,0 +1,75 @@
+#Title	#20
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T80
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-5
+
+;===============================================================================
+; メイン
+
+A	l8D+24L
+A	V100o5@0Y8,140,80,80
+
+A	[r1]15 r2rg>cd
+A	e2rf.ed16 <b4r>c4rc<b a4ra4>g.df16 f4.r16g32&f32&e4rc16d16
+A	e4rcreba b4r>c4rcd e4<a4b.>c.d c<ceg>c4r4 r1
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8L
+B	V110o5@2Q8
+B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer<g>ce<
+B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer2
+
+B	V100o5@2Q6
+B	reg>cr<ceg rcegreg>c r<cfardgb reg>c<ceg>c<
+B	reg>c<ebgr a>cec4rcc rcccrddd rcccc4r4 r1
+
+;===============================================================================
+; 伴奏
+
+C	l8D-8L
+C	V85o3@2
+C	c1&c1 <b1&b1 b-1&b-2>g2 f2.a4b2g2
+C	>e1& e4g4e4g4& g1& g4g4>c4<d4
+C	f1 b-2d2 e1 a2g2
+C	g1 g2a4g4 f2g2 f2e2
+C	g1 g2a4g4 f2g2 e2.r4 r1
+
+E	l8D-8L
+E	V95o5@2
+E	[r1]8
+E	c1& c4e4c4e4 d1& d2<b4>c4 d1 g2f2 c1 c2d2
+E	e2d2 c2a4b4 >c2<b2 g1
+E	e1 e4a4b4>c4 <a2b2 >c2.r4 r1
+
+;===============================================================================
+; ベース
+
+D	V90o3@0l8D-24L
+D	[r1]8
+D	c2.rc c2.r4 <b2.rb b2.r4 b-2.rb- b-2.r>g a2.ra g2.r4
+D	c2<b2 a2a2 >f2g2 c2c2 c2<b2 a2a2 >f2g2 c2r2 r1
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8L
+F	[r.!hg16ggggg16g16g r2!og2]4
+F	[!bg.!hg16gg!sg!hg g!bg g.!hg16g!bg!sg!hg gg]7
+F	!bg.!hg16gg!sg!hg g!bg g.!hg16ggg2 r1
+
