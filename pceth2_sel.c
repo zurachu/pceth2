@@ -261,24 +261,19 @@ int pceth2_addMapItem(SCRIPT_DATA *s)
  *	EV_????AFTER_SCHOOLÇì«Ç›èIÇÌÇ¡ÇΩéûÇ…åƒÇ—èoÇ≥ÇÍÇ‹Ç∑
  *	return ÉâÉìÉhÉ}Å[ÉNìoò^êîÇ™0ÅÅï\é¶ÇµÇ»Ç¢èÍçá FALSE
  */
-BOOL pceth2_initMapClock()
+void pceth2_initMapClock()
 {
-	if (play.lmAmount > 0) {	// ÉâÉìÉhÉ}Å[ÉNÇ™ìoò^Ç≥ÇÍÇƒÇ¢ÇÈ
-		char buf[FNAMELEN_CLOCK + 1];
-		int const time = (pceth2_getDate(MONTH, DAY) == 6) ? 11 : 19; // ìyójÇÕ 12:10, ïΩì˙ÇÕ 14:50
+	char buf[FNAMELEN_CLOCK + 1];
+	int const time = (pceth2_getDate(MONTH, DAY) == 6) ? 11 : 19; // ìyójÇÕ 12:10, ïΩì˙ÇÕ 14:50
 
-		pceth2_loadGraphic(BG_MAPCLOCK, GRP_BG);
-		pcesprintf(buf, "CLOCK%02d.pgx", time);
-		pceth2_loadGraphic(buf, GRP_C);
-		pceth2_clearGraphic(GRP_L);
-		pceth2_clearGraphic(GRP_R);
-		pceth2_DrawGraphic();
-		wait = 100;
-		play.gameMode = GM_MAPCLOCK;
-
-		return TRUE;
-	}
-	return FALSE;
+	pceth2_loadGraphic(BG_MAPCLOCK, GRP_BG);
+	pcesprintf(buf, "CLOCK%02d.pgx", time);
+	pceth2_loadGraphic(buf, GRP_C);
+	pceth2_clearGraphic(GRP_L);
+	pceth2_clearGraphic(GRP_R);
+	pceth2_DrawGraphic();
+	wait = 100;
+	play.gameMode = GM_MAPCLOCK;
 }
 
 #define BG_MAPSELECT	"MAP_BG.pgx"
