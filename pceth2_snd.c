@@ -42,7 +42,7 @@ static BYTE			*ppd;
  *
  *	*pWav	コールバック呼び出し元PCEWACEINFOのポインタ
  */
-static void Play_PieceWave(PCEWAVEINFO *pWav)
+static void Play_PieceWaveEx(PCEWAVEINFO *pWav)
 {
 	pceWaveDataOut(SND_CH, pWav);
 }
@@ -52,11 +52,9 @@ static void Play_PieceWave(PCEWAVEINFO *pWav)
  *
  *	*pWav	コールバック呼び出し元PCEWACEINFOのポインタ
  */
-static void Stop_PieceWave(PCEWAVEINFO *pWav)
+static void Stop_PieceWaveEx(PCEWAVEINFO *pWav)
 {
-	pceWaveAbort(SND_CH);
-	pceHeapFree(ppd);
-	ppd = NULL;
+	Stop_PieceWave();
 }
 
 /*
@@ -70,10 +68,32 @@ static void Get_PieceWaveEx(PCEWAVEINFO *pWav, BYTE *data, const int rep)
 {
 	PceWaveInfo_Construct(pWav, data);
 	if (rep) {	// リピート
-		pWav->pfEndProc = Play_PieceWave;
+		pWav->pfEndProc = Play_PieceWaveEx;
 	} else {	// 再生終了
-		pWav->pfEndProc = Stop_PieceWave;
+		pWav->pfEndProc = Stop_PieceWaveEx;
 	}
+}
+
+//=============================================================================
+//	SE再生、停止
+//=============================================================================
+
+void Play_PieceWave(const char *fName, int rep)
+{
+	Stop_PieceWave(&pwav);	// 前の再生が有る無し問わず止める
+
+	ppd = fpk_getEntryData((char*)fName, NULL, NULL);
+	if (ppd != NULL) {
+		Get_PieceWaveEx(&pwav, ppd, rep);
+		Play_PieceWaveEx(&pwav);
+	}
+}
+
+void Stop_PieceWave()
+{
+	pceWaveAbort(SND_CH);
+	pceHeapFree(ppd);
+	ppd = NULL;
 }
 
 //=============================================================================
@@ -92,20 +112,11 @@ static void Get_PieceWaveEx(PCEWAVEINFO *pWav, BYTE *data, const int rep)
 int pceth2_loadSE(SCRIPT_DATA *s)
 {
 	char buf[FNAMELEN_SE + 1];
-	int rep;
-
-	Stop_PieceWave(&pwav);	// 前の再生が有る無し問わず止める
 
 	// ファイル名をバッファにコピー
 	pceth2_strcpy(buf, s, FNAMELEN_SE);
 	s->p++;	// ,
-	rep = (int)(*(s->data + s->p++) - '0');	// リピートフラグ
-
-	ppd = fpk_getEntryData(buf, NULL, NULL);
-	if (ppd != NULL) {
-		Get_PieceWaveEx(&pwav, ppd, rep);
-		Play_PieceWave(&pwav);
-	}
+	Play_PieceWave(buf, (int)(*(s->data + s->p++) - '0'));
 
 	return 1;
 }
@@ -114,7 +125,10 @@ int pceth2_loadSE(SCRIPT_DATA *s)
 //	pmd再生、停止
 //=============================================================================
 
-BYTE	*pmd;
+// ヒープのフラグメンテーションを回避するため、固定で確保
+// このサイズを超えることは無いと思うが、超えたら増やすこと
+// （v1.04 時点、最大は M35.pmd の 3,998）
+static BYTE	pmd[4096];
 
 /*
  *	BGM再生
@@ -123,12 +137,10 @@ BYTE	*pmd;
  */
 void Play_PieceMML(const char *fName)
 {
-	if (!pmd || strcmp(play.pmdname, fName) != 0) {
+	if (strcmp(play.pmdname, fName) != 0) {
 		Stop_PieceMML();
 		strcpy(play.pmdname, fName);
-		pmd = fpk_getEntryData(play.pmdname, NULL, NULL);
-
-		if (pmd != NULL) {
+		if (fpk_getEntryData(play.pmdname, NULL, pmd)) {
 			PlayMusic(pmd);
 		} else {
 			*play.pmdname = '\0';
@@ -144,8 +156,6 @@ void Stop_PieceMML()
 	*play.pmdname = '\0';
 	StopMusic();
 	pceWaveAbort(BGM_CH);
-	pceHeapFree(pmd);
-	pmd = NULL;
 }
 
 //=============================================================================
