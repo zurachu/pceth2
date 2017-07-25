@@ -80,6 +80,7 @@ void pceth2_comeBackMessage(void)
 		pceth2_drawMapSelArrow();
 	}
 	msgView = 1;
+	wait = 0;
 	Ldirect_Update();
 }
 
@@ -88,6 +89,9 @@ void pceth2_comeBackMessage(void)
  */
 void pceth2_putKanji(const char *str)
 {
+	FontFuchi_GetPos(&keyWaitX, &keyWaitY);
+	keyWaitX += FONT_W + 1;
+	keyWaitY += 5;
 	FontFuchi_Printf("%c%c", *str, *(str + 1));
 	Ldirect_VBuffView(TRUE);
 	*(play.msg + play.msglen++)	= *str;

@@ -56,6 +56,7 @@ BOOL file_load = FALSE;		// ファイルを開けたかどうか
 
 BOOL debug_mode = FALSE;
 int speed, wait, msgView;
+int keyWaitX, keyWaitY;
 static int bButtonMenuTime = 0;
 
 static PrecisionTimer s_frame_timer;
@@ -333,10 +334,23 @@ void pceth2_waitKey()
 {
 	if (msgView)	// メッセージ表示状態
 	{
+		if (!pceth2_isCalenderMode()) {
+			wait++;	// キー待ち記号表示
+			if (wait == 15) {
+				pceLCDPaint(3, keyWaitX, keyWaitY, 3, 5);
+				pceLCDPaint(0, keyWaitX + 1, keyWaitY + 1, 1, 3);
+				Ldirect_Update();
+			} else if (wait == 30) {
+				Ldirect_VBuffClear(keyWaitX, keyWaitY, 3, 5);
+				Ldirect_Update();
+				wait = 0;
+			}
+		}
 		if (pcePadGet() & (TRG_A | PAD_RI)) {	// スクリプトを進める
+			Ldirect_VBuffClear(keyWaitX, keyWaitY, 3, 5);
+			Ldirect_Update();
 			if (pceth2_isPageTop()) {
 				pceth2_clearMessage();
-				Ldirect_Update();
 			}
 			if (pceth2_isCalenderMode()) {	// カレンダーモード時
 				pceth2_clearGraphic(GRP_C);	// カレンダー画像消去
