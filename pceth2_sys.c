@@ -299,7 +299,7 @@ int pceth2_decReg(SCRIPT_DATA *s)
  *
  *	*s		スクリプトデータ
  *
- *	return	0（制御を戻す）
+ *	return	→押しっぱなしの場合1（引き続き実行）、でなければ0（制御を戻す）
  */
 int pceth2_wait(SCRIPT_DATA *s)
 {
@@ -307,7 +307,7 @@ int pceth2_wait(SCRIPT_DATA *s)
 	wait = pceth2_getNum(s) * 30 / 100;
 	play.gameMode = GM_TIMEWAIT;
 
-	return 0;
+	return pcePadGet() & PAD_RI;
 }
 
 /*
