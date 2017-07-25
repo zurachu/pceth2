@@ -18,6 +18,7 @@
 #include "pceth2_arc.h"
 #include "pceth2_str.h"
 #include "pceth2_sav.h"
+#include "pceth2_snd.h"
 
 int pceth2_isCalenderMode();
 
@@ -306,6 +307,24 @@ int pceth2_wait(SCRIPT_DATA *s)
     s->p++;
 	wait = pceth2_getNum(s) * 30 / 100;
 	play.gameMode = GM_TIMEWAIT;
+
+	return 0;
+}
+
+/*
+ *	オープニング開始	o
+ *
+ *	*s		スクリプトデータ
+ *
+ *	return	0（制御を戻す）
+ */
+int pceth2_startOpening(SCRIPT_DATA *s)
+{
+	s->p++;
+	pceth2_drawTitleGraphic();
+	Play_PieceMML("M00.pmd");
+	wait = 20 * 30;
+	play.gameMode = GM_OPENING;
 
 	return 0;
 }

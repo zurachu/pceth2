@@ -34,6 +34,7 @@
 #define GM_TITLE		9
 #define GM_SAVE			10
 #define GM_MAPCLOCK		11
+#define GM_OPENING		12
 
 // スクリプトデータ構造体
 typedef struct tagSCRIPT_DATA {
