@@ -1,0 +1,70 @@
+#Title	#00 Heart to Heart
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T138
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-4
+
+;===============================================================================
+; メイン
+
+A	l8D+24
+A	V100o6@0
+A	r1
+A	d4ee4.rd& d4ee4.rd deferdrc& c2r4<g4
+A	a4>cc4rc4 <b4gg4rg4 f4gar>c4r c4<b>crdrc&
+A	c1
+
+E	l8D+24
+E	V80o5@0
+E	r1
+E	b4>cc4.r<b& b4>cc4.r<b b>cdcr<brg& g2r4e4
+E	f4aa4ra4 g4ee4re4 d4efra4r a4garbrg&
+E	g1
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8
+B	V90o6@2
+B	r1
+B	g1& g2>d2 c1& c2<g2
+B	r1 >d4c4<g4e4 a1 >g4ggrgrg& g1
+
+;===============================================================================
+; 伴奏
+
+C	l8D-8
+C	V110o5@2
+C	r1
+C	[r1]3 f2g2
+C	a1 >d2c+2 c1 g4ggrgrg& g1 r1
+
+;===============================================================================
+; ベース
+
+D	V90o2@0l8D-24
+D	r1
+D	[r1]4
+D	f1 a2c2 d1 g4dgrgr>c& c1 r1
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+F	r1
+F	[r1]4
+F	[!hg4g4ggg4]3 !cg4!bg!sg4g4!cg r1 r1
+
