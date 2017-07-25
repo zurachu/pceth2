@@ -272,7 +272,7 @@ void pceth2_initMapClock()
 	pceth2_clearGraphic(GRP_L);
 	pceth2_clearGraphic(GRP_R);
 	pceth2_DrawGraphic();
-	wait = 100;
+	wait = 30;
 	play.gameMode = GM_MAPCLOCK;
 }
 
