@@ -38,6 +38,7 @@ int pceth2_decReg(SCRIPT_DATA *s);
 //	‚»‚Ì‘¼
 //=============================================================================
 int pceth2_wait(SCRIPT_DATA *s);
+int pceth2_startOpening(SCRIPT_DATA *s);
 int pceth2_goEpilogue(SCRIPT_DATA *s);
 int pceth2_backTitle(SCRIPT_DATA *s);
 

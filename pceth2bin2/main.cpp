@@ -371,6 +371,9 @@ int main(int argc, char *argv[])
 						j += getString(buf + j, str) + 1;
 						fprintf(fpout, "m%d,%d%d,%s.scp", num[1], num[0], num[2], str);
 						break;
+					case 0x75:	// オープニング
+						fprintf(fpout, "o");
+						break;
 					case 0x76:	// ムービー再生（なんだけど、エピローグに行く（○月○日）制御に使う）
 						fprintf(fpout, "z");
 						break;

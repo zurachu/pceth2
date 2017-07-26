@@ -131,7 +131,7 @@ static void draw_object(const PIECE_BMP *pbmp, int dx, int dy)
  *	タイトル画像準備
  *	（lbuffに描画してすぐに解放します）
  */
-static void pceth2_drawTitleGraphic()
+void pceth2_drawTitleGraphic()
 {
 	PIECE_BMP	p_title;
 	BYTE		*_title;
@@ -147,6 +147,8 @@ static void pceth2_drawTitleGraphic()
 	draw_object(&p_title, 28, 4);
 	pceHeapFree(_title);
 	_title = NULL;
+
+	Ldirect_Update();
 }
 
 static int index = 0;
@@ -172,7 +174,6 @@ void pceth2_TitleInit()
 	FontFuchi_PutStr("つづきから");
 	FontFuchi_Put(28, 56 + index * 12, '>');
 	FontFuchi_Put(28 + 65, 56 + index * 12, '<');
-	Ldirect_Update();
 
 	play.gameMode = GM_TITLE;
 }

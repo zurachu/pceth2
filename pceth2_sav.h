@@ -14,7 +14,7 @@ BOOL _save();
 BOOL pceth2_readGlobalSaveData();
 BOOL pceth2_writeGlobalSaveData();
 
-
+void pceth2_drawTitleGraphic();
 void pceth2_TitleInit();
 void pceth2_Title();
 void pceth2_Init();

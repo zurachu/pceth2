@@ -196,6 +196,11 @@ void pceAppProc(int cnt)
 		case GM_SLIDECHR:	// 立ち絵スライド
 			pceth2_slideChara();
 			break;
+		case GM_OPENING:	// オープニング
+			if (wait-- <= 0 || (pcePadGet() & TRG_A)) {
+				play.gameMode = GM_SCRIPT;
+			}
+			break;
 	}
 
 	if (pcePadGet() & PAD_D) {
@@ -439,6 +444,7 @@ int pceth2_readScript(SCRIPT_DATA *s)
 						{'<',  pceth2_procControl},	// メッセージ制御
 						{'\\', pceth2_procEscape},	// エスケープシーケンス処理
 						{'D', pceth2_calenderInitEx},	// スクリプトからカレンダーモードに移行
+						{'o', pceth2_startOpening},	// オープニングへ
 						{'z', pceth2_goEpilogue},	// エピローグへ
 						{'Z', pceth2_backTitle},	// タイトルに戻る
 	};
