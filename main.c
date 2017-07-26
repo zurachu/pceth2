@@ -340,7 +340,7 @@ void pceth2_waitKey()
 				pceLCDPaint(3, keyWaitX, keyWaitY, 3, 5);
 				pceLCDPaint(0, keyWaitX + 1, keyWaitY + 1, 1, 3);
 				Ldirect_Update();
-			} else if (wait == 30) {
+			} else if (wait >= 30) {
 				Ldirect_VBuffClear(keyWaitX, keyWaitY, 3, 5);
 				Ldirect_Update();
 				wait = 0;
