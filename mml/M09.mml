@@ -1,0 +1,96 @@
+#Title	#09 ëêï« óDãG
+#Title2	(c)AQUAPLUSÅ^Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T120
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_-4
+
+;===============================================================================
+; ÉÅÉCÉì
+
+!APartA <g4>c4 d4.rd4cc& c4.r<g4>c4 d4red4cg& g4.re4f4 
+
+A	l8D+24L
+A	V90o5@0
+A	!APartA g4rgg4ag& grfe4fre& e4<a>c&c2& c4.r
+A	!APartA g2&gref g4fe4g4f& rfef&f2& fr
+A	V110o5@2
+A	a4a4b4
+A	a4.g16r16g4.r e4efrga4 g4.c16r16c2& cra4a4b4
+A	a4.g16r16g2& g4r>c4c<b4 a4.arbr>c& c2.r4 <a4.arbr>c& c4.r<a4a4 a4.gg2& g2r2
+A	V100o5@2
+A	g2r2 r2
+
+E	l8D+8L
+E	V90o5@0
+E	!APartA g4rgg4ag& grfe4fre& e4<a>c&c2& c4.r
+E	!APartA g2&gref g4fe4g4f& rfef&f2& fr
+E	V90o5@0
+E	a4a4b4
+E	a4.g16r16g4.r e4efrga4 g4.c16r16c2& cra4a4b4
+E	a4.g16r16g2& g4r>c4c<b4 a4.arbr>c& c2.r4 <a4.arbr>c& c4.r<a4a4 a4.gg2& g2r2
+E	V100o5@2
+E	d2r2 r2
+
+;===============================================================================
+; ÉTÉuÅEî∫ët
+
+B	l8D+8L
+B	V90o4@2
+B	r2
+B	[gr]8 [br]4 [b-r]4 [ar]4 [gr]4 [ar]3
+B	V90o4@0
+B	fg a4>c<b4>cf4
+B	e1
+B	V90o4@2
+B	[gr]4 [br]4 [b-r]4 [ar]4 [gr]4
+B	V80o4@0
+B	d2f2&f1
+B	d1
+B	V90o4@2
+B	[br]4 [ar]8
+B	[ar]4 [br]12 [ar]8 [gr]8 r1 r2
+
+;===============================================================================
+; î∫ët
+
+C	V100o5@2l8D-8L
+C	r2
+C	[[er]4 [dr]4 [er]4 [dr]4 [er]8 [dr]8]2
+C	[dr]8 [er]4 [dr]4 
+C	[dr]4 [er]12 [fr]16 r1 r2
+
+;===============================================================================
+; ÉxÅ[ÉX
+
+D	V80o3@0l8D-24L
+D	r2
+D	[[<c>c]4 <[<b>b]4 [<a>a]4 <g>g<g>>c4<gfe [<f>f]4 [<e>e]2 [<a>a]2 [<d>d]4 [<g>g]4]2
+D	[<e>e]4 [<a>a]4 [<d>d]4 <g>g<g>g4f+f4
+D	[<e>e]4 [<a>a]4 [<f+>f+]8 [<g>g]8 <g4.>d16r16d4.r g4.d16r16d4.r <g1 r2
+
+;===============================================================================
+; ÉhÉâÉÄ
+
+!FPartA	!bg!hg gg!sg!hg g!bg
+!FPartB	!FPartA !hg g!bg!hg!sg!hg gg
+!FPartC	!FPartA !hg gg!bg!sg!hg gg
+!FPartD	!FPartA !hg gg!bg!sg!hg!sg g
+
+F =1
+F	l8
+F	r2L
+F	[[!FPartB]3 !FPartD]2
+F	!FPartB !FPartC !FPartB !FPartD
+F	[!FPartB]2 !bg2!sg4.!bg g4g4!sg2

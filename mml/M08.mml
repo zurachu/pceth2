@@ -1,0 +1,132 @@
+#Title	#08 ルーシーマリアミソラ
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T116
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+0
+
+;===============================================================================
+; メイン
+
+!APartA	g2refg& g2refg& grgrfedc dg4e4edc&
+!APartB	e2rega& a4.g2r e2redc d4.c4eeg a4ed2r
+
+A	l8D+24
+A	V120o6@2Y8,140,100,80
+A	c4ed4rec& c4ed4re4 c4ed4re4 a4r4g4r4
+A	c4ed4rec& c4ed4re4 c4r4.<ab>c& c4r2.
+A	L
+A	V100o6@0_+0Y8,140,80,80
+A	!APartA c2r<g>cd& d2refg& g2.r4 f4ec4d4r
+A	!APartA c2r<b>c<g& g2.re f4f>c2<a >e4fd4.r
+A	V120o5@2_+5
+A	a>
+A	c4r4c.d.c& cr4.c.d.c& cr4.c.d.e f4ge4edc&
+A	cr4.c.<b.a g4>dc4cde frefrerf rercrd4. r1
+A	V100o6@0
+A	!APartB g4ae2r r4c4c4<a4 >c4dd2r
+A	!APartB g4ag2r r4f4e4d4 c4.rd4.c c1 r1
+
+!EPartB	c2rcef& f4.e2r c2rc<ba b4.a4>cce f4c<b2>r
+
+E	l8D+24
+E	V80o4@0 ; B の下
+E	a2r2 g2r2 f2r2 e4rf4rg4
+E	a2r2 g2r2 f2r2 e2r2
+E	L
+E	V90o6@0_+0Y8,140,80,80
+E	[r1]8
+E	e2rcde& e2rcde& ererdc<ba b>d4c4c<ba&
+E	a2rgae& e2.rc d4da2f >c4d<b4.r4
+E	[r1]9
+E	V90o6@0_+5
+E	!EPartB e4fc2r r4<a4a4f4 a4bb2r>
+E	!EPartB e4fe2r r4d4c4<b4 a4.rb4.g g1
+E	c4r4d4r4 ; B の下
+
+;===============================================================================
+; サブ・伴奏
+
+B	l8D+8
+B	V80o5@0
+B	[r1]3 <b4r>c4rd4
+B	e2r2 d2r2 <a2r2 b2r2
+B	L
+B	V90o5@1_+0
+B	[r1]6 r4eg4rag& g2r2
+B	r4ag4r4. refg4r4. r4g4f4e4 d4re4gdc& c2r2 r4eg4>c<bg& g4r<a4b>cd e4fd4.r4
+B	V90o4@1_+5
+B	[r1]7 a4>c16r16<g4a4>e& eg16r16ed4efg
+B	V100o5@2
+B	e1& e4r4d4gf+16&f16& e1 d4.e4.c<b16&b-16& a2.>cd e4re4dc<g f4
+B	V90o5@1
+B	rc<ab>cd e4g16r16d4efg
+B	V100o5@2
+B	e1 d4.g4rfg e1 d4.edc16r16c<b16&b-16& a2.>cd e4rc4deg f2.ed c4.rd4.r
+B	V100o4@0
+B	rg>cdfedf e4r4d4r4
+
+;===============================================================================
+; 伴奏
+
+C	l8D-8
+C	V80o3@0
+C	fg>ec4<r4. fg>d<b4r4. fg>cg4<r4. fgbr>c<rg>d<
+C	fg>ec4<r4. fg>d<b4r4. fg>cg4r4. c2r2
+C	L
+C	V80o4@0_+0Y0,0,0,0
+C	[r4ererer r4grgrgr r4ererer r4grdrgr r4ererer r4ererer r4frfrfr r4grgrgr]2
+C	V90o4@2_+5Y8,140,80,80
+C	[e4&c4&]4 [f4&c4&]2 [e4&c4&]2
+C	[e4&c4&]4 [f4&c4&]4 [g4&d4&]2
+C	[e4&c4&]2 [d4&<b4&>]2 [e4&c4&]4
+C	[e4&c4&]4 [f4&d4&]2 [g4&d4&]2
+C	[e4&c4&]2 [d4&<b4&>]2 [e4&c4&]4
+C	[f4&c4&]2 [e4&c4&]2 [f4&c4&]2 [g4&d4&]5 a4&d4
+
+;===============================================================================
+; ベース
+
+!DPartA	c4rc4r<g>d <b4rg4rbg a4ra4eae g4rg4rde f4rf4cfc 
+
+D	l8D-24
+D	V70o3@0
+D	f2r2 e2r2 d2r2 c4rd4re4
+D	f2r2 e2r2 d2r2 e2r2
+D	L
+D	V90o2@0_+0
+D	[f4rf2r >c4rc2r <f4rf2r >c4.r<b4gb a4ra4rde- e4r<b4r>ee- d4rd2r <g4rg2r>]2
+D	V90o1@0_+5
+D	f4r>c4r<f4 e4.r>c4.r <d4ra4r>d4 c4.r<c4.r
+D	f4r>c4r<f4 e4ra2r d4rd4rd4 g4r>d4r<a4 g4r>d4r<g4>
+D	!DPartA e4re4rce d4rd4ref gdag4.r4>
+D	!DPartA ef+ga4.re d4rd4ref g4rg4dgd c4rc4r<a>c d4r<a4r4.
+
+;===============================================================================
+; ドラム
+
+!FPartA	!bg!hg g!bg!Cg!hg gg
+!FPartB	!bg!hg g!bg!Cg!hg g!bg !FPartA
+!FPartC	!bg!hg16!bg.g!Cg!tg!ug!vg
+
+F =1
+F	l8
+F	[r1]4
+F	[!hg]32
+F	L
+F	!cg4 !hg!bg!hg gg!bg !hg gg!bg!Cg!hg gg [!bg!hg g!bg!hg gg!bg !hg gg!bg!Cg!hg gg]2 [!bg!hg g!bg!hg gg!bg !FPartA]5
+F	!bg4!hg!bg !hg rgg [!bg4!hg!bg gr!hg g]7 !FPartC
+F	[!FPartB]3 !FPartA !FPartC
+F	[!FPartB]4 !FPartA !FPartC
+

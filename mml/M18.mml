@@ -1,0 +1,99 @@
+#Title	#18 長瀬 源蔵
+#Title2	(c)AQUAPLUS／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T120
+
+ABCDEF E0,0,0,0Y0,0,0,0D0_+3
+
+;===============================================================================
+; メイン
+
+A	l12D+24
+A	V100o4@2Y8,140,80,80
+A	e1&L
+A	V100o4@2Y8,140,80,80
+A	e6e-d6c<a6rgra& arag6ar6a>c6d d6e-e6ra4gee- d4r2.
+A	r6<a>c6<a>d6<a>c6<a r6a>c6<a>g6ce6e- d2.c<ag a2.r4
+A	V100o5@2
+A	rga>c<a>c
+A	c16d16e16g16&g2. r6ed6cr4r6e d6c<a6>c<ag+gedc d6<a>e6<ar4r6g
+A	a6>cr6deaedc<a >c6<a24g24a6ga6ar6>d e6>c<a6rgrecre& erd3r2
+A	V110o5@2Y0,0,0,0
+A	c4<b4b-4a4 g+4g4f+4g4 r1
+
+E	l12D-24
+E	V100o4@1Y8,140,80,80
+E	e1&L
+E	V100o4@1Y8,140,80,80
+E	e6e-d6c<a6rgra& arag6ar6a>c6d d6e-e6ra4gee- d4r2.
+E	r6<a>c6<a>d6<a>c6<a r6a>c6<a>g6ce6e- d2.c<ag a2.r4
+E	V100o5@1
+E	rga>c<a>c
+E	c16d16e16g16&g2. r6ed6cr4r6e d6c<a6>c<ag+gedc d6<a>e6<ar4r6g
+E	a6>cr6deaedc<a >c6<a24g24a6ga6ar6>d e6>c<a6rgrecre& erd3r2
+E	V110o4@2Y0,0,0,0
+E	a4g+4g4f+4 f4e4e-4e4 r1
+
+;===============================================================================
+; サブ・伴奏
+
+B	l12D+8
+B	r1L
+B	V100o4@0Y8,140,80,80
+B	[r1]3 r6ag6ed6c<a6g
+B	a6rr2. [r1]3
+B	r2
+B	r2g6gr4 r2r6ar4 g1 f+6f+r4r6f+3
+B	e4r2r6>c <a4r2. g1 f+6f+r4r6f+3
+B	[r1]3
+
+;===============================================================================
+; 伴奏
+
+C	l12D-8
+C	r1L
+C	V90o4@0Y8,140,80,80
+C	e2r2 r2r6a3 g2r6>c3 <a4r4r6d3
+C	e2r2 g2r2 r2r6>c3 <a4r4r6>d3
+C	<er6r4
+C	e4r2r6>c& c6r2<e3 g4r4r6>c3< f+4r4r6f+3
+C	e4r2r6>c <a4r2. g4r4r6g3 f+4r4r6f+3
+C	V110o4@2Y0,0,0,0
+C	c4<b4b-4a4 g+4g4f+4g4 r1
+
+;===============================================================================
+; ベース
+
+D	V90o1@0l12D-24
+D	r1L
+D	a4>c4d4e-4 e6<a>a4e4d6c+ c4<e4f6e>c4 d4<f4f+4g4
+D	a4>c4d4e-4 e6<a>d4c4<g6a >c4e4g6ce-4 d4<f4f+4g4
+D	a4r4
+D	a4>c4d4e-4 e6<a>a4e4d6c+ c4<e4f6e>c4 d4<f4f+4g4
+D	a4>c4d4e-4 e6c<e4g4a4 >c4e4g4a4 f+4d4<drg+4r
+D	a4g+4g4f+4 f4e4e-4e4 r1
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l12
+F	!hg4g6!tg g6!ug3 L
+F	[!bg4!hg4g4g6g]2 !bg4!hg4g6!bg!hg4 !bg4!hg4g6!bg!hg6g
+F	!bg4!hg4g4g4 !bg4!hg4g4g6g !bg4!hg4g6!bg!hg4 !bg4!hg4g6!bg!hg6g
+F	!bg2
+F	[!bg4!hg4g4g6g]2 !bg4!hg4g4g4 !bg4!hg6!tg g4!hg6g
+F	!bg4!hg4g4!sg4 !bg4!hg4g4!sg6!hg !bg4!hg4g4g4 !bg4!hg4!sg6!cg3
+F	!bg4!hg4g4g6!sg !bg4!hg4g6!sg!hg6!sg !bg6g!tg4r6!sg3
+
