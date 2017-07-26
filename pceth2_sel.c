@@ -1,11 +1,11 @@
 /*
- *	pceth2 - é¸æŠè‚¢ã€ãƒãƒƒãƒ—é¸æŠé–¢é€£
+ *	pceth2 - ‘I‘ğˆAƒ}ƒbƒv‘I‘ğŠÖ˜A
  *
- *	(c)2005 ã¦ã¨ã‚‰â˜…ã½ã£ã¨
+ *	(c)2005 ‚Ä‚Æ‚çš‚Û‚Á‚Æ
  *
- *	2005/05/14	é–‹ç™ºé–‹å§‹
- *	2005/06/19	é¸æŠè‚¢è¿½åŠ çµ‚äº†æ™‚ã«è¡Œé ­ãªã‚‰æ”¹è¡Œã—ãªã„
- *	2005/06/24	pceth2_map.cã¨çµ±åˆ
+ *	2005/05/14	ŠJ”­ŠJn
+ *	2005/06/19	‘I‘ğˆ’Ç‰ÁI—¹‚És“ª‚È‚ç‰üs‚µ‚È‚¢
+ *	2005/06/24	pceth2_map.c‚Æ“‡
  */
 
 #include <string.h>
@@ -25,11 +25,11 @@
 static void pceth2_loadMapChipChara();
 
 //=============================================================================
-//	å…±é€šéƒ¨åˆ†
+//	‹¤’Ê•”•ª
 //=============================================================================
 
 /*
- *	é¸æŠã®çŸ¢å°ã‚’æç”»
+ *	‘I‘ğ‚Ì–îˆó‚ğ•`‰æ
  */
 void pceth2_drawSelArrow()
 {
@@ -38,11 +38,11 @@ void pceth2_drawSelArrow()
 }
 
 /*
- *	é¸æŠã®å®Ÿä½“
+ *	‘I‘ğ‚ÌÀ‘Ì
  *
- *	amount	é¸æŠè‚¢æ•°
+ *	amount	‘I‘ğˆ”
  *
- *	return	-1=æœªé¸æŠï¼-1ä»¥å¤–=é¸æŠå€¤
+ *	return	-1=–¢‘I‘ğ^-1ˆÈŠO=‘I‘ğ’l
  */
 #define NO_SELECT	-1
 
@@ -50,25 +50,25 @@ int pceth2_SelectEx(int amount)
 {
 	BOOL LCDUpdate = FALSE;
 
-	if (msgView)	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºçŠ¶æ…‹
+	if (msgView)	// ƒƒbƒZ[ƒW•\¦ó‘Ô
 	{
-		if ((*play.msg && pcePadGet() & TRG_UP)	// â†‘
-			|| (!*play.msg && pcePadGet() & TRG_LF)) {	// ãƒãƒƒãƒ—ç”»åƒé¸æŠè‚¢æ™‚ã¯â†
+		if ((*play.msg && pcePadGet() & TRG_UP)	// ª
+			|| (!*play.msg && pcePadGet() & TRG_LF)) {	// ƒ}ƒbƒv‰æ‘œ‘I‘ğˆ‚Í©
 			play.selIndex = (play.selIndex + amount - 1) % amount;
 			LCDUpdate = TRUE;
 		}
-		if ((*play.msg && pcePadGet() & TRG_DN)	// â†“
-			|| (!*play.msg && pcePadGet() & TRG_RI)) {	// ãƒãƒƒãƒ—ç”»åƒé¸æŠè‚¢æ™‚ã¯â†’
+		if ((*play.msg && pcePadGet() & TRG_DN)	// «
+			|| (!*play.msg && pcePadGet() & TRG_RI)) {	// ƒ}ƒbƒv‰æ‘œ‘I‘ğˆ‚Í¨
 			play.selIndex = (play.selIndex + 1) % amount;
 			LCDUpdate = TRUE;
 		}
 
 		if (LCDUpdate) {
-			if (play.gameMode == GM_MAPSELECT) {	// ãƒãƒƒãƒ—é¸æŠã¯
-				pceth2_loadMapChipChara();			// ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©ã‚‚æãæ›¿ãˆ
-				pceth2_drawMapSelArrow();	// çŸ¢å°
+			if (play.gameMode == GM_MAPSELECT) {	// ƒ}ƒbƒv‘I‘ğ‚Í
+				pceth2_loadMapChipChara();			// ƒ`ƒbƒvƒLƒƒƒ‰‚à•`‚«‘Ö‚¦
+				pceth2_drawMapSelArrow();	// –îˆó
 			} else {
-				pceth2_drawSelArrow();	// çŸ¢å°
+				pceth2_drawSelArrow();	// –îˆó
 			}
 			Ldirect_Update();
 			LCDUpdate = FALSE;
@@ -84,7 +84,7 @@ int pceth2_SelectEx(int amount)
 			pceth2_drawBButtonMenu();
 		}
 	}
-	else			// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸éè¡¨ç¤ºçŠ¶æ…‹
+	else			// ƒƒbƒZ[ƒW”ñ•\¦ó‘Ô
 	{
 		pceth2_bButtonMenu();
 	}
@@ -96,28 +96,28 @@ int pceth2_SelectEx(int amount)
 
 
 //=============================================================================
-//	é¸æŠ
+//	‘I‘ğ
 //=============================================================================
 
 /*
- *	é¸æŠè‚¢ã‚’è¿½åŠ ç™»éŒ²	q[str]ï¼ˆã‚¹ãƒšãƒ¼ã‚¹ã§çµ‚ç«¯ï¼‰
+ *	‘I‘ğˆ‚ğ’Ç‰Á“o˜^	q[str]iƒXƒy[ƒX‚ÅI’[j
  */
 int pceth2_addSelItem(SCRIPT_DATA *s)
 {
 	s->p++;
 
-	FontFuchi_GetPos(NULL, &play.selY[play.selAmount]);	// yåº§æ¨™ã‚’è¨˜æ†¶
+	FontFuchi_GetPos(NULL, &play.selY[play.selAmount]);	// yÀ•W‚ğ‹L‰¯
 
-	while (*(s->data + s->p) != ' ') {	// é¸æŠè‚¢ã‚’æç”»
-		if (strncmp(s->data + s->p, "ã€€", 2) && strncmp(s->data + s->p, "\\n", 2)) {	// P/ECEã§ã¯ã‚ºãƒ¬ã¦ã—ã¾ã†ã®ã§ç„¡è¦–
-			if (pceth2_isLineTop()) {	// è¡Œé ­ãªã‚‰1æ–‡å­—ã‚ã‘ã‚‹
-				pceth2_putKanji("ã€€");
+	while (*(s->data + s->p) != ' ') {	// ‘I‘ğˆ‚ğ•`‰æ
+		if (strncmp(s->data + s->p, "@", 2) && strncmp(s->data + s->p, "\\n", 2)) {	// P/ECE‚Å‚ÍƒYƒŒ‚Ä‚µ‚Ü‚¤‚Ì‚Å–³‹
+			if (pceth2_isLineTop()) {	// s“ª‚È‚ç1•¶š‚ ‚¯‚é
+				pceth2_putKanji("@");
 			}
 			pceth2_putKanji(s->data + s->p);
 		}
 		s->p += 2;
 	}
-	if (!pceth2_isLineTop()) {	// è¡Œé ­ã§ãªã‘ã‚Œã°æ”¹è¡Œ
+	if (!pceth2_isLineTop()) {	// s“ª‚Å‚È‚¯‚ê‚Î‰üs
 		pceth2_putCR();
 	}
 	s->p++;
@@ -127,21 +127,21 @@ int pceth2_addSelItem(SCRIPT_DATA *s)
 }
 
 /*
- *	é¸æŠã‚’åˆæœŸåŒ–	Q0
+ *	‘I‘ğ‚ğ‰Šú‰»	Q0
  */
 int pceth2_initSelect(SCRIPT_DATA *s)
 {
 	s->p++;
-	play.selReg = (int)(*(s->data + s->p++) - '0');	// çµæœæ ¼ç´ãƒ¬ã‚¸ã‚¹ã‚¿ç•ªå·ã‚’å–å¾—
+	play.selReg = (int)(*(s->data + s->p++) - '0');	// Œ‹‰ÊŠi”[ƒŒƒWƒXƒ^”Ô†‚ğæ“¾
 	play.gameMode = GM_SELECT;
 
-	pceth2_drawSelArrow();	//	çŸ¢å°
+	pceth2_drawSelArrow();	//	–îˆó
 
 	return 0;
 }
 
 /*
- *	é¸æŠ
+ *	‘I‘ğ
  */
 void pceth2_Select()
 {
@@ -153,12 +153,12 @@ void pceth2_Select()
 }
 
 //=============================================================================
-//	ãƒãƒƒãƒ—é¸æŠ
+//	ƒ}ƒbƒv‘I‘ğ
 //=============================================================================
 
 BOOL pceth2_dayHasMapSelect()
 {
-	// æ¡ä»¶ã¯ä»¥ä¸‹ã‚ˆã‚Š
+	// ğŒ‚ÍˆÈ‰º‚æ‚è
 	// https://github.com/autch/aquaplus_gpl/blob/master/ToHeart2/ScriptEngine/src/GM_Avg.cpp#L4459-L4471
 	if (MONTH == 3 && DAY == 20) return FALSE;
 	if (MONTH == 4 && DAY == 29) return FALSE;
@@ -176,11 +176,11 @@ BOOL pceth2_dayHasMapSelect()
 #define LM_MYHOME	0
 
 /*
- *	ãƒãƒƒãƒ—é¸æŠã®çŸ¢å°ã‚’æç”»
+ *	ƒ}ƒbƒv‘I‘ğ‚Ì–îˆó‚ğ•`‰æ
  */
 void pceth2_drawMapSelArrow()
 {
-	if (*play.msg) { // æ–‡å­—åˆ—é¸æŠè‚¢
+	if (*play.msg) { // •¶š—ñ‘I‘ğˆ
 		pceth2_drawSelArrow();
 	} else {
 		Ldirect_VBuffClear(0, 0, DISP_X, DISP_Y);
@@ -190,7 +190,7 @@ void pceth2_drawMapSelArrow()
 }
 
 /*
- *	ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©ã‚’èª­ã¿è¾¼ã‚“ã§ç”»é¢ã‚’å†æç”»
+ *	ƒ`ƒbƒvƒLƒƒƒ‰‚ğ“Ç‚İ‚ñ‚Å‰æ–Ê‚ğÄ•`‰æ
  */
 #define FNAMELEN_CHIP	13
 
@@ -200,34 +200,34 @@ static void pceth2_loadMapChipChara()
 
 	pcesprintf(buf, "MAP%02d.pgx", play.lm[play.selIndex].land + 1);
 	pceth2_loadGraphic(buf, GRP_C);
-	if (play.lm[play.selIndex].chip == CH_NOTHING) {	// ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©ãªã—
+	if (play.lm[play.selIndex].chip == CH_NOTHING) {	// ƒ`ƒbƒvƒLƒƒƒ‰‚È‚µ
 		pceth2_clearGraphic(GRP_R);
 	} else {
 		pcesprintf(buf, "CHIP%03d01.pgx", play.lm[play.selIndex].chip);
 		pceth2_loadGraphic(buf, GRP_R);
 	}
 
-	pceth2_DrawGraphic();	// æãç›´ã™
+	pceth2_DrawGraphic();	// •`‚«’¼‚·
 }
 
 /*
- *	é¸æŠè‚¢ã‚’æç”»
+ *	‘I‘ğˆ‚ğ•`‰æ
  */
 static void pceth2_putMapItem()
 {
 	static const char * const landName[] = {
-		"è‡ªå®…",		"å•†åº—è¡—",	"ã‚²ãƒ¼ãƒ ã‚»ãƒ³ã‚¿ãƒ¼",	"å…¬åœ’",		"ä¸­å­¦æ ¡",	"å‚é“",		"æ ¡é–€å‰",
-		"æ ¡åº­",		"é§è¼ªå ´",	"è£åº­",				"ä¸‹é§„ç®±",	"ä½“è‚²é¤¨",	"æ›¸åº«",		"å›³æ›¸å®¤",
-		"è¦–è´è¦šå®¤",	"ï¼‘éšå»Šä¸‹",	"ï¼’éšå»Šä¸‹",			"ï¼‘éšæ•™å®¤",	"ï¼’éšæ•™å®¤",	"ï¼“éšå»Šä¸‹",	"ï¼“éšæ•™å®¤",
+		"©‘î",		"¤“XŠX",	"ƒQ[ƒ€ƒZƒ“ƒ^[",	"Œö‰€",		"’†ŠwZ",	"â“¹",		"Z–å‘O",
+		"Z’ë",		"’“—Öê",	"— ’ë",				"‰º‘Ê” ",	"‘ÌˆçŠÙ",	"‘ŒÉ",		"}‘º",
+		"‹’®Šoº",	"‚PŠK˜L‰º",	"‚QŠK˜L‰º",			"‚PŠK‹³º",	"‚QŠK‹³º",	"‚RŠK˜L‰º",	"‚RŠK‹³º",
 	};
 	int i;
 
 	pceth2_setPageTop();
 	pceth2_clearMessage();
-	if (!*play.pgxname[GRP_C]) { // ãƒãƒƒãƒ—ç”»åƒãŒç„¡ã„å ´åˆã¯æ–‡å­—åˆ—é¸æŠè‚¢
+	if (!*play.pgxname[GRP_C]) { // ƒ}ƒbƒv‰æ‘œ‚ª–³‚¢ê‡‚Í•¶š—ñ‘I‘ğˆ
 		for (i = 0; i < play.lmAmount; i++) {
-			pceth2_putKanji("ã€€");
-			FontFuchi_GetPos(NULL, &play.selY[i]);	// yåº§æ¨™ã‚’è¨˜æ†¶
+			pceth2_putKanji("@");
+			FontFuchi_GetPos(NULL, &play.selY[i]);	// yÀ•W‚ğ‹L‰¯
 			FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
 			play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
 		}
@@ -236,11 +236,11 @@ static void pceth2_putMapItem()
 }
 
 /*
- *	ãƒ©ãƒ³ãƒ‰ãƒãƒ¼ã‚¯è¿½åŠ ç™»éŒ²ã®å®Ÿä½“
+ *	ƒ‰ƒ“ƒhƒ}[ƒN’Ç‰Á“o˜^‚ÌÀ‘Ì
  *
- *	land	ãƒ©ãƒ³ãƒ‰ãƒãƒ¼ã‚¯ç•ªå·
- *	chip	ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©ç•ªå·
- *	*fName	ã‚¸ãƒ£ãƒ³ãƒ—å…ˆã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å
+ *	land	ƒ‰ƒ“ƒhƒ}[ƒN”Ô†
+ *	chip	ƒ`ƒbƒvƒLƒƒƒ‰”Ô†
+ *	*fName	ƒWƒƒƒ“ƒvæƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹–¼
  */
 static void pceth2_addMapItemEx(int land, int chip, const char *fName)
 {
@@ -251,7 +251,7 @@ static void pceth2_addMapItemEx(int land, int chip, const char *fName)
 }
 
 /*
- *	ãƒ©ãƒ³ãƒ‰ãƒãƒ¼ã‚¯ã‚’è¿½åŠ ç™»éŒ²	m?,?,000000000.scp
+ *	ƒ‰ƒ“ƒhƒ}[ƒN‚ğ’Ç‰Á“o˜^	m?,?,000000000.scp
  */
 int pceth2_addMapItem(SCRIPT_DATA *s)
 {
@@ -259,11 +259,11 @@ int pceth2_addMapItem(SCRIPT_DATA *s)
 	char buf[FNAMELEN_SCP + 1];
 
 	s->p++;	// m
-	l = pceth2_getNum(s);	// ãƒ©ãƒ³ãƒ‰ãƒãƒ¼ã‚¯ç•ªå·
+	l = pceth2_getNum(s);	// ƒ‰ƒ“ƒhƒ}[ƒN”Ô†
 	s->p++;	// ,
-	c = pceth2_getNum(s);	// ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©ç•ªå·
+	c = pceth2_getNum(s);	// ƒ`ƒbƒvƒLƒƒƒ‰”Ô†
 	s->p++;	// ,
-	pceth2_strcpy(buf, s, FNAMELEN_SCP);	// ã‚¸ãƒ£ãƒ³ãƒ—å…ˆ
+	pceth2_strcpy(buf, s, FNAMELEN_SCP);	// ƒWƒƒƒ“ƒvæ
 
 	pceth2_addMapItemEx(l, c, buf);
 	return 1;
@@ -273,14 +273,14 @@ int pceth2_addMapItem(SCRIPT_DATA *s)
 #define FNAMELEN_CLOCK 11
 
 /*
- *	ãƒãƒƒãƒ—é¸æŠå‰æ™‚è¨ˆã‚’åˆæœŸåŒ–
- *	EV_????AFTER_SCHOOLã‚’èª­ã¿çµ‚ã‚ã£ãŸæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™
- *	return ãƒ©ãƒ³ãƒ‰ãƒãƒ¼ã‚¯ç™»éŒ²æ•°ãŒ0ï¼è¡¨ç¤ºã—ãªã„å ´åˆ FALSE
+ *	ƒ}ƒbƒv‘I‘ğ‘OŒv‚ğ‰Šú‰»
+ *	EV_????AFTER_SCHOOL‚ğ“Ç‚İI‚í‚Á‚½‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·
+ *	return ƒ‰ƒ“ƒhƒ}[ƒN“o˜^”‚ª0•\¦‚µ‚È‚¢ê‡ FALSE
  */
 void pceth2_initMapClock()
 {
 	char buf[FNAMELEN_CLOCK + 1];
-	int const time = (pceth2_getDate(MONTH, DAY) == 6) ? 11 : 19; // åœŸæ›œã¯ 12:10, å¹³æ—¥ã¯ 14:50
+	int const time = (pceth2_getDate(MONTH, DAY) == 6) ? 11 : 19; // “y—j‚Í 12:10, •½“ú‚Í 14:50
 
 	pceth2_loadGraphic(BG_MAPCLOCK, GRP_BG);
 	pcesprintf(buf, "CLOCK%02d.pgx", time);
@@ -297,20 +297,20 @@ void pceth2_initMapClock()
 #define BGM_MAPSELECT	"MAP.pmd"
 
 /*
- *	ãƒãƒƒãƒ—é¸æŠã‚’åˆæœŸåŒ–
+ *	ƒ}ƒbƒv‘I‘ğ‚ğ‰Šú‰»
  */
 void pceth2_initMapSelect()
 {
-	// è‡ªå®…ã‚’è¿½åŠ 
+	// ©‘î‚ğ’Ç‰Á
 	pceth2_addMapItemEx(LM_MYHOME, CH_NOTHING, "");
 
-	pceth2_loadGraphic(BG_MAPSELECT, GRP_BG);	// èƒŒæ™¯
+	pceth2_loadGraphic(BG_MAPSELECT, GRP_BG);	// ”wŒi
 	pceth2_clearGraphic(GRP_L);
 	pceth2_clearGraphic(GRP_C);
-	play.gameMode = GM_MAPSELECT;	// pceth2_loadMapChipChara() ã‚ˆã‚Šå…ˆã«å¤‰ãˆã¦æç”»é †ã‚’èª¿æ•´
-	pceth2_loadMapChipChara();					// ãƒãƒƒãƒ—ã‚­ãƒ£ãƒ©
-	pceth2_putMapItem();						// é¸æŠè‚¢
-	pceth2_drawMapSelArrow();					// çŸ¢å°
+	play.gameMode = GM_MAPSELECT;	// pceth2_loadMapChipChara() ‚æ‚èæ‚É•Ï‚¦‚Ä•`‰æ‡‚ğ’²®
+	pceth2_loadMapChipChara();					// ƒ`ƒbƒvƒLƒƒƒ‰
+	pceth2_putMapItem();						// ‘I‘ğˆ
+	pceth2_drawMapSelArrow();					// –îˆó
 	Play_PieceMML(BGM_MAPSELECT);				// BGM
 }
 
@@ -318,12 +318,12 @@ void pceth2_initMapSelect()
 
 
 /*
- *	ãƒãƒƒãƒ—é¸æŠ
+ *	ƒ}ƒbƒv‘I‘ğ
  */
 void pceth2_MapSelect()
 {
 	if (pceth2_SelectEx(play.lmAmount) != NO_SELECT) {
-		if (play.lm[play.selIndex].land == LM_MYHOME) {	// è‡ªå®…
+		if (play.lm[play.selIndex].land == LM_MYHOME) {	// ©‘î
 			pceth2_loadEVScript();
 		} else {
 			pceth2_loadScript(&play.scData, play.lm[play.selIndex].scp);
