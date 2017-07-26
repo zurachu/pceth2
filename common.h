@@ -89,6 +89,7 @@ extern SAVE_DATA play;
 extern unsigned short reg[];
 extern BOOL debug_mode;
 extern int msgView, speed, wait;
+extern int keyWaitX, keyWaitY;
 
 void pceth2_Init();
 void pceth2_bButtonMenu();
