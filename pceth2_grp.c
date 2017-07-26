@@ -307,5 +307,5 @@ void pceth2_slideChara()
  */
 int pceth2_isCalenderMode()
 {
-	return (*(play.pgxname[GRP_BG] + 2) == 'L');
+	return strncmp(play.pgxname[GRP_BG], "CAL", 3) == 0;
 }
