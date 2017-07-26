@@ -339,7 +339,7 @@ void pceth2_waitKey()
 				Ldirect_Update();
 			}
 			if (pceth2_isCalenderMode()) {	// カレンダーモード時
-				pceth2_clearGraphic(GRP_BG);	// カレンダー画像消去
+				pceth2_clearGraphic(GRP_C);	// カレンダー画像消去
 			}
 			play.gameMode = GM_SCRIPT;
 		} else if (pcePadGet() & TRG_B) {
