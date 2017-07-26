@@ -454,7 +454,9 @@ int pceth2_readScript(SCRIPT_DATA *s)
 				case GM_EVSCRIPT:
 					JUMP = 0;	// 2005/06/20 まるしすさん案：1e, 4, 1が来たらgotoの初期化
 					if (TIME == EV_MAP_SELECT) {
-						pceth2_initMapClock();
+						if (pceth2_dayHasMapSelect()) {
+							pceth2_initMapClock();
+						}
 						TIME++;
 					} else if (TIME > EV_NIGHT) {	// 一日終了
 						play.lmAmount = 0;	// マップ選択肢があるがマップ選択に行かなかった場合、ここで初期化

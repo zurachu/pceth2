@@ -156,6 +156,22 @@ void pceth2_Select()
 //	マップ選択
 //=============================================================================
 
+BOOL pceth2_dayHasMapSelect()
+{
+	// 条件は以下より
+	// https://github.com/autch/aquaplus_gpl/blob/master/ToHeart2/ScriptEngine/src/GM_Avg.cpp#L4459-L4471
+	if (MONTH == 3 && DAY == 20) return FALSE;
+	if (MONTH == 4 && DAY == 29) return FALSE;
+	if (MONTH == 5 && DAY == 3) return FALSE;
+	if (MONTH == 5 && DAY == 4) return FALSE;
+	if (MONTH == 5 && DAY == 5) return FALSE;
+	if (MONTH == 3 && DAY >= 25) return FALSE;
+	if (MONTH == 4 && DAY <= 7) return FALSE;
+	if (pceth2_getDate(MONTH, DAY) == 0) return FALSE;
+
+	return TRUE;
+}
+
 #define CH_NOTHING	0
 #define LM_MYHOME	0
 
@@ -272,6 +288,7 @@ void pceth2_initMapClock()
 	pceth2_clearGraphic(GRP_L);
 	pceth2_clearGraphic(GRP_R);
 	pceth2_DrawGraphic();
+	pceth2_clearMessage();
 	wait = 30;
 	play.gameMode = GM_MAPCLOCK;
 }
