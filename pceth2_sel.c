@@ -294,7 +294,7 @@ void pceth2_initMapClock()
 }
 
 #define BG_MAPSELECT	"MAP_BG.pgx"
-#define BGM_MAPSELECT	"MAP.pmd"
+#define BGM_MAPSELECT	"M10.pmd"
 
 /*
  *	マップ選択を初期化
