@@ -1,0 +1,59 @@
+#Title	#36 Taboo
+#Title2	Margarita Lecuona／Composed by ZR2U
+
+!!bg @6  V125 ?o4c   ; bass drum
+!!sg @8  V120 ?o4c   ; snare drum 1
+!!Sg @7  V115 ?o4c   ; snare drum 2
+!!og @9  V90  ?o4c   ; open H.H.
+!!hg @10 V90  ?o4c   ; closeH.H.
+!!cg @11 V110 ?o4c   ; crush cymbal
+!!tg @13 V110 ?o4c   ; synth tom (hi)
+!!ug @14 V110 ?o4c   ; synth tom (mid)
+!!vg @15 V110 ?o4c   ; synth tom (low)
+!!Cg @16 V120 ?o4c   ; clap
+
+A T100
+
+ABCDEF E255,130,40,20Y0,0,0,0D0_-4
+
+;===============================================================================
+; メイン
+
+A	V100o4@0l16D+24L
+A	>e2r2 r4.e8g8erdedc e2r2 r1
+A	d2r2 r4.c8e8drcdc<b a2r2 r1
+
+;===============================================================================
+; サブ・伴奏
+
+!BPartA	ar>g24e24c24<arergrgra8r8
+!BPartB	>dra24f24c24<arergrgra8r8
+
+B	V100o4@0l16D+8L
+B	[!BPartA]4 [!BPartB]2 [!BPartA]2
+
+;===============================================================================
+; 伴奏
+
+!CPartA	r2brbr>c8r8<
+!CPartB	r2>crcrd8r8<
+
+C	V90o4@0l16D-8L
+C	[!CPartA]4 [!CPartB]2 [!CPartA]2
+
+;===============================================================================
+; ベース
+
+!DPartA	a8.rarergrgra8.r
+!DPartB	>d8.rdr<ar>crcrd8.r<
+
+D	V100o2@0l16D-24L
+D	[!DPartA]4 [!DPartB]2 [!DPartA]2
+
+;===============================================================================
+; ドラム
+
+F =1
+F	l8
+
+
