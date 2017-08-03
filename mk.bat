@@ -18,15 +18,15 @@ pceth2map MAP08.bmp MAP0100.bmp THUM08A.bmp THUM08M.bmp B025000T.bmp
 pceth2map MAP09.bmp MAP0100.bmp THUM09A.bmp THUM09M.bmp B010000T.bmp
 pceth2map MAP10.bmp MAP0100.bmp THUM10A.bmp THUM10M.bmp B026000T.bmp
 pceth2map MAP11.bmp MAP0100.bmp THUM11A.bmp THUM11M.bmp B016000T.bmp
-pceth2map MAP12.bmp MAP0100.bmp THUM12A.bmp THUM12M.bmp B021000T.bmp
+pceth2map MAP12.bmp MAP0100.bmp THUM12A.bmp THUM12M.bmp B020000T.bmp
 pceth2map MAP13.bmp MAP0100.bmp THUM13A.bmp THUM13M.bmp B024000T.bmp
 pceth2map MAP14.bmp MAP0100.bmp THUM14A.bmp THUM14M.bmp B023000T.bmp
-pceth2map MAP15.bmp MAP0100.bmp THUM15A.bmp THUM15M.bmp B011000T.bmp
+pceth2map MAP15.bmp MAP0100.bmp THUM15A.bmp THUM15M.bmp B052000T.bmp
 pceth2map MAP16.bmp MAP0100.bmp THUM16A.bmp THUM16M.bmp B013000T.bmp
 pceth2map MAP17.bmp MAP0100.bmp THUM17A.bmp THUM17M.bmp B014000T.bmp
-pceth2map MAP18.bmp MAP0100.bmp THUM18A.bmp THUM18M.bmp B012000T.bmp
+pceth2map MAP18.bmp MAP0100.bmp THUM18A.bmp THUM18M.bmp B009000T.bmp
 pceth2map MAP19.bmp MAP0100.bmp THUM19A.bmp THUM19M.bmp B009000T.bmp
-pceth2map MAP20.bmp MAP0100.bmp THUM20A.bmp THUM20M.bmp B015000T.bmp
+pceth2map MAP20.bmp MAP0100.bmp THUM20A.bmp THUM20M.bmp B014000T.bmp
 pceth2map MAP21.bmp MAP0100.bmp THUM21A.bmp THUM21M.bmp B009000T.bmp
 del *T.bmp THUM*.bmp
 pgd16cmv -b *.bmp
