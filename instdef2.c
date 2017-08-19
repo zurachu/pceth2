@@ -268,6 +268,7 @@ int loadInst(void){
 
   p += SIZE_BD909;
   i_CYMBD.pData = p;
+  i_CYMBD.loop_end -= (68<<14);
 
   p += SIZE_CYMBD;
   i_HANDCLAP.pData = p;
@@ -286,12 +287,14 @@ int loadInst(void){
 
   p += SIZE_SDGATE;
   i_TOMH1.pData = p;
+  i_TOMH1.loop_end -= (73<<14);
 
   p += SIZE_TOMH1;
   i_TOML1.pData = p;
 
   p += SIZE_TOML1;
   i_TOMM1.pData = p;
+  i_TOMM1.loop_end -= (73<<14);
 
   return result;
 }
