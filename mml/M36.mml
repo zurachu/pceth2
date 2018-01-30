@@ -14,40 +14,42 @@
 
 A T100
 
-ABCDEF E255,130,40,20Y0,0,0,0D0_-4
+!p E255,120,0,20
+
+ABCDEF E255,120,40,20Y0,0,0,0D0_-4
 
 ;===============================================================================
 ; メイン
 
-A	V100o4@0l16D+24L
-A	>e2r2 r4.e8g8erdedc e2r2 r1
-A	d2r2 r4.c8e8drcdc<b a2r2 r1
+A	V100o4@0l16D+24L !p
+A	>e1 r4.e8g8e8dedc e1 r1
+A	d1 r4.c8e8d8cdc<b a1 r1
 
 ;===============================================================================
 ; サブ・伴奏
 
-!BPartA	ar>g24e24c24<arergrgra8r8
-!BPartB	>dra24f24c24<arergrgra8r8
+!BPartA	a>g24e24c24<aegga4
+!BPartB	>da24f24c24<aegga4
 
-B	V100o4@0l16D+8L
+B	V90o4@0l8D+8L q4 !p
 B	[!BPartA]4 [!BPartB]2 [!BPartA]2
 
 ;===============================================================================
 ; 伴奏
 
-!CPartA	r2brbr>c8r8<
-!CPartB	r2>crcrd8r8<
+!CPartA	r2 bb>cr<
+!CPartB	r2>cc dr<
 
-C	V90o4@0l16D-8L
+C	V90o4@0l8D-8L !p
 C	[!CPartA]4 [!CPartB]2 [!CPartA]2
 
 ;===============================================================================
 ; ベース
 
-!DPartA	a8.rarergrgra8.r
-!DPartB	>d8.rdr<ar>crcrd8.r<
+!DPartA	a4aegga4
+!DPartB	>d4d<a>ccd4<
 
-D	V100o2@0l16D-24L
+D	V100o2@0l8D-24L !p
 D	[!DPartA]4 [!DPartB]2 [!DPartA]2
 
 ;===============================================================================

@@ -20,7 +20,7 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_+3
 ; ÉÅÉCÉì
 
 A	l12D+24
-A	V100o4@2Y8,140,80,80
+A	V100o4@2 E255,60,80,200 Y8,140,80,80
 A	e1&L
 A	V100o4@2Y8,140,80,80
 A	e6e-d6c<a6rgra& arag6ar6a>c6d d6e-e6ra4gee- d4r2.
@@ -33,7 +33,7 @@ A	V110o5@2Y0,0,0,0
 A	c4<b4b-4a4 g+4g4f+4g4 r1
 
 E	l12D-24
-E	V100o4@1Y8,140,80,80
+E	V100o4@1 E255,60,80,200 Y8,140,80,80
 E	e1&L
 E	V100o4@1Y8,140,80,80
 E	e6e-d6c<a6rgra& arag6ar6a>c6d d6e-e6ra4gee- d4r2.

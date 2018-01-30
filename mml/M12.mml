@@ -21,7 +21,7 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_-5
 
 A	l8D+24L
 
-A	V100o5@1Y8,140,80,80
+A	V100o5@1 E255,60,80,220 Y8,140,80,80
 
 A	r1L
 
@@ -46,27 +46,28 @@ A	e.d.<a>c.r16dr16d4.r16c16c2r16
 ;===============================================================================
 ; ÉTÉuÅEî∫ët
 
-!BPartA	V90o6@0l16 r4cr8.er8.gr8. ar8.r4er8.fr8. grr4 V80o4@0l8 c4rc4 <a4rb4rb4 b4rb4rb4
+!Bbell V90 o6 @0 l16 E255,120,0,220 Y6,140,80,140  ; bell
+!BPartA	!Bbell r4c4e4g4 a4r4e4f4 g4r8 V80o4@0l8 c4rc4 <a4rb4rb4 b4rb4rb4
 
 B	l8D+8
 
 B	V100o5@0l16
-B	r2r8d8rc+8r L
+B	r2r8d8.c+8. L
 
 B	V80o4@0l8
 B	c1.rcr16c. ; î∫ëtÇÃâ∫
-B	V90o6@0l16
-B	r2.r8ga br8br>cr<br8grerar
-B	r8grr2. r2er8.fr8. grr2.ga brr4b>cdrr4c+r
-B	cr8.r2.
+B	!Bbell
+B	r2.r8ga b8.b8>c8<b8.g8e8a4
+B	g8r2. r2e8r8f8r8 g8r2.ga b4r8b>cd4r8c+8
+B	c4r2.
 B	V80o3@0l8
-B	b1 a1 b1 a1 b1 >c2.r4 ; î∫ëtÇÃâ∫
+B	b1 a1 b1 a1 b1 >c1 ; î∫ëtÇÃâ∫
 
-B	V100o5@0l16
-B	r8b-8>d8g4f4r8
+B	V100o5@0l16 q0 E255,130,0,220 Y6,140,80,140
+B	r8b-8>d8g4f4.
 
-B	!BPartA >c4rc4rc4 V90o6@0l16 >er8dr8<ar>er8<ar8br> cr8<br8>crdr8.r4<
-B	!BPartA >c4rc4r V90o6@0l16 rga>c er8dr8<ar>cr8.dr8dr4.ccr2
+B	!BPartA >c4rc4rc4 !Bbell >e8.d8.<a8>e8.<a8.b8> c8.<b8.>c8d4r4<
+B	!BPartA >c4rc4r !Bbell rga>c e8.d8.<a8>c8r8d8.d4.rcc2 r16
 
 ;===============================================================================
 ; î∫ët
@@ -74,7 +75,7 @@ B	!BPartA >c4rc4r V90o6@0l16 rga>c er8dr8<ar>cr8.dr8dr4.ccr2
 !CPartA	rc<a>rcr<a>rcr8cr4
 !CPartB	<r8.br8grbr8br4> r8.cr8<a>rcr8cr4
 
-C	V100o4@1l16D-8
+C	V100o4@1l16D-8 E255,120,80,20
 C	r1 L
 
 C	[cr8cr2r8<ga> cr8cr2.]3 <br8br2. br8br2r8ga>
@@ -92,8 +93,8 @@ C	!CPartB [!CPartA]2
 
 E	l8D+8
 
-E	V100o4@0l8
-E	r2rar16gr16 L
+E	V100o4@0l8 E255,120,80,20
+E	r2ra.g. L
 
 E	V80o4@0l8
 E	e1.rer16e. d1.rdr16d. e1.rer16e. d1.rdr16c+.
@@ -107,9 +108,9 @@ E	!EPartA c2<a4br16b4.r16>c2r8
 
 !DPartA	c4.rcr16cr16d16r16 e4.rer16er16g16r16 f4.rfr16fr16a16r16 g4.rgr16gr16g16r16 
 
-D	V90o2@0l8D-24
+D	V90o2@1l8D-24
 
-D	r2rar16gr16 L
+D	r2ra.g. L
 D	f4rfrfr16cr16 f4rfrfr16>c16<f16r16 e4rerer16<br16> e4rerer16gr16
 D	f4rfrfr16cr16 f4rfrfr16ar16 e4rerer16<br16> e4re16r16er16er16e-16r16
 

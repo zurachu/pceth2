@@ -12,6 +12,8 @@
 !!vg @15 V110 ?o4c   ; synth tom (low)
 !!Cg @16 V120 ?o4c   ; clap
 
+!Bbell E255,130,0,220 Y6,140,80,140  ; bell
+
 A T80
 
 ABCDEF E0,0,0,0Y0,0,0,0D0_-5
@@ -19,10 +21,14 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_-5
 ;===============================================================================
 ; メイン
 
-A	l8D+24L
-A	V100o5@0Y8,140,80,80
+A	L
+A	l8D-8
+A	V90o6@0Q8 !Bbell r16
+A	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>ce4<g>ce<
+A	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>ce8.
 
-A	[r1]15 r2rg>cd
+A	l8D+24 V100o5@0Y8,140,80,80
+A   g>cd
 A	e2rf.ed16 <b4r>c4rc<b a4ra4>g.df16 f4.r16g32&f32&e4rc16d16
 A	e4rcreba b4r>c4rcd e4<a4b.>c.d c<ceg>c4r4 r1
 
@@ -30,9 +36,9 @@ A	e4rcreba b4r>c4rcd e4<a4b.>c.d c<ceg>c4r4 r1
 ; サブ・伴奏
 
 B	l8D+8L
-B	V110o5@2Q8
-B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer<g>ce<
-B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer2
+B	V110o6@0Q8 !Bbell
+B	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>ce4<g>ce<
+B	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>cer2
 
 B	V100o5@2Q6
 B	reg>cr<ceg rcegreg>c r<cfardgb reg>c<ceg>c<

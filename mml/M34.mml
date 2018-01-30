@@ -14,7 +14,7 @@
 
 A	T80
 
-ABCDEF E0,0,0,0Y0,0,0,0D0_0V100
+ABCDEF E255,130,40,20Y0,0,0,0D0_0V100
 
 !ApartA	g<b>cd-cfea-g>d-c<gb-4.a-4g8
 !ApartB	f4.g8g8d8e-4.c4.

@@ -1,7 +1,9 @@
 #Title	#35 Etude Op.10-12
 #Title2	Fryderyk Franciszek ChopinÅ^Programmed by M+B Apos.
 
-A T136V100@0l16
+!env E255,140,0,20
+
+A T155V100@0l16 !env
 A o5f2r2
 A r2r4<g+8&g+g
 A >g2r2
@@ -86,7 +88,7 @@ A <a+gg+gecc+c<a+gg+gecc+c
 A >c2<f2
 A g4>c4r2Lr1
 
-B V100@0l16
+B V100@0l16 !env
 B o5d2r2
 B r2r4g+8&g+g
 B f2r2
@@ -171,7 +173,7 @@ B r1
 B <f2>c2
 B <f4e4r2Lr1
 
-C V100@0l16
+C V100@0l16 !env
 C o5b2r2
 C r2r4d+8&d+r
 C d2r2
@@ -257,7 +259,7 @@ C r1
 C <a2c2
 C >c4<g4r2Lr1
 
-D V100@0l16
+D V100@0l16 !env
 D o4b2r2
 D r2r4>f8&fr
 D >d2r2
@@ -343,7 +345,7 @@ D r1
 D o3c2g+2
 D c4c4r2Lr1
 
-E V100@0l1
+E V100@0l1 !env
 E r
 E r
 E r
@@ -429,7 +431,7 @@ E r
 E o1f2f2
 E r1Lr1
 
-F V100@0l16
+F V100@0l16 !env
 F r8o4g+gfdd+d<bgg+gfdd+d
 F <bgg+gfdd+dc<g>c<g>c<g>c<g
 F b8o4g+gfdd+d<bgg+gfdd+d
