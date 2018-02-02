@@ -35,7 +35,7 @@ copy /Y CAL\* .\
 
 th2wav_mkbat > th2wav_setpath.bat
 call th2wav_setpath
-del *L.WAV SE_NONAME*.WAV NAME*.WAV
+del *L.WAV NAME*.WAV
 del SE_3011.WAV
 FOR %%A IN (*.WAV) DO dppcmcnv -b -fv8000 %%A
 
