@@ -119,6 +119,16 @@ BOOL pceth2_writeSaveData(int num)
 //	タイトル画面
 //=============================================================================
 
+static void  pceth2_playSelectSE()
+{
+	Play_PieceWave("SE_NONAME14.pp", 0);
+}
+
+static void  pceth2_playDecideSE()
+{
+	Play_PieceWave("SE_NONAME06.pp", 0);
+}
+
 #define TITLE_BG	"B001000.pgx"
 #define TITLE_LOGO	"TH2_LOGO.pgx"
 
@@ -200,6 +210,7 @@ void pceth2_Title()
 	BOOL LCDUpdate = FALSE;
 
 	if (pcePadGet() & (TRG_UP | TRG_DN)) {
+		pceth2_playSelectSE();
 		index ^= 1;	// 0と1切り替え
 		LCDUpdate = TRUE;
 	}
@@ -214,8 +225,10 @@ void pceth2_Title()
 
 	if (pcePadGet() & TRG_A) {	// A
 		if (index == 0) {	// はじめから
+			Play_PieceWave("SE_NONAME20.pp", 0);
 			pceth2_Init();
 		} else {			// つづきから
+			pceth2_playDecideSE();
 			pceth2_SaveInit();
 		}
 	}
@@ -285,15 +298,18 @@ void pceth2_SaveMenu()
 	if (phase == 0)
 	{
 		if (pcePadGet() & (TRG_UP)) {
+			pceth2_playSelectSE();
 			global.save_index = (global.save_index - 1 + SAVE_FILE_NUM) % SAVE_FILE_NUM;
 			LCDUpdate = TRUE;
 		}
 		if (pcePadGet() & (TRG_DN)) {
+			pceth2_playSelectSE();
 			global.save_index = (global.save_index + 1) % SAVE_FILE_NUM;
 			LCDUpdate = TRUE;
 		}
 	} else {
 		if (pcePadGet() & (TRG_UP | TRG_DN)) {
+			pceth2_playSelectSE();
 			mode ^= 1;	// 0と1切り替え
 			LCDUpdate = TRUE;
 		}
@@ -319,6 +335,7 @@ void pceth2_SaveMenu()
 				phase = 0;
 			}
 		} else if (phase == 1) {	// セーブ
+			pceth2_playDecideSE();
 			play.gameMode = last_gameMode;	// セーブ用に一瞬戻す
 			if(debug_mode) {
 				play.gameMode |= s_debug_mode_flag;
