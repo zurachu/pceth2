@@ -216,7 +216,8 @@ void pceth2_Title()
 	if (pcePadGet() & TRG_A) {	// A
 		if (index == 0) {	// ‚Í‚¶‚ß‚©‚ç
 			pceth2_playSaveDecideSE();
-			pceth2_Init();
+			play.gameMode = GM_TITLE_TO_INIT;
+			wait = 30;
 		} else {			// ‚Â‚Ã‚«‚©‚ç
 			pceth2_playSaveDecideSE();
 			pceth2_SaveInit();

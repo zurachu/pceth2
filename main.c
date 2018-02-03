@@ -202,6 +202,11 @@ void pceAppProc(int cnt)
 				play.gameMode = GM_SCRIPT;
 			}
 			break;
+		case GM_TITLE_TO_INIT:
+			if (wait-- <= 0) {
+					pceth2_Init();
+			}
+			break;
 	}
 
 	if (pcePadGet() & PAD_D) {
