@@ -21,6 +21,7 @@ int pceth2_loadSE(SCRIPT_DATA *s);
 //	ëÄçÏSEçƒê∂
 //=============================================================================
 void pceth2_playSelectSE();
+void pceth2_playMapSelectSE();
 void pceth2_playDecideSE();
 void pceth2_playSaveDecideSE();
 

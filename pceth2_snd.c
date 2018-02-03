@@ -129,6 +129,11 @@ void pceth2_playSelectSE()
 	Play_PieceWave("SE_NONAME14.pp", 0);
 }
 
+void pceth2_playMapSelectSE()
+{
+	Play_PieceWave("SE_NONAME12.pp", 0);
+}
+
 void pceth2_playDecideSE()
 {
 	Play_PieceWave("SE_NONAME20.pp", 0);

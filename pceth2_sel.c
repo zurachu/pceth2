@@ -52,15 +52,28 @@ int pceth2_SelectEx(int amount)
 
 	if (msgView)	// メッセージ表示状態
 	{
-		if ((*play.msg && pcePadGet() & TRG_UP)	// ↑
-			|| (!*play.msg && pcePadGet() & TRG_LF)) {	// マップ画像選択肢時は←
-			play.selIndex = (play.selIndex + amount - 1) % amount;
-			LCDUpdate = TRUE;
-		}
-		if ((*play.msg && pcePadGet() & TRG_DN)	// ↓
-			|| (!*play.msg && pcePadGet() & TRG_RI)) {	// マップ画像選択肢時は→
-			play.selIndex = (play.selIndex + 1) % amount;
-			LCDUpdate = TRUE;
+		if (*play.msg) { // 選択肢
+			if (pcePadGet() & TRG_UP) {	// ↑
+				pceth2_playSelectSE();
+				play.selIndex = (play.selIndex + amount - 1) % amount;
+				LCDUpdate = TRUE;
+			}
+			if (pcePadGet() & TRG_DN) {	// ↓
+				pceth2_playSelectSE();
+				play.selIndex = (play.selIndex + 1) % amount;
+				LCDUpdate = TRUE;
+			}
+		} else { // マップ画像選択肢
+			if (pcePadGet() & TRG_LF) {	// ←
+				pceth2_playMapSelectSE();
+				play.selIndex = (play.selIndex + amount - 1) % amount;
+				LCDUpdate = TRUE;
+			}
+			if (pcePadGet() & TRG_RI) {	// →
+				pceth2_playMapSelectSE();
+				play.selIndex = (play.selIndex + 1) % amount;
+				LCDUpdate = TRUE;
+			}
 		}
 
 		if (LCDUpdate) {
@@ -75,6 +88,11 @@ int pceth2_SelectEx(int amount)
 		}
 
 		if (pcePadGet() & TRG_A) {	// A
+			if (*play.msg) {
+				pceth2_playSaveDecideSE();
+			} else {
+				pceth2_playDecideSE();
+			}
 			pceth2_setPageTop();
 			pceth2_clearMessage();
 			Ldirect_Update();
