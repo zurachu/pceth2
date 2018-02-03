@@ -218,6 +218,8 @@ void pceth2_Title()
 			pceth2_playSaveDecideSE();
 			play.gameMode = GM_TITLE_TO_INIT;
 			wait = 30;
+			Ldirect_VBuffView(FALSE);
+			Ldirect_Update();
 		} else {			// ‚Â‚Ã‚«‚©‚ç
 			pceth2_playSaveDecideSE();
 			pceth2_SaveInit();

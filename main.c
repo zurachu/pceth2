@@ -203,8 +203,20 @@ void pceAppProc(int cnt)
 			}
 			break;
 		case GM_TITLE_TO_INIT:
-			if (wait-- <= 0) {
-					pceth2_Init();
+			wait--;
+			if (wait % 2 == 0) {
+				BYTE* buff = Ldirect_Buffer();
+				int i;
+				for( i = 0; i < DISP_X * DISP_Y; i += 1 )
+				{
+					if (*buff < 0x0F) {
+						(*buff)++;
+					}
+					buff++;
+				}
+			}
+			if (wait <= 0) {
+				pceth2_Init();
 			}
 			break;
 	}
